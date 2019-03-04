@@ -1,6 +1,21 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
+// simplified version without Auth
+const personSchema = new Schema({
+  cuid: { type: 'String', required: true },
+  name: { type: 'String', required: true },
+  email: { type: 'String', required: true },
+  role: {
+    type: 'String',
+    required: true,
+    enum: ['admin', 'op-provider', 'volunteer', 'content-provider', 'tester'],
+  },
+  dateAdded: { type: 'Date', default: Date.now, required: true },
+});
+
+
+/*
 const authTypes = ['github', 'twitter', 'facebook', 'google'];
 // mongoose.Promise = require('bluebird');
 
@@ -48,5 +63,6 @@ const personSchema = new Schema({
   passwordResetToken: String,
   passwordResetExpires: Date,
 }, { timestamps: true });
+*/
 
 export default mongoose.model('Person', personSchema);

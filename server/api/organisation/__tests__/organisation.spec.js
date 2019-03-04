@@ -6,8 +6,20 @@ import { connectDB, dropDB } from '../../../util/test-helpers';
 
 // Initial organisations added into test db
 const organisations = [
-  new Organisation({ name: 'Prashant', title: 'Hello Mern', slug: 'hello-mern', cuid: 'f34gb2bh24b24b2', content: "All cats meow 'mern!'" }),
-  new Organisation({ name: 'Mayank', title: 'Hi Mern', slug: 'hi-mern', cuid: 'f34gb2bh24b24b3', content: "All dogs bark 'mern!'" }),
+  new Organisation({
+    cuid: 'f34gb2bh24b24b2',
+    name: 'OMGTech',
+    slug: 'hello-omgtech',
+    about: "All cats meow 'mern!'",
+    type: 'corporate',
+  }),
+  new Organisation({
+    cuid: 'f34gb2bh24b24b3',
+    name: 'Datacom',
+    slug: 'hi-datacom',
+    about: "All dogs bark 'mern!'",
+    type: 'corporate',
+  }),
 ];
 
 test.before('connect to mockgoose', async () => {
@@ -36,11 +48,11 @@ test.serial('Should correctly give number of Organisations', async t => {
 test.serial('Should send correct data when queried against a cuid', async t => {
   t.plan(2);
 
-  const organisation = new Organisation({ name: 'Foo', title: 'bar', slug: 'bar', cuid: 'f34gb2bh24b24b2', content: 'Hello Mern says Foo' });
+  const organisation = new Organisation({ cuid: 'f44gb2bh24b24b2', name: 'Foo', slug: 'bar', about: 'Hello Mern says Foo', type: 'corporate' });
   organisation.save();
 
   const res = await request(app)
-    .get('/api/organisations/f34gb2bh24b24b2')
+    .get('/api/organisations/f44gb2bh24b24b2')
     .set('Accept', 'application/json');
 
   t.is(res.status, 200);
@@ -52,19 +64,19 @@ test.serial('Should correctly add a organisation', async t => {
 
   const res = await request(app)
     .post('/api/organisations')
-    .send({ organisation: { name: 'Foo', title: 'bar', content: 'Hello Mern says Foo' } })
+    .send({ organisation: { cuid: 'f34gb2bh24b24b2', name: 'Foo', about: 'Hello', type: 'corporate' } })
     .set('Accept', 'application/json');
 
   t.is(res.status, 200);
 
-  const savedOrganisation = await Organisation.findOne({ title: 'bar' }).exec();
-  t.is(savedOrganisation.name, 'Foo');
+  const savedOrganisation = await Organisation.findOne({ name: 'Foo' }).exec();
+  t.is(savedOrganisation.about, 'Hello');
 });
 
 test.serial('Should correctly delete a organisation', async t => {
   t.plan(2);
 
-  const organisation = new Organisation({ name: 'Foo', title: 'bar', slug: 'bar', cuid: 'f34gb2bh24b24b2', content: 'Hello Mern says Foo' });
+  const organisation = new Organisation({ cuid: 'f34gb2bh24b24b2', name: 'Foo', slug: 'bar', about: 'Hello Mern says Foo', type: 'corporate' });
   organisation.save();
 
   const res = await request(app)

@@ -25,18 +25,17 @@ export function getOrganisations(req, res) {
  * @returns void
  */
 export function addOrganisation(req, res) {
-  if (!req.body.organisation.name || !req.body.organisation.title || !req.body.organisation.content) {
+  if (!req.body.organisation.name || !req.body.organisation.about) {
     res.status(403).end();
   }
 
   const newOrganisation = new Organisation(req.body.organisation);
 
   // Let's sanitize inputs
-  newOrganisation.title = sanitizeHtml(newOrganisation.title);
   newOrganisation.name = sanitizeHtml(newOrganisation.name);
-  newOrganisation.content = sanitizeHtml(newOrganisation.content);
+  newOrganisation.about = sanitizeHtml(newOrganisation.about);
 
-  newOrganisation.slug = slug(newOrganisation.title.toLowerCase(), { lowercase: true });
+  newOrganisation.slug = slug(newOrganisation.name.toLowerCase(), { lowercase: true });
   newOrganisation.cuid = cuid();
   newOrganisation.save((err, saved) => {
     if (err) {

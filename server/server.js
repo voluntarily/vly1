@@ -49,20 +49,21 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 
 import posts from './api/post/post.routes';
+import people from './api/person/person.routes';
 import organisation from './api/organisation/organisation.routes';
 import activities from './api/activity/activity.routes';
 import opportunities from './api/opportunity/opportunity.routes';
 
 // Import Endpoints
 const hello = require('./api/hello/hello.routes');
-const user = require('./api/user/user.routes');
-const auth = require('./auth');
+// const user = require('./api/user/user.routes');
+// const auth = require('./auth');
 
 // demo data if db is empty
 import initialActivities from './api/activity/activity.dummy';
 import initialPosts from './api/post/post.dummy';
 import initialOrganisations from './api/organisation/organisation.dummy';
-
+import initialPeople from './api/person/person.dummy';
 import serverConfig from './config';
 
 
@@ -81,6 +82,7 @@ if (process.env.NODE_ENV !== 'test') {
     initialPosts();
     initialActivities();
     initialOrganisations();
+    initialPeople();
   });
 }
 
@@ -93,10 +95,11 @@ app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 
 // Insert routes below
 app.use('/api/hello', hello);
-app.use('/api/users', user);
+// app.use('/api/users', user);
 
-app.use('/auth', auth);
-app.use('/api', posts);
+// app.use('/auth', auth);
+app.use('/api/posts', posts);
+app.use('/api/people', people);
 app.use('/api/organisations', organisation);
 app.use('/api/activities', activities);
 app.use('/api/opportunities', opportunities);

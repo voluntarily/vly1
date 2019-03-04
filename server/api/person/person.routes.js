@@ -4,16 +4,16 @@ import * as PersonController from './person.controller';
 const router = new Router();
 
 // Get all Persons
-router.route('/people').get(PersonController.getPeople);
+router.route('/').get(PersonController.getPeople);
 
 // Get one Person by cuid
-router.route('/people/:cuid').get(PersonController.getPerson);
+router.route('/:cuid').get(PersonController.getPerson);
 
 // Add a new Person
-router.route('/people').post(PersonController.addPerson);
+router.route('/').post(PersonController.addPerson);
 
 // Delete a Person by cuid
-router.route('/people/:cuid').delete(PersonController.deletePerson);
+router.route('/:cuid').delete(PersonController.deletePerson);
 
 
 export default router;
