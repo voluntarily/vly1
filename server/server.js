@@ -42,12 +42,29 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import Helmet from 'react-helmet';
 
-// Import required modules
+// Import required api
+
+
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
-import posts from './routes/post.routes';
-import dummyData from './dummyData';
+
+import posts from './api/post/post.routes';
+import organisation from './api/organisation/organisation.routes';
+import activities from './api/activity/activity.routes';
+import opportunities from './api/opportunity/opportunity.routes';
+
+// Import Endpoints
+const hello = require('./api/hello/hello.routes');
+const user = require('./api/user/user.routes');
+const auth = require('./auth');
+
+// demo data if db is empty
+import initialActivities from './api/activity/activity.dummy';
+import initialPosts from './api/post/post.dummy';
+import initialOrganisations from './api/organisation/organisation.dummy';
+
 import serverConfig from './config';
+
 
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
@@ -61,16 +78,29 @@ if (process.env.NODE_ENV !== 'test') {
     }
 
     // feed some dummy data in DB.
-    dummyData();
+    initialPosts();
+    initialActivities();
+    initialOrganisations();
   });
 }
+
 
 // Apply body Parser and server public assets and routes
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
+
+// Insert routes below
+app.use('/api/hello', hello);
+app.use('/api/users', user);
+
+app.use('/auth', auth);
 app.use('/api', posts);
+app.use('/api/organisations', organisation);
+app.use('/api/activities', activities);
+app.use('/api/opportunities', opportunities);
+
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -157,7 +187,7 @@ app.use((req, res, next) => {
 // start app
 app.listen(serverConfig.port, (error) => {
   if (!error) {
-    console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
+    console.log(`Voluntari.ly is running on port: ${serverConfig.port}! Be Awesome!`); // eslint-disable-line
   }
 });
 
