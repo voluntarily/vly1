@@ -18,6 +18,8 @@ if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
   require('./modules/Post/pages/PostListPage/PostListPage');
   require('./modules/Post/pages/PostDetailPage/PostDetailPage');
+  require('./modules/Org/pages/OrgListPage/OrgListPage');
+  require('./modules/Org/pages/OrgDetailPage/OrgDetailPage');
 }
 
 // react-router setup with code-splitting
@@ -39,5 +41,25 @@ export default (
         });
       }}
     />
+
+    <Route path="/org" >
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Org/pages/OrgListPage/OrgListPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/orgs/:slug-:cuid"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Org/pages/OrgDetailPage/OrgDetailPage').default);
+          });
+        }}
+      />
+    </Route>
   </Route>
+
+
 );

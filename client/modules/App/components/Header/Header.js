@@ -13,12 +13,6 @@ export function Header(props, context) {
 
   return (
     <div className={styles.header}>
-      <div className={styles['language-switcher']}>
-        <ul>
-          <li><FormattedMessage id="switchLanguage" /></li>
-          {languageNodes}
-        </ul>
-      </div>
       <div className={styles.content}>
         <h1 className={styles['site-title']}>
           <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
@@ -26,8 +20,17 @@ export function Header(props, context) {
         {
           context.router.isActive('/', true)
             ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><FormattedMessage id="addPost" /></a>
-            : null
+            : context.router.isActive('/o', true)
+              ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddOrg}><FormattedMessage id="addOrg" /></a>
+              : null
         }
+
+      </div>
+      <div className={styles['language-switcher']}>
+        <ul>
+          <li><FormattedMessage id="switchLanguage" /></li>
+          {languageNodes}
+        </ul>
       </div>
     </div>
   );
@@ -39,6 +42,7 @@ Header.contextTypes = {
 
 Header.propTypes = {
   toggleAddPost: PropTypes.func.isRequired,
+  toggleAddOrg: PropTypes.func.isRequired,
   switchLanguage: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
 };

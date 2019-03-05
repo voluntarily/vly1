@@ -1,14 +1,15 @@
 .header {
-  background: #eee url('../../header-bk.png') center;
+  /* background: #eee url('../../header-bk.png') center; */
   background-size: cover;
   border-bottom: 1px solid #ccc;
+  background-color: rgb(244, 93, 6);
 }
 
 .content {
   width: 100%;
   max-width: 980px;
   margin: auto;
-  padding: 64px 16px;
+  padding: 4px 16px;
   overflow: auto;
 }
 

@@ -1,8 +1,9 @@
 export default {
   locale: 'en',
   messages: {
-    siteTitle: 'MERN Starter Blog',
+    siteTitle: 'Voluntari.ly',
     addPost: 'Add Post',
+    addOrg: 'Add Org',
     switchLanguage: 'Switch Language',
     twitterMessage: 'We are on Twitter',
     by: 'By',
@@ -11,6 +12,10 @@ export default {
     authorName: 'Author\'s Name',
     postTitle: 'Post Title',
     postContent: 'Post Content',
+    orgName: 'Organisation Name',
+    orgAbout: 'About Organisation',
+    deleteOrg: 'Delete organisation',
+    createNewOrg: 'Create new organisation',
     submit: 'Submit',
     comment: `user {name} {value, plural,
     	  =0 {does not have any comments}

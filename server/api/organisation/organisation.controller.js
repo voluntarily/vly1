@@ -10,6 +10,7 @@ import sanitizeHtml from 'sanitize-html';
  * @returns void
  */
 export function getOrganisations(req, res) {
+  console.log('enter getOrganisations');
   Organisation.find().sort('-dateAdded').exec((err, organisations) => {
     if (err) {
       res.status(500).send(err);

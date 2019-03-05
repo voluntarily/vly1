@@ -188,9 +188,10 @@ app.use((req, res, next) => {
 });
 
 // start app
-app.listen(serverConfig.port, (error) => {
+const serverPort = process.env.NODE_ENV === 'test' ? 0 : serverConfig.port;
+app.listen(serverPort, (error) => {
   if (!error) {
-    console.log(`Voluntari.ly is running on port: ${serverConfig.port}! Be Awesome!`); // eslint-disable-line
+    console.log(`Voluntari.ly is running on port: ${serverPort}! Be Awesome!`); // eslint-disable-line
   }
 });
 
