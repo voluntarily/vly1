@@ -4,13 +4,13 @@ import sinon from 'sinon';
 import OrgListItem from '../../components/OrgListItem/OrgListItem';
 import { mountWithIntl, shallowWithIntl } from '../../../../util/react-intl-test-helper';
 
-const org =   {
-    cuid: 'f34gb2bh24b24b2',
-    name: 'OMGTech',
-    slug: 'hello-omgtech',
-    about: "All cats meow 'mern!'",
-    type: 'corporate',
-  };
+const org = {
+  cuid: 'f34gb2bh24b24b2',
+  name: 'OMGTech',
+  slug: 'hello-omgtech',
+  about: "All cats meow 'mern!'",
+  type: 'corporate',
+};
 
 const props = {
   org,

@@ -33,7 +33,6 @@ export function addOrgs(orgs) {
 }
 
 export function fetchOrgs() {
-  console.log('in fetchOrgs');
   return (dispatch) => {
     return callApi('organisations').then(res => {
       dispatch(addOrgs(res.organisations));

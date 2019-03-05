@@ -17,14 +17,18 @@ export function Header(props, context) {
         <h1 className={styles['site-title']}>
           <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
         </h1>
-        {
+        <div>{
           context.router.isActive('/', true)
             ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><FormattedMessage id="addPost" /></a>
-            : context.router.isActive('/o', true)
-              ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddOrg}><FormattedMessage id="addOrg" /></a>
-              : null
+            : null
         }
-
+        </div>
+        <div>{
+          context.router.isActive('/org', true)
+            ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddOrg}><FormattedMessage id="addOrg" /></a>
+            : null
+          }
+        </div>
       </div>
       <div className={styles['language-switcher']}>
         <ul>

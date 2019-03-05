@@ -17,7 +17,7 @@ const org = {
   cuid: 'abc',
   _id: 1,
   slug: 'first-org',
-}
+};
 
 test('should return the correct type for addOrg', actionTest(
   addOrg,
