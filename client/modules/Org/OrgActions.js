@@ -15,7 +15,7 @@ export function addOrg(org) {
 
 export function addOrgRequest(org) {
   return (dispatch) => {
-    return callApi('organisations', 'org', {
+    return callApi('organisations', 'post', {
       organisation: {
         name: org.name,
         about: org.about,

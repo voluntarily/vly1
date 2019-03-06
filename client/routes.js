@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './modules/App/App';
+import Frame from './modules/Frame/Frame';
 
 // require.ensure polyfill for node
 if (typeof require.ensure !== 'function') {
@@ -20,46 +21,58 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Post/pages/PostDetailPage/PostDetailPage');
   require('./modules/Org/pages/OrgListPage/OrgListPage');
   require('./modules/Org/pages/OrgDetailPage/OrgDetailPage');
+  require('./modules/Showcase/Showcase');
 }
 
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
-        });
-      }}
-    />
-    <Route
-      path="/posts/:slug-:cuid"
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
-        });
-      }}
-    />
-
-    <Route path="/org" >
+    <Route path="/" component={App}>
       <IndexRoute
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
-            cb(null, require('./modules/Org/pages/OrgListPage/OrgListPage').default);
+            cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
           });
         }}
       />
       <Route
-        path="/orgs/:slug-:cuid"
+        path="/posts/:slug-:cuid"
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
-            cb(null, require('./modules/Org/pages/OrgDetailPage/OrgDetailPage').default);
+            cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
           });
         }}
       />
+
+      <Route path="/org" component={Frame} >
+        <IndexRoute
+          getComponent={(nextState, cb) => {
+            require.ensure([], require => {
+              cb(null, require('./modules/Org/pages/OrgListPage/OrgListPage').default);
+            });
+          }}
+        />
+        <Route
+          path="/orgs/:slug-:cuid"
+          getComponent={(nextState, cb) => {
+            require.ensure([], require => {
+              cb(null, require('./modules/Org/pages/OrgDetailPage/OrgDetailPage').default);
+            });
+          }}
+        />
+      </Route>
+
+      <Route path="/showcase" component={Frame} >
+        <IndexRoute
+          getComponent={(nextState, cb) => {
+            require.ensure([], require => {
+              cb(null, require('./modules/Showcase/Showcase').default);
+            });
+          }}
+        />
+
+      </Route>
     </Route>
-  </Route>
 
 
 );
