@@ -1,5 +1,5 @@
 .form {
-  /* display: none; */
+  display: none;
   background: #FAFAFA;
   padding: 32px 0;
   border: 1px solid #eee;
@@ -37,7 +37,7 @@ textarea {
   min-height: 200px;
 }
 
-.org-submit-button {
+.person-submit-button {
   display: inline-block;
   padding: 8px 16px;
   font-size: 18px;
@@ -47,15 +47,6 @@ textarea {
   border-radius: 4px;
 }
 
-.org-cancel-button {
-  display: inline-block;
-  padding: 8px 16px;
-  font-size: 18px;
-  color: #FFF;
-  background: #03A9F4;
-  text-decoration: none;
-  border-radius: 4px;
-}
 .appear {
   display: block;
 }

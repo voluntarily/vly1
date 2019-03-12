@@ -7,7 +7,7 @@ import { mountWithIntl, shallowWithIntl } from '../../../../util/react-intl-test
 
 const props = {
   addOrg: () => {},
-  showAddOrg: true,
+  cancelOrg: () => {},
 };
 
 test('renders properly', t => {
@@ -16,20 +16,12 @@ test('renders properly', t => {
   );
 
   t.truthy(wrapper.hasClass('form'));
-  t.truthy(wrapper.hasClass('appear'));
+  // t.truthy(wrapper.hasClass('appear'));
   t.truthy(wrapper.find('h2').first().containsMatchingElement(<FormattedMessage id="createNewOrg" />));
   t.is(wrapper.find('input').length, 2);
-  t.is(wrapper.find('textarea').length, 1);
+//  t.is(wrapper.find('textarea').length, 1);
 });
 
-test('hide when showAddOrg is false', t => {
-  const wrapper = mountWithIntl(
-    <OrgCreateWidget {...props} />
-  );
-
-  wrapper.setProps({ showAddOrg: false });
-  t.falsy(wrapper.hasClass('appear'));
-});
 
 test('has correct props', t => {
   const wrapper = mountWithIntl(
@@ -37,30 +29,48 @@ test('has correct props', t => {
   );
 
   t.is(wrapper.prop('addOrg'), props.addOrg);
-  t.is(wrapper.prop('showAddOrg'), props.showAddOrg);
+  t.is(wrapper.prop('cancelOrg'), props.cancelOrg);
+//  t.is(wrapper.prop('showAddOrg'), props.showAddOrg);
 });
 
 test('calls addOrg', t => {
   const addOrg = sinon.spy();
+  const cancelOrg = sinon.spy();
+
   const wrapper = mountWithIntl(
-    <OrgCreateWidget addOrg={addOrg} showAddOrg />
+    <OrgCreateWidget addOrg={addOrg} cancelOrg={cancelOrg} value="admin" />
   );
 
-  wrapper.ref('name').value = 'David';
+  wrapper.ref('name').value = 'Test Organisation';
   wrapper.ref('about').value = 'Some About';
-  wrapper.ref('type').value = 'corporate';
-
-  wrapper.find('a').first().simulate('click');
+// TODO work out how to set the select item from the tester
+//  wrapper.ref('type').value = 'tester';
+  wrapper.find('button').first().simulate('click');
+  // console.log(addOrg.args);
   t.truthy(addOrg.calledOnce);
-  t.truthy(addOrg.calledWith('David', 'Some About', 'corporate'));
+  t.truthy(addOrg.calledWith('Test Organisation', 'Some About', 'corporate'));
 });
 
 test('empty form doesn\'t call addOrg', t => {
   const addOrg = sinon.spy();
+  const cancelOrg = sinon.spy();
+
   const wrapper = mountWithIntl(
-    <OrgCreateWidget addOrg={addOrg} showAddOrg />
+    <OrgCreateWidget addOrg={addOrg} cancelOrg={cancelOrg} />
   );
 
-  wrapper.find('a').first().simulate('click');
+  wrapper.find('button').first().simulate('click');
+  t.falsy(addOrg.calledOnce);
+});
+
+test('Cancel form calls canceOrg', t => {
+  const cancelOrg = sinon.spy();
+  const addOrg = sinon.spy();
+  const wrapper = mountWithIntl(
+    <OrgCreateWidget addOrg={addOrg} cancelOrg={cancelOrg} />
+  );
+
+  wrapper.find('button.org-cancel-button').first().simulate('click');
   t.falsy(addOrg.called);
+  t.truthy(cancelOrg.called);
 });

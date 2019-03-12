@@ -9,13 +9,24 @@ export function toggleAddPost() {
 }
 
 
-// Organisation
+// // Organisation
 
-export const TOGGLE_ADD_ORG = 'TOGGLE_ADD_ORG';
+// export const TOGGLE_ADD_ORG = 'TOGGLE_ADD_ORG';
+
+// // Export Actions
+// export function toggleAddOrg() {
+//   return {
+//     type: TOGGLE_ADD_ORG,
+//   };
+// }
+
+// People
+
+export const TOGGLE_ADD_PERSON = 'TOGGLE_ADD_PERSON';
 
 // Export Actions
-export function toggleAddOrg() {
+export function toggleAddPerson() {
   return {
-    type: TOGGLE_ADD_ORG,
+    type: TOGGLE_ADD_PERSON,
   };
 }

@@ -18,29 +18,30 @@ export class OrgCreateWidget extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { categoryValue: [] };
+    this.state = { orgType: options[1] };
   }
 
-  handleSelectChange = value => {
-    this.setState({ categoryValue: value });
-    console.log(`Option selected:`, value);
-
-  };
+  handleChange = (orgType) => {
+    this.setState({ orgType });
+  }
 
   addOrg = () => {
     const nameRef = this.refs.name;
     const aboutRef = this.refs.about;
-    const typeRef = this.state.categoryValue; // this.refs.type;
-    if (nameRef.value && aboutRef.value && typeRef.value) {
-      this.props.addOrg(nameRef.value, aboutRef.value, typeRef.value);
-      nameRef.value = aboutRef.value = typeRef.value = '';
+    const orgType = this.state.orgType; // this.refs.type;
+    if (nameRef.value && aboutRef.value && orgType.value) {
+      this.props.addOrg(nameRef.value, aboutRef.value, orgType.value);
+      nameRef.value = aboutRef.value = '';
     }
   };
 
+  cancelOrg = () => {
+    this.props.cancelOrg();
+  };
 
   render() {
-    const cls = `${styles.form} ${(this.props.showAddOrg ? styles.appear : '')}`;
-    
+    const cls = `${styles.form}  }`; // ${(this.props.showAddOrg ? styles.appear : '')
+    const { orgType } = this.state;
     return (
       <div className={cls}>
         <div className={styles['form-type']}>
@@ -48,13 +49,15 @@ export class OrgCreateWidget extends Component {
           <input placeholder={this.props.intl.messages.orgName} className={styles['form-field']} ref="name" />
           <input placeholder={this.props.intl.messages.orgAbout} className={styles['form-field']} ref="about" />
           <Select
-            // value={selectedOption}
-            onChange={this.handleSelectChange}
+            value={orgType}
+            onChange={this.handleChange}
             options={options}
-            className={styles['form-field']} ref="type"
+            className={styles['form-field']}
             placeholder={this.props.intl.messages.orgType}
+            name="orgTypeSelect"
           />
-          <a className={styles['org-submit-button']} href="#" onClick={this.addOrg}><FormattedMessage id="submit" /></a>
+          <button className={styles['org-submit-button']} onClick={this.addOrg}><FormattedMessage id="submit" /></button>
+          <button className={styles['org-cancel-button']} onClick={this.cancelOrg}><FormattedMessage id="cancel" /></button>
         </div>
       </div>
     );
@@ -63,7 +66,7 @@ export class OrgCreateWidget extends Component {
 
 OrgCreateWidget.propTypes = {
   addOrg: PropTypes.func.isRequired,
-  showAddOrg: PropTypes.bool.isRequired,
+  cancelOrg: PropTypes.func.isRequired,
   intl: intlShape.isRequired,
 };
 

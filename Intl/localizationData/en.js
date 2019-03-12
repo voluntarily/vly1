@@ -1,22 +1,25 @@
 export default {
   locale: 'en',
   messages: {
+    // header labels
     siteTitle: 'Voluntari.ly',
-    addPost: 'Add Post',
-    addOrg: 'Add Org',
+    // menu labels
     switchLanguage: 'Switch Language',
+
+    // general buttons
+    submit: 'Submit',
+    cancel: 'Cancel',
+
+    // post actions
+    createNewPost: 'Create new post',
+    addPost: 'Add Post',
+    deletePost: 'Delete Post',
+    // post field labels
     twitterMessage: 'We are on Twitter',
     by: 'By',
-    deletePost: 'Delete Post',
-    createNewPost: 'Create new post',
     authorName: 'Author\'s Name',
     postTitle: 'Post Title',
     postContent: 'Post Content',
-    orgName: 'Organisation Name',
-    orgAbout: 'About Organisation',
-    deleteOrg: 'Delete organisation',
-    createNewOrg: 'Create new organisation',
-    submit: 'Submit',
     comment: `user {name} {value, plural,
     	  =0 {does not have any comments}
     	  =1 {has # comment}
@@ -32,5 +35,23 @@ export default {
     	  =1 {has # comment}
     	  other {has # comments}
     	} as of {date}`,
+
+    // org field labels
+    orgName: 'Organisation Name',
+    orgAbout: 'About Organisation',
+
+    // org actions
+    createNewOrg: 'Create new organisation',
+    addOrg: 'Add Org',
+    deleteOrg: 'Delete organisation',
+    // person actions
+    createNewPerson: 'Create new person',
+    addPerson: 'Add Person',
+    deletePerson: 'Delete Person',
+    // person field labels
+    personName: 'Name',
+    personEmail: 'Email',
+    personRole: 'Role',
+
   },
 };

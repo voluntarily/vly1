@@ -11,12 +11,11 @@ import {
 } from '../OrgActions';
 
 const org = {
+  cuid: 'abc',
   name: 'prank',
+  slug: 'first-org',
   about: 'first org',
   type: 'corporate',
-  cuid: 'abc',
-  _id: 1,
-  slug: 'first-org',
 };
 
 test('should return the correct type for addOrg', actionTest(

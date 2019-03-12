@@ -21,58 +21,79 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Post/pages/PostDetailPage/PostDetailPage');
   require('./modules/Org/pages/OrgListPage/OrgListPage');
   require('./modules/Org/pages/OrgDetailPage/OrgDetailPage');
+
+  require('./modules/Person/pages/PersonListPage/PersonListPage');
+  require('./modules/Person/pages/PersonDetailPage/PersonDetailPage');
   require('./modules/Showcase/Showcase');
 }
 
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
-    <Route path="/" component={App}>
+  <Route path="/" component={App}>
+    <IndexRoute
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+        });
+      }}
+    />
+    <Route
+      path="/posts/:slug-:cuid"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
+        });
+      }}
+    />
+
+    <Route path="/org" component={Frame} >
       <IndexRoute
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
-            cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+            cb(null, require('./modules/Org/pages/OrgListPage/OrgListPage').default);
           });
         }}
       />
       <Route
-        path="/posts/:slug-:cuid"
+        path="/orgs/:cuid"
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
-            cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
+            cb(null, require('./modules/Org/pages/OrgDetailPage/OrgDetailPage').default);
+          });
+        }}
+      />
+    </Route>
+
+    <Route path="/people" component={Frame} >
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Person/pages/PersonListPage/PersonListPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/people/:cuid"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Person/pages/PersonDetailPage/PersonDetailPage').default);
+          });
+        }}
+      />
+    </Route>
+
+    <Route path="/showcase" component={Frame} >
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Showcase/Showcase').default);
           });
         }}
       />
 
-      <Route path="/org" component={Frame} >
-        <IndexRoute
-          getComponent={(nextState, cb) => {
-            require.ensure([], require => {
-              cb(null, require('./modules/Org/pages/OrgListPage/OrgListPage').default);
-            });
-          }}
-        />
-        <Route
-          path="/orgs/:slug-:cuid"
-          getComponent={(nextState, cb) => {
-            require.ensure([], require => {
-              cb(null, require('./modules/Org/pages/OrgDetailPage/OrgDetailPage').default);
-            });
-          }}
-        />
-      </Route>
-
-      <Route path="/showcase" component={Frame} >
-        <IndexRoute
-          getComponent={(nextState, cb) => {
-            require.ensure([], require => {
-              cb(null, require('./modules/Showcase/Showcase').default);
-            });
-          }}
-        />
-
-      </Route>
     </Route>
+  </Route>
 
 
 );

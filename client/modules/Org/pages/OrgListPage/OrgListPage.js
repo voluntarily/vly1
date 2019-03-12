@@ -8,16 +8,26 @@ import OrgCreateWidget from '../../components/OrgCreateWidget/OrgCreateWidget';
 
 // Import Actions
 import { addOrgRequest, fetchOrgs, deleteOrgRequest } from '../../OrgActions';
-import { toggleAddOrg } from '../../../App/AppActions';
 
 // Import Selectors
 import { getShowAddOrg } from '../../../App/AppReducer';
 import { getOrgs } from '../../OrgReducer';
 
 class OrgListPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { showCreateOrgWidget: false };
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchOrgs());
   }
+  handleOrgCreate = () => {
+    this.setState({ showCreateOrgWidget: true });
+  };
+  handleCancelOrg = () => {
+    this.setState({ showCreateOrgWidget: false });
+  };
 
   handleDeleteOrg = org => {
     if (confirm('Do you want to delete this organisation')) { // eslint-disable-line
@@ -26,15 +36,26 @@ class OrgListPage extends Component {
   };
 
   handleAddOrg = (name, about, type) => {
-    this.props.dispatch(toggleAddOrg());
+    this.setState({ showCreateOrgWidget: false });
     this.props.dispatch(addOrgRequest({ name, about, type }));
   };
 
   render() {
     return (
       <div>
-        <OrgCreateWidget addOrg={this.handleAddOrg} showAddOrg={this.props.showAddOrg} />
-        <OrgList handleDeleteOrg={this.handleDeleteOrg} orgs={this.props.orgs} />
+        <h1>Organisations</h1>
+        <div>
+          {
+            this.state.showCreateOrgWidget
+            ? <OrgCreateWidget addOrg={this.handleAddOrg} cancelOrg={this.handleCancelOrg} />
+            : <button className="primary addOrg" onClick={this.handleOrgCreate} >Add Organisation</button>
+          }
+        </div>
+        <OrgList
+          handleDeleteOrg={this.handleDeleteOrg}
+          showAddOrg={this.props.showAddOrg}
+          orgs={this.props.orgs}
+        />
       </div>
     );
   }

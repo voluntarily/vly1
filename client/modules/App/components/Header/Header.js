@@ -23,12 +23,7 @@ export function Header(props, context) {
             : null
         }
         </div>
-        <div>{
-          context.router.isActive('/org', true)
-            ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddOrg}><FormattedMessage id="addOrg" /></a>
-            : null
-          }
-        </div>
+
       </div>
       <div className={styles['language-switcher']}>
         <ul>
@@ -46,7 +41,6 @@ Header.contextTypes = {
 
 Header.propTypes = {
   toggleAddPost: PropTypes.func.isRequired,
-  toggleAddOrg: PropTypes.func.isRequired,
   switchLanguage: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
 };

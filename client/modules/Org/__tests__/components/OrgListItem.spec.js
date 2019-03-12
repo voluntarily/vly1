@@ -8,8 +8,8 @@ const org = {
   cuid: 'f34gb2bh24b24b2',
   name: 'OMGTech',
   slug: 'hello-omgtech',
-  about: "All cats meow 'mern!'",
-  type: 'corporate',
+  about: 'OMGTech! develops & delivers engaging workshops for both teachers and students on digital technologies and how to explore and invent with them',
+  type: 'activity-provider',
 };
 
 const props = {
@@ -25,7 +25,7 @@ test('renders properly', t => {
   t.truthy(wrapper.hasClass('single-org'));
   t.is(wrapper.find('Link').first().prop('children'), org.name);
   t.regex(wrapper.find('.org-about').first().text(), new RegExp(org.about));
-  t.is(wrapper.find('.org-desc').first().text(), org.type);
+  t.is(wrapper.find('.org-type').first().text(), org.type);
 });
 
 test('has correct props', t => {
@@ -44,6 +44,6 @@ test('calls onDelete', t => {
     <OrgListItem org={org} onDelete={onDelete} />
   );
 
-  wrapper.find('.org-action > a').first().simulate('click');
+  wrapper.find('.org-action').first().simulate('click');
   t.truthy(onDelete.calledOnce);
 });

@@ -9,14 +9,15 @@ import styles from './OrgListItem.css';
 function OrgListItem(props) {
   return (
     <div className={styles['single-org']}>
-      <h3 className={styles['org-name']}>
-        <Link to={`/orgs/${props.org.slug}-${props.org.cuid}`} >
+      <h3>
+        <Link to={`/orgs/${props.org.cuid}`} >
           {props.org.name}
         </Link>
       </h3>
-      <p className={styles['org-about']}><FormattedMessage id="by" /> {props.org.about}</p>
-      <p className={styles['org-desc']}>{props.org.type}</p>
-      <p className={styles['org-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deleteOrg" /></a></p>
+      <p className={styles['org-about']}><FormattedMessage id="orgAbout" /> {props.org.about}</p>
+      <p className={styles['org-type']}>{props.org.type}</p>
+
+      <button className="org-action " onClick={props.onDelete}><FormattedMessage id="deleteOrg" /></button>
       <hr className={styles.divider} />
     </div>
   );

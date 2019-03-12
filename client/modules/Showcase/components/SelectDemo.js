@@ -4,7 +4,7 @@ import Select from 'react-select';
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
+  { value: 'vanilla', label: 'Vanilla' },
 ];
 
 class SelectDemo extends React.Component {
@@ -13,7 +13,7 @@ class SelectDemo extends React.Component {
   }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+    // console.log('Option selected:', selectedOption);
   }
   render() {
     const { selectedOption } = this.state;
