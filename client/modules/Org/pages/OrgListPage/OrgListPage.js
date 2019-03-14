@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-// Import Components
-import OrgList from '../../components/OrgList';
-import OrgCreateWidget from '../../components/OrgCreateWidget/OrgCreateWidget';
-
-// Import Actions
-import { addOrgRequest, fetchOrgs, deleteOrgRequest } from '../../OrgActions';
-
 // Import Selectors
 import { getShowAddOrg } from '../../../App/AppReducer';
+import OrgCreateWidget from '../../components/OrgCreateWidget/OrgCreateWidget';
+// Import Components
+import OrgList from '../../components/OrgList';
+// Import Actions
+import { addOrgRequest, deleteOrgRequest, fetchOrgs } from '../../OrgActions';
 import { getOrgs } from '../../OrgReducer';
-import Button from '../../../../components/Button/Button';
+import * as Button from '../../../../components/Button/Button';
 
 class OrgListPage extends Component {
   constructor(props) {
@@ -49,7 +46,7 @@ class OrgListPage extends Component {
           {
             this.state.showCreateOrgWidget
             ? <OrgCreateWidget addOrg={this.handleAddOrg} cancelOrg={this.handleCancelOrg} />
-            : <Button className="primary addOrg" onClick={this.handleOrgCreate} >Add Organisation</Button>
+            : <Button.Primary onClick={this.handleOrgCreate} >Add Organisation</Button.Primary>
           }
         </div>
         <OrgList

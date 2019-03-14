@@ -19,7 +19,7 @@ export function PersonDetailPage(props) {
       <Helmet title={props.person.name} />
       <div className={`${styles['single-person']} ${styles['person-detail']}`}>
         <h3 className={styles['person-name']}>{props.person.name}</h3>
-        <p className={styles['person.email']}><FormattedMessage id="by" /> {props.person.email}</p>
+        <p className={styles['person.email']}><FormattedMessage id="personEmail" /> {props.person.email}</p>
         <p className={styles['person-desc']}>{props.person.role}</p>
       </div>
     </div>

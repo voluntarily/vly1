@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Select from 'react-select';
+import styles from '../../main.css';
+
 import * as Button from '../../components/Button/Button';
 import Divider from '../../components/Divider/Divider';
 import ActivityCard from '../../components/ActivityCard/ActivityCard';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import andrewImg from './img/andrew.jpeg';
 import walterImg from './img/walter.jpeg';
-import styles from '../../main.css';
 import img1 from '../../components/CategoryCard/img/img1.png';
 import img2 from '../../components/CategoryCard/img/img2.png';
 import img3 from '../../components/CategoryCard/img/img3.png';

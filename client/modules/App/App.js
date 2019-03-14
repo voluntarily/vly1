@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // Import Style
-import styles from './App.css';
+import styles from '../../main.css';
 
 // Import Components
 import Helmet from 'react-helmet';

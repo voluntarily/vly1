@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
+import * as Button from '../../../../components/Button/Button';
 
 // Import Style
 import styles from './OrgListItem.css';
@@ -16,8 +17,7 @@ function OrgListItem(props) {
       </h3>
       <p className={styles['org-about']}><FormattedMessage id="orgAbout" /> {props.org.about}</p>
       <p className={styles['org-type']}>{props.org.type}</p>
-
-      <button className="org-action " onClick={props.onDelete}><FormattedMessage id="deleteOrg" /></button>
+      <Button.Tertiary onClick={props.onDelete}><FormattedMessage id="deleteOrg" /></Button.Tertiary>
       <hr className={styles.divider} />
     </div>
   );
