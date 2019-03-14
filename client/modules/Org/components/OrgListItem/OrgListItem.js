@@ -17,7 +17,7 @@ function OrgListItem(props) {
       </h3>
       <p className={styles['org-about']}><FormattedMessage id="orgAbout" /> {props.org.about}</p>
       <p className={styles['org-type']}>{props.org.type}</p>
-      <Button.Tertiary onClick={props.onDelete}><FormattedMessage id="deleteOrg" /></Button.Tertiary>
+      <Button.Tertiary className="orgDelete" onClick={props.onDelete}><FormattedMessage id="deleteOrg" /></Button.Tertiary>
       <hr className={styles.divider} />
     </div>
   );
@@ -28,7 +28,6 @@ OrgListItem.propTypes = {
     name: PropTypes.string.isRequired,
     about: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
   }).isRequired,
   onDelete: PropTypes.func.isRequired,

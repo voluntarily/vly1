@@ -45,7 +45,7 @@ test('calls addOrg', t => {
   wrapper.ref('about').value = 'Some About';
 // TODO work out how to set the select item from the tester
 //  wrapper.ref('type').value = 'tester';
-  wrapper.find('button').first().simulate('click');
+  wrapper.find('button.submitOrg').first().simulate('click');
   // console.log(addOrg.args);
   t.truthy(addOrg.calledOnce);
   t.truthy(addOrg.calledWith('Test Organisation', 'Some About', 'corporate'));
@@ -59,7 +59,7 @@ test('empty form doesn\'t call addOrg', t => {
     <OrgCreateWidget addOrg={addOrg} cancelOrg={cancelOrg} />
   );
 
-  wrapper.find('button').first().simulate('click');
+  wrapper.find('button.submitOrg').first().simulate('click');
   t.falsy(addOrg.calledOnce);
 });
 
@@ -70,7 +70,7 @@ test('Cancel form calls canceOrg', t => {
     <OrgCreateWidget addOrg={addOrg} cancelOrg={cancelOrg} />
   );
 
-  wrapper.find('button.org-cancel-button').first().simulate('click');
+  wrapper.find('button.cancelOrg').first().simulate('click');
   t.falsy(addOrg.called);
   t.truthy(cancelOrg.called);
 });

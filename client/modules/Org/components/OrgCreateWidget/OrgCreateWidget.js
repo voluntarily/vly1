@@ -57,8 +57,8 @@ export class OrgCreateWidget extends Component {
             placeholder={this.props.intl.messages.orgType}
             name="orgTypeSelect"
           />
-          <Button.Primary onClick={this.addOrg} ><FormattedMessage id="submit" /></Button.Primary>
-          <Button.Secondary onClick={this.cancelOrg} ><FormattedMessage id="cancel" /></Button.Secondary>
+          <Button.Primary className="submitOrg" onClick={this.addOrg} ><FormattedMessage id="submit" /></Button.Primary>
+          <Button.Secondary className="cancelOrg" onClick={this.cancelOrg} ><FormattedMessage id="cancel" /></Button.Secondary>
         </div>
       </div>
     );

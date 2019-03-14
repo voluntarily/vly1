@@ -29,7 +29,7 @@ const BaseButton = ({ buttonType, ...props }) => (
 
 BaseButton.propTypes = {
   buttonType: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 export const Primary = props => (

@@ -44,6 +44,6 @@ test('calls onDelete', t => {
     <OrgListItem org={org} onDelete={onDelete} />
   );
 
-  wrapper.find('.org-action').first().simulate('click');
+  wrapper.find('.orgDelete').first().simulate('click');
   t.truthy(onDelete.calledOnce);
 });
