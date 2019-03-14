@@ -12,6 +12,7 @@ import { addOrgRequest, fetchOrgs, deleteOrgRequest } from '../../OrgActions';
 // Import Selectors
 import { getShowAddOrg } from '../../../App/AppReducer';
 import { getOrgs } from '../../OrgReducer';
+import Button from '../../../../components/Button/Button';
 
 class OrgListPage extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class OrgListPage extends Component {
           {
             this.state.showCreateOrgWidget
             ? <OrgCreateWidget addOrg={this.handleAddOrg} cancelOrg={this.handleCancelOrg} />
-            : <button className="primary addOrg" onClick={this.handleOrgCreate} >Add Organisation</button>
+            : <Button className="primary addOrg" onClick={this.handleOrgCreate} >Add Organisation</Button>
           }
         </div>
         <OrgList

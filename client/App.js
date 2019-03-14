@@ -11,7 +11,7 @@ import IntlWrapper from './modules/Intl/IntlWrapper';
 import routes from './routes';
 
 // Base stylesheet
-// require('./css/material.css');
+require('./main.css');
 
 export default function App(props) {
   return (

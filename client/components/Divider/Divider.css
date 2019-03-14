@@ -1,0 +1,15 @@
+.divider {
+    border: none;
+    border-top: 3px solid #9e9e9e;
+	text-align: center;
+	margin: 7px 0px;
+	border-radius: 100px;
+}
+/* 
+.divider:after {
+    background: #fff;
+    content: '§';
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+} */

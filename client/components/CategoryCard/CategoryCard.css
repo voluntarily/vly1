@@ -1,0 +1,41 @@
+.CategoryCard {
+	height: 80vh;
+	width: 80vw;
+	max-width: 192px;
+	max-height:160px;
+	overflow: hidden;
+	margin:0.5rem;
+}
+.CategoryCard img {
+	position: absolute;
+	height: 80vh;
+	width: 80vw;
+	max-width: 192px;
+	max-height:160px;
+	z-index: 1;	
+	filter: brightness(0.4);
+}
+
+.CategoryCard img:hover {
+	filter: brightness(0.8);
+}
+.CategoryCard p {
+	position: relative;
+	 top: 50%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+	margin: auto;
+	color: white;
+	font-weight: bold;
+	font-size: 1.8rem;
+	letter-spacing: -0.4px;
+	text-align: center;
+	z-index: 3;
+}
+
+.CategoryCard:hover {
+fill: black;
+font-weight: bold;
+width: 296px;
+height:240px;
+}

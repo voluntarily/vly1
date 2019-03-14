@@ -47,7 +47,7 @@ export default (
       }}
     />
 
-    <Route path="/org" component={Frame} >
+    <Route path="/orgs" component={Frame} >
       <IndexRoute
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
