@@ -1,5 +1,7 @@
 # vly1
 
+[![Join the chat at https://gitter.im/voluntarily/vly1](https://badges.gitter.im/voluntarily/vly1.svg)](https://gitter.im/voluntarily/vly1?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Support education and innovation in New Zealand Schools with experts in the classrooms
 - [Website](http://voluntari.ly)
 - [Documentation](https://voluntarily.github.io/vly_devnet/
