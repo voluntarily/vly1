@@ -61,6 +61,7 @@ const hello = require('./api/hello/hello.routes');
 
 // demo data if db is empty
 import initialActivities from './api/activity/activity.dummy';
+import initialOpportunities from './api/opportunity/opportunity.dummy';
 import initialPosts from './api/post/post.dummy';
 import initialOrganisations from './api/organisation/organisation.dummy';
 import initialPeople from './api/person/person.dummy';
@@ -81,6 +82,7 @@ if (process.env.NODE_ENV !== 'test') {
     // feed some dummy data in DB.
     initialPosts();
     initialActivities();
+    initialOpportunities();
     initialOrganisations();
     initialPeople();
   });
@@ -124,7 +126,7 @@ const renderFullPage = (html, initialState) => {
         ${head.script.toString()}
 
         ${isProdMode ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
-    
+
         <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">

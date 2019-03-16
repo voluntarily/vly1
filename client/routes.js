@@ -21,10 +21,14 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Post/pages/PostDetailPage/PostDetailPage');
   require('./modules/Org/pages/OrgListPage/OrgListPage');
   require('./modules/Org/pages/OrgDetailPage/OrgDetailPage');
-
+  require('./modules/Op/pages/OpListPage/OpListPage');
+  require('./modules/Op/pages/OpDetailPage/OpDetailPage');
+  require('./modules/Act/pages/ActListPage/ActListPage');
+  require('./modules/Act/pages/ActDetailPage/ActDetailPage');
   require('./modules/Person/pages/PersonListPage/PersonListPage');
   require('./modules/Person/pages/PersonDetailPage/PersonDetailPage');
   require('./modules/Showcase/Showcase');
+  require('./modules/Landing/Landing');
 }
 
 // react-router setup with code-splitting
@@ -34,19 +38,27 @@ export default (
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+          cb(null, require('./modules/Landing/Landing').default);
         });
       }}
     />
-    <Route
-      path="/posts/:slug-:cuid"
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
-        });
-      }}
-    />
-
+    <Route path="/posts" component={Frame} >
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/posts/:slug-:cuid"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
+          });
+        }}
+      />
+    </Route>
     <Route path="/orgs" component={Frame} >
       <IndexRoute
         getComponent={(nextState, cb) => {
@@ -60,6 +72,43 @@ export default (
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
             cb(null, require('./modules/Org/pages/OrgDetailPage/OrgDetailPage').default);
+          });
+        }}
+      />
+    </Route>
+
+
+    <Route path="/ops" component={Frame} >
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Op/pages/OpListPage/OpListPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/ops/:cuid"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Op/pages/OpDetailPage/OpDetailPage').default);
+          });
+        }}
+      />
+    </Route>
+
+    <Route path="/acts" component={Frame} >
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Act/pages/ActListPage/ActListPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/acts/:cuid"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Act/pages/ActDetailPage/ActDetailPage').default);
           });
         }}
       />

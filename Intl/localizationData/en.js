@@ -44,6 +44,25 @@ export default {
     createNewOrg: 'Create new organisation',
     addOrg: 'Add Org',
     deleteOrg: 'Delete organisation',
+
+    // op field labels
+    opName: 'Title',
+    opAbout: 'Description ',
+
+    // op actions
+    createNewOp: 'Create new Opportunity',
+    addOp: 'New Opportunity',
+    deleteOp: 'Delete Opportunity',
+
+    // act field labels
+    actName: 'Title',
+    actAbout: 'Description ',
+
+    // op actions
+    createNewAct: 'Create new activity',
+    addAct: 'New activity',
+    deleteAct: 'Delete activity',
+
     // person actions
     createNewPerson: 'Create new person',
     addPerson: 'Add Person',

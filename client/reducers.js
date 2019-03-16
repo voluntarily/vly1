@@ -7,6 +7,8 @@ import { combineReducers } from 'redux';
 import app from './modules/App/AppReducer';
 import posts from './modules/Post/PostReducer';
 import orgs from './modules/Org/OrgReducer';
+import ops from './modules/Op/OpReducer';
+import acts from './modules/Act/ActReducer';
 import people from './modules/Person/PersonReducer';
 import intl from './modules/Intl/IntlReducer';
 
@@ -15,6 +17,8 @@ export default combineReducers({
   app,
   posts,
   orgs,
+  ops,
+  acts,
   people,
   intl,
 });
