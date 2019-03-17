@@ -6,7 +6,7 @@ import styles from '../../main.css';
 
 import * as Button from '../../components/Button/Button';
 import Divider from '../../components/Divider/Divider';
-import ActivityCard from '../../components/ActivityCard/ActivityCard';
+import ActivityCard from '../Act/components/ActivityCard/ActivityCard';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import andrewImg from './img/andrew.jpeg';
 import walterImg from './img/walter.jpeg';

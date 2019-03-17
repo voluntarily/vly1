@@ -1,18 +1,19 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
+import React from 'react';
+import styles from '../../../main.css';
 // Import Components
-import ActListItem from './ActListItem/ActListItem';
+// import ActListItem from './ActListItem/ActListItem';
+import ActivityCard from './ActivityCard/ActivityCard';
+
 
 function ActList(props) {
   return (
-    <div className="listView">
+    <div className={styles.row}>
       {
         props.acts.map(act => (
-          <ActListItem
+          <ActivityCard
             act={act}
             key={act.cuid}
-            onDelete={() => props.handleDeleteAct(act.cuid)}
           />
         ))
       }
@@ -23,8 +24,9 @@ function ActList(props) {
 ActList.propTypes = {
   acts: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    imgUrl: PropTypes.any,
     description: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
   })).isRequired,
   handleDeleteAct: PropTypes.func.isRequired,

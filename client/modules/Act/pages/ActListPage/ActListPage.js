@@ -71,8 +71,9 @@ function mapStateToProps(state) {
 ActListPage.propTypes = {
   acts: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    imgUrl: PropTypes.any,
     description: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };

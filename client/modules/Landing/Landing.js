@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from '../../main.css';
-
+import { Link } from 'react-router';
 // import * as Button from '../../components/Button/Button';
 import Divider from '../../components/Divider/Divider';
-import ActivityCard from '../../components/ActivityCard/ActivityCard';
+// import ActivityCard from '../../components/ActivityCard/ActivityCard';
 // import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
 
@@ -31,17 +31,6 @@ export class Landing extends Component {
     alert('Card Clicked');
   }
   render() {
-    const testActivity1 = {
-      title: 'Help us teach our robot army of roombas to clean our school',
-      image: 'http://0.0.0.0:8000/89b08c89c639d60004ac5be688af9b52.jpeg',
-      commitment: 'Whole day',
-    };
-    const testActivity2 = {
-      title: 'Programming robots with Scratch',
-      image: 'http://0.0.0.0:8000/3636679227674278e01035596ff30aab.jpeg',
-      commitment: '2 hour',
-    };
-
     return (
       <div className={styles.container}>
         <h1>This is the landing page for Voluntari.ly</h1>
@@ -82,13 +71,20 @@ export class Landing extends Component {
         <blockquote cite="www.quotation.source">This is some text quoted from elsewhere.</blockquote>
 
         <h2>Some Things you can do</h2>
-        <div className={styles.row}>
+        <ul>
+          <li><Link to="/acts" >Activities</Link></li>
+          <li><Link to="/ops" >Opportunities</Link></li>
+          <li><Link to="/people" >People</Link></li>
+          <li><Link to="/orgs" >Organisations</Link></li>
+          <li><Link to="/showcase" >Showcase</Link></li>
+        </ul>
+        {/* <div className={styles.row}>
 
           <ActivityCard activity={testActivity1} onPress={this.onClickCard} />
           <ActivityCard activity={testActivity2} onPress={this.onClickCard} />
           <ActivityCard activity={testActivity1} onPress={this.onClickCard} />
           <ActivityCard activity={testActivity2} onPress={this.onClickCard} />
-        </div>
+        </div> */}
 
         <h2>Browse Areas of Interest</h2>
         <p>Category Cards here</p>
