@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from '../../../main.css';
-// Import Components
-// import ActListItem from './ActListItem/ActListItem';
 import ActivityCard from './ActivityCard/ActivityCard';
-
 
 function ActList(props) {
   return (

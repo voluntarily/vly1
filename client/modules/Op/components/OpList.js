@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-// Import Components
-import OpListItem from './OpListItem/OpListItem';
+import styles from '../../../main.css';
+import OpportunityCard from './OpportunityCard/OpportunityCard';
 
 function OpList(props) {
   return (
-    <div className="listView">
+    <div className={styles.row}>
       {
         props.ops.map(op => (
-          <OpListItem
+          <OpportunityCard
             op={op}
             key={op.cuid}
-            onDelete={() => props.handleDeleteOp(op.cuid)}
           />
         ))
       }
@@ -20,11 +18,13 @@ function OpList(props) {
   );
 }
 
+
 OpList.propTypes = {
   ops: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    imgUrl: PropTypes.any,
+    duration: PropTypes.string,
     cuid: PropTypes.string.isRequired,
   })).isRequired,
   handleDeleteOp: PropTypes.func.isRequired,

@@ -3,29 +3,34 @@ import test from 'ava';
 import { shallow } from 'enzyme';
 import OpList from '../../components/OpList';
 
-// Initial opportunitiess added into test db
+// Initial opportunities added into test db
 const ops = [
   {
-    cuid: 'f34gb2bh24b24b2',
-    name: 'OMGTech',
-    slug: 'hello-omgtech',
-    about: "All cats meow 'mern!'",
-    type: 'corporate',
+    cuid: '5c951c0a-3e91-436a-81ae-59ede453672a',
+    title: 'Growing in the garden',
+    subtitle: 'Growing digitally in the garden',
+    imgUrl: 'https://image.flaticon.com/icons/svg/206/206857.svg',
+    description: 'Project to grow something in the garden',
+    duration: '15 Minutes',
+    location: 'Newmarket, Auckland',
+    status: 'draft',
   },
   {
-    cuid: 'f34gb2bh24b24b3',
-    name: 'Datacom',
-    slug: 'hi-datacom',
-    about: "All dogs bark 'mern!'",
-    type: 'corporate',
+    cuid: '5c951c0a-3e91-436a-81ae-59ede453672b',
+    title: 'The first 100 metres',
+    subtitle: 'Launching into space',
+    imgUrl: 'https://image.flaticon.com/icons/svg/206/206857.svg',
+    description: 'Project to build a simple rocket that will reach 100m',
+    duration: '2 hours',
+    location: 'Albany, Auckland',
+    status: 'draft',
   },
 ];
-
 
 test('renders the list', t => {
   const wrapper = shallow(
     <OpList ops={ops} handleShowOp={() => {}} handleDeleteOp={() => {}} />
   );
 
-  t.is(wrapper.find('OpListItem').length, 2);
+  t.is(wrapper.find('OpportunityCard').length, 2);
 });

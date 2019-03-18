@@ -34,9 +34,10 @@ export function addActs(acts) {
 
 export function fetchActs() {
   return (dispatch) => {
-    return callApi('activities').then(res => {
-      dispatch(addActs(res.activities));
-    });
+    return callApi('activities')
+      .then(res => {
+        dispatch(addActs(res.activities));
+      });
   };
 }
 

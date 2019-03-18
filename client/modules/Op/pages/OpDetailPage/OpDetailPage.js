@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 
 // Import Style
-import styles from '../../components/OpListItem/OpListItem.css';
+// import styles from '../../components/OpListItem/OpListItem.css';
 
 // Import Actions
 import { fetchOp } from '../../OpActions';
@@ -13,15 +13,21 @@ import { fetchOp } from '../../OpActions';
 // Import Selectors
 import { getOp } from '../../OpReducer';
 
-export function OpDetailPage(props) {
+export function OpDetailPage({ op }) {
   return (
     <div>
-      <Helmet title={props.op.name} />
-      <div className={`${styles['single-op']} ${styles['op-detail']}`}>
-        <h3 className={styles['op-name']}>{props.op.name}</h3>
-        <p className={styles['op.about']}><FormattedMessage id="by" /> {props.op.about}</p>
-        <p className={styles['op-desc']}>{props.op.type}</p>
-      </div>
+      <Helmet title={op.title} />
+      <h1>{op.title}
+        <small>{op.subtitle}</small>
+      </h1>
+      <dl>
+        <dt>imgUrl</dt><dd>{op.imgUrl}</dd>
+        <dt>description</dt><dd>{op.description}</dd>
+        <dt>duration</dt><dd>{op.duration}</dd>
+        <dt>location</dt><dd>{op.location}</dd>
+        <dt>status</dt><dd>{op.status}</dd>
+        <dt>cuid</dt><dd>{op.cuid}</dd>
+      </dl>
     </div>
   );
 }
@@ -40,12 +46,14 @@ function mapStateToProps(state, props) {
 
 OpDetailPage.propTypes = {
   op: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    imgUrl: PropTypes.any,
+    description: PropTypes.string,
+    duration: PropTypes.string,
+    status: PropTypes.string,
     cuid: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
 };
 
 export default connect(mapStateToProps)(OpDetailPage);
