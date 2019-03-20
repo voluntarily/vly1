@@ -45,6 +45,9 @@ export default {
     addOrg: 'Add Org',
     deleteOrg: 'Delete organisation',
 
+    // Op list page
+    opportunities: 'Opportunities',
+
     // op field labels
     opName: 'Title',
     opAbout: 'Description ',

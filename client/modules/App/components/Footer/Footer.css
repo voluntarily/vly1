@@ -1,18 +1,42 @@
 .footer{
-  text-align: center;
-  padding: 56px 0;
+  padding: 3em 0;
   background-size: cover;
-  background-color: rgb(244, 93, 6);
+  background-color: #f4f4f4;
 }
 
-.footer p{
-  margin: 0 0 8px 0;
+.footer span {
+  margin: 0 1rem;
   font-size: 14px;
-  color: #FFF;
+  color: #111;
 }
 
 .footer a{
-  color: #FFF;
+  color: #111;
   text-decoration: none;
   font-weight: 700;
+}
+
+ul.menu  {
+  float: right;
+  list-style: none;
+  /* width: 980px; */
+  margin: 0 1rem 0 0;
+  padding: 0;
+  text-align: right;
+}
+
+.menu li {
+  display: inline-block;
+  padding-right: 0.5rem;
+  cursor: pointer;
+  color: #111;
+  /* float: left; */
+}
+
+.menu li:first-child {
+  color: rgba(1,1,1, 0.7);
+}
+
+.selected {
+  border-bottom: 3px solid #111;
 }

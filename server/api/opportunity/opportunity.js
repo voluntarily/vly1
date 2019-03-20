@@ -10,6 +10,7 @@ const opportunitySchema = new Schema({
   duration: String,   // "15 Minutes",
   location: String,   // "Newmarket, Auckland",
   status: String,     // "draft",
+  eventDate: { type: 'Date' },
   dateAdded: { type: 'Date', default: Date.now, required: true },
 });
 

@@ -33,7 +33,7 @@ export class Landing extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <h1>This is the landing page for Voluntari.ly</h1>
+        <h1>Welcome to Voluntari.ly</h1>
         <p>Big picture goes here</p>
         <Divider />
         <p>Call to action</p>

@@ -5,32 +5,20 @@ import { FormattedMessage } from 'react-intl';
 
 // Import Style
 import styles from './Header.css';
+import Vlogo from './Vlogo';
 
-export function Header(props, context) {
-  const languageNodes = props.intl.enabledLanguages.map(
-    lang => <li key={lang} onClick={() => props.switchLanguage(lang)} className={lang === props.intl.locale ? styles.selected : ''}>{lang}</li>
-  );
-
+// eslint-disable-next-line no-unused-vars
+export function Header(props) {
   return (
     <div className={styles.header}>
       <div className={styles.content}>
+        <Vlogo />
         <h1 className={styles['site-title']}>
           <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
         </h1>
-        <div>{
-          context.router.isActive('/', true)
-            ? <a className={styles['add-post-button']} href="#" onClick={props.toggleAddPost}><FormattedMessage id="addPost" /></a>
-            : null
-        }
-        </div>
-
       </div>
-      <div className={styles['language-switcher']}>
-        <ul>
-          <li><FormattedMessage id="switchLanguage" /></li>
-          {languageNodes}
-        </ul>
-      </div>
+      {/* <SearchBar /> */}
+      {/* <MainMenu /> */}
     </div>
   );
 }
@@ -41,7 +29,6 @@ Header.contextTypes = {
 
 Header.propTypes = {
   toggleAddPost: PropTypes.func.isRequired,
-  switchLanguage: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
 };
 

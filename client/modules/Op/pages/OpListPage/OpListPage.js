@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
+
 // Import Selectors
 import OpCreateWidget from '../../components/OpCreateWidget/OpCreateWidget';
 // Import Components
@@ -40,12 +42,12 @@ class OpListPage extends Component {
   render() {
     return (
       <div>
-        <h1>Opportunitiess</h1>
+        <h1><FormattedMessage id="opportunities" /></h1>
         <div>
           {
             this.state.showCreateOpWidget
             ? <OpCreateWidget addOp={this.handleAddOp} cancelOp={this.handleCancelOp} />
-            : <Button.Primary onClick={this.handleOpCreate} >Add Opportunities</Button.Primary>
+            : <Button.Primary onClick={this.handleOpCreate} ><FormattedMessage id="addOp" /></Button.Primary>
           }
         </div>
         <OpList

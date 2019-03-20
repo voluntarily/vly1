@@ -1,66 +1,35 @@
 .header {
   /* background: #eee url('../../header-bk.png') center; */
-  background-size: cover;
-  border-bottom: 1px solid #ccc;
-  background-color: rgb(244, 93, 6);
+  border: none;
+  border-bottom: 1px solid #eee;
+  height: 56px;
 }
 
 .content {
   width: 100%;
-  max-width: 980px;
   margin: auto;
-  padding: 4px 16px;
+  padding: 4px;
   overflow: auto;
 }
 
 .site-title {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 2em;
+  font-weight: lighter;
+  margin:0;
+  padding:0;
   float: left;
 }
 
 .site-title a {
   text-decoration: none;
-  color: #FFF;
+  color: #111111;
 }
 
-.add-post-button {
-  display: inline-block;
-  color: #FFF;
-  background: #03A9F4;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 1000px;
-  float: right;
+svg {
+  float: left;
+  margin: 0.5rem;
 }
-
-.language-switcher {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.language-switcher ul {
-  list-style: none;
-  width: 980px;
-  margin: auto;
-  text-align: right;
-}
-
-.language-switcher li {
-  display: inline-block;
-  margin: 10px;
-  padding: 5px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.language-switcher li:first-child {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.selected {
-  border-bottom: 1px solid #fff;
-}
-
 @media (max-width: 767px){
   .add-post-button{
     float: left;

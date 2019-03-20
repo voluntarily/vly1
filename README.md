@@ -1,6 +1,7 @@
 # vly1
 
 [![Join the chat at https://gitter.im/voluntarily/vly1](https://badges.gitter.im/voluntarily/vly1.svg)](https://gitter.im/voluntarily/vly1?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
 Support education and innovation in New Zealand Schools with experts in the classrooms
 - [Website](http://voluntari.ly)
@@ -10,6 +11,7 @@ Support education and innovation in New Zealand Schools with experts in the clas
 Pull the code base 
 
 **Note : Please make sure your MongoDB is running.** For MongoDB installation guide see [this](https://docs.mongodb.org/v3.0/installation/). Also `npm6` is required to install dependencies properly.
+However, Using Docker is cleaner and simpler - see below.
 
 ## Available Commands
 
@@ -145,10 +147,16 @@ We use babel to transpile code in both server and client with `stage-0` plugin. 
 ### Docker
 There are docker configurations for both development and production.
 
+requires docker and docker compose
+For Mac install: https://hub.docker.com/editions/community/docker-ce-desktop-mac
+
 To run docker for development:
 ```sh
 docker-compose build # re-run after changing dependencies
-docker-compose up
+docker-compose up # run in background.
+docker-compose up -d # run in background.
+docker-compose stop # stop from background
+docker-compose log -f # follow logfiles.
 ```
 or, if you want to override the web port:
 ```sh
