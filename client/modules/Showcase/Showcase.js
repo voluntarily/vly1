@@ -57,16 +57,16 @@ export class Showcase extends Component {
   render() {
     const { selectedOption } = this.state;
 
-    const testActivity1 = {
-      title: 'Help us teach our robot army of roombas to clean our school',
-      image: 'http://0.0.0.0:8000/89b08c89c639d60004ac5be688af9b52.jpeg',
-      commitment: 'Whole day',
-    };
-    const testActivity2 = {
-      title: 'Programming robots with Scratch',
-      image: 'http://0.0.0.0:8000/3636679227674278e01035596ff30aab.jpeg',
-      commitment: '2 hour',
-    };
+    // const testActivity1 = {
+    //   title: 'Help us teach our robot army of roombas to clean our school',
+    //   image: 'http://0.0.0.0:8000/89b08c89c639d60004ac5be688af9b52.jpeg',
+    //   commitment: 'Whole day',
+    // };
+    // const testActivity2 = {
+    //   title: 'Programming robots with Scratch',
+    //   image: 'http://0.0.0.0:8000/3636679227674278e01035596ff30aab.jpeg',
+    //   commitment: '2 hour',
+    // };
 
     return (
       <div className={styles.container}>
