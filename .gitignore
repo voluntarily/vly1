@@ -9,3 +9,5 @@ dist
 coverage/
 .nyc_output/
 yarn.lock
+.ssh
+*.pem

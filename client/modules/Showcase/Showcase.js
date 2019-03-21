@@ -72,7 +72,7 @@ export class Showcase extends Component {
       <div className={styles.container}>
         <h1>Typography Elements</h1>
 
-        <h1>Heading 1 <small>Subheading</small></h1>
+        <h1>Heading 1 <small>Ha ha ha</small></h1>
         <h2>Heading 2 <small>Subheading</small></h2>
         <h3>Heading 3 <small>Subheading</small></h3>
         <h4>Heading 4 <small>Subheading</small></h4>

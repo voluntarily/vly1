@@ -7,6 +7,7 @@ import React from 'react';
 export function Vlogo() {
   return (
     <svg className="VLogo" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" >
+      <title id="title">Voluntarily Logo</title>
       <g id="Transparent-V-Black" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         // eslint-disable-next-line max-len
         <path
