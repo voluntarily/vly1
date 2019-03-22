@@ -28,8 +28,7 @@ Header.contextTypes = {
 };
 
 Header.propTypes = {
-  toggleAddPost: PropTypes.func.isRequired,
-  intl: PropTypes.object.isRequired,
+  intl: PropTypes.object,
 };
 
 export default Header;
