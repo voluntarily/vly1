@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { Layout } from 'antd';
 import styles from './Footer.css';
 
 export function Footer(props) {
@@ -8,13 +9,15 @@ export function Footer(props) {
     lang => <li key={lang} onClick={() => props.switchLanguage(lang)} className={lang === props.intl.locale ? styles.selected : ''}>{lang}</li>
   );
   return (
-    <div className={styles.footer}>
-      <span>&copy; 2019 &middot; <a href="http://voluntari.ly">Voluntari.ly</a></span>
-      <ul className={styles.menu}>
-        <li><FormattedMessage id="switchLanguage" /></li>
-        {languageNodes}
-      </ul>
-    </div>
+    <Layout.Footer>
+      <div className={styles.footer}>
+        <span>&copy; 2019 &middot; <a href="http://voluntari.ly">Voluntari.ly</a></span>
+        <ul className={styles.menu}>
+          <li><FormattedMessage id="switchLanguage" /></li>
+          {languageNodes}
+        </ul>
+      </div>
+    </Layout.Footer>
   );
 }
 
