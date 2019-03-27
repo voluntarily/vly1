@@ -20,8 +20,6 @@ const postPerson = person => {
   });
 };
 
-console.log (argv._[0] );
-
 const content = fs.readFileSync(argv._[0] ? argv._[0] : 0, 'utf8');
 const jsonContent = JSON.parse(content);
 postPerson(jsonContent);
