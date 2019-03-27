@@ -5,7 +5,7 @@
 
 Support education and innovation in New Zealand Schools with experts in the classrooms
 - [Website](http://voluntari.ly)
-- [Documentation](https://voluntarily.github.io/vly_devnet/
+- [Documentation](https://voluntarily.github.io/vly_devnet/)
 
 ## Quickstart
 Pull the code base 
