@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-/* Remove all people from the database who have the role tester */
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
 /* eslint-disable no-console */
+/* Remove all people from the database who have the role tester */
 const axios = require('axios');
 
 const getData = async url => {
@@ -12,6 +14,7 @@ const getData = async url => {
   } catch (error) {
     console.log(error);
   }
+  return {};
 };
 
 const deletePerson = async personId => {
@@ -23,8 +26,8 @@ const deletePerson = async personId => {
     return data;
   } catch (error) {
     console.log(error);
-    return {};
   }
+  return {};
 };
 
 getData('http://localhost:8000/api/people')
