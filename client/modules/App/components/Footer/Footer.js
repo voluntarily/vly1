@@ -13,7 +13,13 @@ export function Footer(props) {
       <div className={styles.footer}>
         <span>&copy; 2019 &middot; <a href="http://voluntari.ly">Voluntari.ly</a></span>
         <ul className={styles.menu}>
-          <li><FormattedMessage id="switchLanguage" /></li>
+          <li>
+            <FormattedMessage
+              id="switchLanguage"
+              defaultMessage="Switch Language"
+              description="Label for menu item to switch between Engish and other languages"
+            />
+          </li>
           {languageNodes}
         </ul>
       </div>

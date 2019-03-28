@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 import styles from '../../main.css';
+import { FormattedMessage } from 'react-intl';
 
 import * as Button from '../../components/Button/Button';
 import Divider from '../../components/Divider/Divider';
@@ -157,6 +158,12 @@ export class Showcase extends Component {
           value={selectedOption}
           onChange={this.handleChange}
           options={options}
+        />
+
+        <FormattedMessage
+          id="translation"
+          defaultMessage="Translation"
+          description="Test of the internationalisation scripts"
         />
       </div>
     );

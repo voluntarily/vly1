@@ -53,13 +53,14 @@ import 'intl/locale-data/jsonp/en';
 import en from 'react-intl/locale-data/en';
 addLocaleData(en);
 
-import enData from './localizationData/en';
+import enData from './localizationData/en.json';
 localizationData.en = enData;
-localizationData.en.messages = flattenMessages(localizationData.en.messages);
+localizationData.en = { locale: 'en', messages: enData };
+// localizationData.en.messages = flattenMessages(localizationData.en.messages);
 
 import mi from 'react-intl/locale-data/mi';
 addLocaleData(mi);
 
-import miData from './localizationData/mi';
-localizationData.mi = miData;
-localizationData.mi.messages = flattenMessages(localizationData.mi.messages);
+import miData from './localizationData/mi.json';
+localizationData.mi = { locale: 'mi', messages: miData };
+// localizationData.mi.messages = flattenMessages(localizationData.mi.messages);

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "createNewOrg",
+    "description": "Title on new organisation form",
+    "defaultMessage": "New Organisation"
+  },
+  {
+    "id": "submit",
+    "description": "Button on form to save the new record",
+    "defaultMessage": "Save"
+  },
+  {
+    "id": "cancel",
+    "description": "Button on form to cancel and return to previous page",
+    "defaultMessage": "Cancel"
+  }
+]

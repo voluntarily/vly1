@@ -47,7 +47,9 @@ class OpListPage extends Component {
           {
             this.state.showCreateOpWidget
             ? <OpCreateWidget addOp={this.handleAddOp} cancelOp={this.handleCancelOp} />
-            : <Button.Primary onClick={this.handleOpCreate} ><FormattedMessage id="addOp" /></Button.Primary>
+            : <Button.Primary onClick={this.handleOpCreate} >
+              <FormattedMessage id="addOp" defaultMessage="New Opportunity" description="Button to create a new opportunity" />
+            </Button.Primary>
           }
         </div>
         <OpList

@@ -46,7 +46,7 @@ export class OrgCreateWidget extends Component {
     return (
       <div className={cls}>
         <div className={styles['form-type']}>
-          <h2 className={styles['form-about']}><FormattedMessage id="createNewOrg" /></h2>
+          <h2 className={styles['form-about']}><FormattedMessage id="createNewOrg" defaultMessage="New Organisation" description="Title on new organisation form" /></h2>
           <input placeholder={this.props.intl.messages.orgName} className={styles['form-field']} ref="name" />
           <input placeholder={this.props.intl.messages.orgAbout} className={styles['form-field']} ref="about" />
           <Select
@@ -57,8 +57,8 @@ export class OrgCreateWidget extends Component {
             placeholder={this.props.intl.messages.orgType}
             name="orgTypeSelect"
           />
-          <Button.Primary className="submitOrg" onClick={this.addOrg} ><FormattedMessage id="submit" /></Button.Primary>
-          <Button.Secondary className="cancelOrg" onClick={this.cancelOrg} ><FormattedMessage id="cancel" /></Button.Secondary>
+          <Button.Primary className="submitOrg" onClick={this.addOrg} ><FormattedMessage id="submit" defaultMessage="Save" description="Button on form to save the new record" /></Button.Primary>
+          <Button.Secondary className="cancelOrg" onClick={this.cancelOrg} ><FormattedMessage id="cancel" defaultMessage="Cancel" description="Button on form to cancel and return to previous page" /></Button.Secondary>
         </div>
       </div>
     );

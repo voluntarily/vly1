@@ -16,7 +16,8 @@
     "clean": "rimraf dist",
     "slate": "rimraf node_modules && npm install",
     "lint": "eslint client server",
-    "collect-translations": "cross-env ../../node_modules/.bin/mkdirp Intl/messages && cross-env -t babelify"
+    "extract-messages": "cross-env NODE_ENV=development babel ./client  --out-file /dev/null",
+    "manage:translations": "cross-env NODE_ENV=development node ./x/translationRunner.js"
   },
   "pre-commit": [
     "lint",
@@ -73,11 +74,13 @@
     "@babel/preset-env": "^7.4.2",
     "ava": "^0.15.2",
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^7.1.5",
     "babel-plugin-react-intl": "^3.0.1",
     "babel-plugin-webpack-loaders": "^0.9.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-es2015-native-modules": "^6.6.0",
     "babel-preset-react": "^6.5.0",
@@ -118,6 +121,7 @@
     "raf": "^3.4.1",
     "react-addons-test-utils": "^15.1.0",
     "react-hot-loader": "^3.0.0-beta.2",
+    "react-intl-translations-manager": "^5.0.3",
     "redux-ava": "^2.0.0",
     "redux-devtools": "^3.5.0",
     "redux-devtools-dock-monitor": "^1.1.1",

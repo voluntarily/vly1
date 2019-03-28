@@ -1,0 +1,7 @@
+[
+  {
+    "id": "translation",
+    "description": "Test of the internationalisation scripts",
+    "defaultMessage": "Translation"
+  }
+]

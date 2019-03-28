@@ -24,7 +24,13 @@ export function Header(props) {
     >
       <Vlogo />
       <h1 className={styles['site-title']}>
-        <Link to="/" ><FormattedMessage id="siteTitle" /></Link>
+        <Link to="/" >
+          <FormattedMessage
+            id="siteTitle"
+            defaultMessage="Voluntari.ly"
+            description="Name of the Application on the menu bar"
+          />
+        </Link>
       </h1>
       {/* <SearchBar /> */}
       <Navigation items={navItems.public} />
