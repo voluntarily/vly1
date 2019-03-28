@@ -42,7 +42,13 @@ class OpListPage extends Component {
   render() {
     return (
       <div>
-        <h1><FormattedMessage id="opportunities" /></h1>
+        <h1>
+          <FormattedMessage
+            id="opportunities"
+            defaultMessage="Opportunities"
+            description="Title of page listing opportunities"
+          />
+        </h1>
         <div>
           {
             this.state.showCreateOpWidget

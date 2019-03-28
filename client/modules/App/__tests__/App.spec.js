@@ -13,6 +13,9 @@ const dispatch = sinon.spy();
 const props = {
   children,
   dispatch,
+  location: {
+    pathname: '/',
+  },
   intl: intlProp,
 };
 

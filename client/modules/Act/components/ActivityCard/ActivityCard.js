@@ -3,20 +3,27 @@
 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ActivityCard.css';
 import { Link } from 'react-router';
+import { Card } from 'antd';
 
 // todo if image is not present then use a fallback.
 const ActivityCard = ({ act, onPress, ...props }) => (
-  <div className={styles.card} onClick={onPress} {...props}>
-    <Link to={`/acts/${act.cuid}`} >
-      <img className={styles.media} onClick={onPress} src={act.imgUrl} alt={act.title}></img>
-      <h1>{act.title}
-        <small>{act.subtitle}</small>
-      </h1>
-      <p>{act.duration} commitment</p>
-    </Link>
-  </div>
+  <Link to={`/acts/${act.cuid}`} >
+    <Card
+      cover={<img src={act.imgUrl} alt={act.title} />}
+      onClick={onPress}
+      {...props}
+    >
+      <Card.Meta
+        title={(
+          <h1>{act.title}
+            <small>{act.subtitle}</small>
+          </h1>
+        )}
+        description={<p>{act.duration} commitment</p>}
+      />
+    </Card>
+  </Link>
 );
 
 ActivityCard.propTypes = {

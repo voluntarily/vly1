@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Layout } from 'antd';
-
-// Import Style
-import 'antd/dist/antd.css';
-import styles from '../../main.css';
 
 // Import Components
+import { Layout } from 'antd';
 import Helmet from 'react-helmet';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 // Import Actions
-import { toggleAddPost, toggleAddOrg } from './AppActions';
 import { switchLanguage } from '../../modules/Intl/IntlActions';
 
 let DevTools;
@@ -32,12 +27,6 @@ export class App extends Component {
     this.setState({isMounted: true}); // eslint-disable-line
   }
 
-  toggleAddPostSection = () => {
-    this.props.dispatch(toggleAddPost());
-  };
-  toggleAddOrgSection = () => {
-    this.props.dispatch(toggleAddOrg());
-  };
   render() {
     return (
       <Layout>
@@ -58,13 +47,11 @@ export class App extends Component {
           ]}
         />
         <Header intl={this.props.intl} />
-        <Layout.Content style={{ paddingTop: '4.8em' }}>
-          <div className={styles.container}>
-            {this.props.children}
-          </div>
+        <Layout.Content style={{ padding: '5.8em 4em 2em' }}>
+          {this.props.children}
         </Layout.Content>
         <Footer
-          switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
+          switchLanguage={lang => this.props.switchLanguage(lang)}
           intl={this.props.intl}
         />
       </Layout>
@@ -72,10 +59,15 @@ export class App extends Component {
   }
 }
 
+App.defaultProps = {
+  // eslint-disable-next-line no-console
+  switchLanguage: () => {},
+};
+
 App.propTypes = {
   children: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
+  switchLanguage: PropTypes.func,
 };
 
 // Retrieve data from store as props
@@ -85,4 +77,4 @@ function mapStateToProps(store) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { switchLanguage })(App);

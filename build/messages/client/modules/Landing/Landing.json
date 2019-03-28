@@ -1,0 +1,7 @@
+[
+  {
+    "id": "welcome",
+    "description": "First greeting on the landing page",
+    "defaultMessage": "Welcome to"
+  }
+]

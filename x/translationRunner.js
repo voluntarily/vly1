@@ -5,5 +5,5 @@ const manageTranslations = require('react-intl-translations-manager').default;
 manageTranslations({
   messagesDirectory: 'build/messages',
   translationsDirectory: 'Intl/localizationData/',
-  languages: ['mi'], // any language you need, default lang is automatic
+  languages: ['en', 'mi'], // any language you need
 });

@@ -1,7 +1,7 @@
 [
   {
-    "id": "translation",
-    "description": "Test of the internationalisation scripts",
-    "defaultMessage": "Translation"
+    "id": "language",
+    "description": "Name of the language",
+    "defaultMessage": "English"
   }
 ]
