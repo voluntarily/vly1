@@ -3,20 +3,27 @@
 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './OpportunityCard.css';
 import { Link } from 'react-router';
+import { Card } from 'antd';
 
 // todo if image is not present then use a fallback.
 const OpportunityCard = ({ op, onPress, ...props }) => (
-  <div className={styles.card} onClick={onPress} {...props}>
-    <Link to={`/ops/${op.cuid}`} >
-      <img className={styles.media} onClick={onPress} src={op.imgUrl} alt={op.title}></img>
-      <h1>{op.title}
-        <small>{op.subtitle}</small>
-      </h1>
-      <p>{op.duration} commitment</p>
-    </Link>
-  </div>
+  <Link to={`/ops/${op.cuid}`} >
+    <Card
+      cover={<img src={op.imgUrl} alt={op.title} />}
+      onClick={onPress}
+      {...props}
+    >
+      <Card.Meta
+        title={(
+          <h1>{op.title}
+            <small>{op.subtitle}</small>
+          </h1>
+        )}
+        description={<p>{op.duration} commitment</p>}
+      />
+    </Card>
+  </Link>
 );
 
 OpportunityCard.propTypes = {

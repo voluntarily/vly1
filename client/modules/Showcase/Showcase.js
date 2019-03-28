@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Select from 'react-select';
-import styles from '../../main.css';
+import { Select, Button, Divider } from 'antd';
 
-import * as Button from '../../components/Button/Button';
-import Divider from '../../components/Divider/Divider';
-// import ActivityCard from '../Act/components/ActivityCard/ActivityCard';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import andrewImg from './img/andrew.jpeg';
 import walterImg from './img/walter.jpeg';
@@ -69,7 +65,7 @@ export class Showcase extends Component {
     // };
 
     return (
-      <div className={styles.container}>
+      <div>
         <h1>Typography Elements</h1>
 
         <h1>Heading 1 <small>Ha ha ha</small></h1>
@@ -127,7 +123,7 @@ export class Showcase extends Component {
         </div> */}
 
         <h2>Category Cards</h2>
-        <div className={styles.row}>
+        <div>
           <CategoryCard category={{ title: 'Coding', image: img1 }} onPress={this.onClickCard} />
           <CategoryCard category={{ title: 'Robotics', image: img2 }} onPress={this.onClickCard} />
           <CategoryCard category={{ title: 'Chemistry', image: img3 }} onPress={this.onClickCard} />
@@ -144,13 +140,14 @@ export class Showcase extends Component {
 
         <h1>Form Elements</h1>
         <h2>Buttons</h2>
-        <Button.Primary disabled={!this.state.buttonDisabled} onClick={this.onClickButton}>Press Me</Button.Primary><br />
-        <Button.Primary disabled={this.state.buttonDisabled} onClick={this.onClickButton} >{this.state.buttonLabel}</Button.Primary><br />
-        <Button.Secondary>Secondary Button</Button.Secondary><br />
-        <Button.Tertiary>Tertiary Button</Button.Tertiary>
+        <Button type="primary" disabled={!this.state.buttonDisabled} onClick={this.onClickButton}>Press Me</Button><br />
+        <Button type="primary" disabled={this.state.buttonDisabled} onClick={this.onClickButton} >{this.state.buttonLabel}</Button><br />
+        <Button>Default Button</Button>
+        <Button disabled>Default Button Disabled</Button>
         <h2>Special Buttons</h2>
-        <Button.Success>Success Button</Button.Success><br />
-        <Button.Warning>Warning Button</Button.Warning>
+        <Button type="dashed">Dashed Button</Button><br />
+        <Button type="ghost">Ghost Button</Button><br />
+        <Button type="danger">Danger Button</Button>
 
         <h2>Select</h2>
         <Select
@@ -164,7 +161,6 @@ export class Showcase extends Component {
 }
 
 Showcase.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
 };
 

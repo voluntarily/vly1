@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../../../main.css';
 import OpportunityCard from './OpportunityCard/OpportunityCard';
 
 function OpList(props) {
   return (
-    <div className={styles.row}>
+    <div>
       {
         props.ops.map(op => (
           <OpportunityCard
