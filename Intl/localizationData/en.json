@@ -1,5 +1,9 @@
 {
-  "siteTitle": "Voluntari.ly",
-  "switchLanguage": "Switch Language",
-  "translation": "Translation"
+	"addOp": "New Opportunity",
+	"cancel": "Cancel",
+	"createNewOrg": "New Organisation",
+	"siteTitle": "Voluntari.ly",
+	"submit": "Submit",
+	"switchLanguage": "Switch Language",
+	"translation": "Translation"
 }
