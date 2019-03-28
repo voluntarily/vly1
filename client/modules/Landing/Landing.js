@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styles from '../../main.css';
 import { Link } from 'react-router';
-// import * as Button from '../../components/Button/Button';
-import Divider from '../../components/Divider/Divider';
-// import ActivityCard from '../../components/ActivityCard/ActivityCard';
-// import CategoryCard from '../../components/CategoryCard/CategoryCard';
-
+import { Divider } from 'antd';
 
 export class Landing extends Component {
 
@@ -32,7 +27,7 @@ export class Landing extends Component {
   }
   render() {
     return (
-      <div className={styles.container}>
+      <div>
         <h1>Welcome to Voluntari.ly</h1>
         <p>Big picture goes here</p>
         <Divider />
@@ -95,7 +90,6 @@ export class Landing extends Component {
 }
 
 Landing.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   intl: PropTypes.object.isRequired,
 };
 

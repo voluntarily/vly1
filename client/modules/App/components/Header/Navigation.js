@@ -3,22 +3,27 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Menu } from 'antd';
 
-const Navigation = ({ items }) => (
-  <Menu
-    theme="light"
-    mode="horizontal"
-    style={{ float: 'right' }}
-  >
-    {items.map(item => (
-      <Menu.Item key={item.key}>
-        <Link to={item.url}>{item.text}</Link>
-      </Menu.Item>
-    ))}
-  </Menu>
-);
+const Navigation = ({ items, defaultItem }) => {
+  const activeItem = window.location.pathname.slice(1) || defaultItem;
+  return (
+    <Menu
+      theme="light"
+      mode="horizontal"
+      style={{ float: 'right' }}
+      selectedKeys={[activeItem]}
+    >
+      {items.map(item => (
+        <Menu.Item key={item.key}>
+          <Link to={item.url}>{item.text}</Link>
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+};
 
 Navigation.defaultProps = {
   items: [],
+  defaultItem: '',
 };
 
 Navigation.propTypes = {
@@ -27,6 +32,7 @@ Navigation.propTypes = {
     text: PropTypes.string,
     url: PropTypes.string,
   })),
+  defaultItem: PropTypes.string,
 };
 
 export default Navigation;
