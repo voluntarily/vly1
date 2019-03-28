@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Divider } from 'antd';
+import { FormattedMessage } from 'react-intl';
 
 export class Landing extends Component {
 
@@ -28,7 +29,10 @@ export class Landing extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Voluntari.ly</h1>
+        <h1>
+          <FormattedMessage id="welcome" defaultMessage="Welcome to" description="First greeting on the landing page" />&nbsp;
+          <FormattedMessage id="siteTitle" />
+        </h1>
         <p>Big picture goes here</p>
         <Divider />
         <p>Call to action</p>

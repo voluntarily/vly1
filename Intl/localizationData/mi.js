@@ -5,9 +5,10 @@ export default {
   messages: {
     // header labels
     siteTitle: 'Voluntari.ly',
+    welcome: 'Nau mai',
     // menu labels
     switchLanguage: 'Whakawhiti Reo',
-
+    language: 'te reo Māori',
     // general buttons
     submit: 'Haere',
     cancel: 'Whakakore',

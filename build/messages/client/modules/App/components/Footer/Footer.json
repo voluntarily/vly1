@@ -1,0 +1,7 @@
+[
+  {
+    "id": "switchLanguage",
+    "description": "Label for menu item to switch between Engish and other languages",
+    "defaultMessage": "Switch Language"
+  }
+]

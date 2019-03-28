@@ -1,9 +1,31 @@
 {
-  "presets": ["react", "es2015", "stage-0"],
-  "plugins": ["react-hot-loader/babel"],
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
+  ],
   "env": {
+    "development": {
+      "plugins":[
+        "react-hot-loader/babel",
+        ["react-intl", {
+          "messagesDir": "./build/messages/",
+          "enforceDescriptions": true,
+        }]
+      ]
+    },
     "production": {
       "presets": ["es2015", "react", "react-optimize", "es2015-native-modules", "stage-0"]
     }
   }
 }
+
+// {
+//   "presets": ["react", "es2015", "stage-0"],
+//   "plugins": ["react-hot-loader/babel"],
+//   "env": {
+//     "production": {
+//       "presets": ["es2015", "react", "react-optimize", "es2015-native-modules", "stage-0"]
+//     }
+//   }
+// }

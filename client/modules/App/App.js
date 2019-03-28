@@ -9,7 +9,6 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 // Import Actions
-import { toggleAddPost, toggleAddOrg } from './AppActions';
 import { switchLanguage } from '../../modules/Intl/IntlActions';
 
 let DevTools;
@@ -28,12 +27,6 @@ export class App extends Component {
     this.setState({isMounted: true}); // eslint-disable-line
   }
 
-  toggleAddPostSection = () => {
-    this.props.toggleAddPost();
-  };
-  toggleAddOrgSection = () => {
-    this.props.toggleAddOrg();
-  };
   render() {
     return (
       <Layout>
@@ -67,16 +60,13 @@ export class App extends Component {
 }
 
 App.defaultProps = {
-  toggleAddOrg: () => {},
-  toggleAddPost: () => {},
+  // eslint-disable-next-line no-console
   switchLanguage: () => {},
 };
 
 App.propTypes = {
   children: PropTypes.object.isRequired,
   intl: PropTypes.object.isRequired,
-  toggleAddOrg: PropTypes.func,
-  toggleAddPost: PropTypes.func,
   switchLanguage: PropTypes.func,
 };
 
@@ -87,12 +77,4 @@ function mapStateToProps(store) {
   };
 }
 
-function mapDispatchToProps() {
-  return {
-    toggleAddPost,
-    toggleAddOrg,
-    switchLanguage,
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, { switchLanguage })(App);

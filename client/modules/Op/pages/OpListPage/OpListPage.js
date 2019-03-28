@@ -42,12 +42,20 @@ class OpListPage extends Component {
   render() {
     return (
       <div>
-        <h1><FormattedMessage id="opportunities" /></h1>
+        <h1>
+          <FormattedMessage
+            id="opportunities"
+            defaultMessage="Opportunities"
+            description="Title of page listing opportunities"
+          />
+        </h1>
         <div>
           {
             this.state.showCreateOpWidget
             ? <OpCreateWidget addOp={this.handleAddOp} cancelOp={this.handleCancelOp} />
-            : <Button.Primary onClick={this.handleOpCreate} ><FormattedMessage id="addOp" /></Button.Primary>
+            : <Button.Primary onClick={this.handleOpCreate} >
+              <FormattedMessage id="addOp" defaultMessage="New Opportunity" description="Button to create a new opportunity" />
+            </Button.Primary>
           }
         </div>
         <OpList

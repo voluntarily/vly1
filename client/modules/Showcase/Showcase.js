@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Select, Button, Divider } from 'antd';
+import { FormattedMessage } from 'react-intl';
 
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import andrewImg from './img/andrew.jpeg';
@@ -154,6 +155,14 @@ export class Showcase extends Component {
           value={selectedOption}
           onChange={this.handleChange}
           options={options}
+        />
+
+        <h2>Internationalisation</h2>
+        The current language is:
+        <FormattedMessage
+          id="language"
+          defaultMessage="English"
+          description="Name of the language"
         />
       </div>
     );

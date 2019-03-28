@@ -1,0 +1,7 @@
+[
+  {
+    "id": "language",
+    "description": "Name of the language",
+    "defaultMessage": "English"
+  }
+]

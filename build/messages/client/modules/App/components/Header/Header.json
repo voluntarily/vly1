@@ -1,0 +1,7 @@
+[
+  {
+    "id": "siteTitle",
+    "description": "Name of the Application on the menu bar",
+    "defaultMessage": "Voluntari.ly"
+  }
+]
