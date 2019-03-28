@@ -51,14 +51,15 @@ function flattenMessages(nestedMessages = {}, prefix = '') {
 // bring in intl polyfill, react-intl, and app-specific language data
 import 'intl/locale-data/jsonp/en';
 import en from 'react-intl/locale-data/en';
-import enData from './localizationData/en';
 addLocaleData(en);
+
+import enData from './localizationData/en';
 localizationData.en = enData;
 localizationData.en.messages = flattenMessages(localizationData.en.messages);
 
-// import 'intl/locale-data/jsonp/mi';
 import mi from 'react-intl/locale-data/mi';
-import miData from './localizationData/mi';
 addLocaleData(mi);
+
+import miData from './localizationData/mi';
 localizationData.mi = miData;
 localizationData.mi.messages = flattenMessages(localizationData.mi.messages);
