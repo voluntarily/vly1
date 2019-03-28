@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import { Menu } from 'antd';
 
-const Navigation = ({ items, defaultItem }) => {
-  const activeItem = window.location.pathname.slice(1) || defaultItem;
+const Navigation = ({ items, defaultItem, location }) => {
+  const activeItem = location.pathname ? location.pathname.slice(1) : defaultItem;
   return (
     <Menu
       theme="light"
@@ -24,6 +24,7 @@ const Navigation = ({ items, defaultItem }) => {
 Navigation.defaultProps = {
   items: [],
   defaultItem: '',
+  location: {},
 };
 
 Navigation.propTypes = {
@@ -33,6 +34,7 @@ Navigation.propTypes = {
     url: PropTypes.string,
   })),
   defaultItem: PropTypes.string,
+  location: PropTypes.object,
 };
 
-export default Navigation;
+export default withRouter(Navigation);
