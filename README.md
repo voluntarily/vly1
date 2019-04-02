@@ -150,6 +150,10 @@ There are docker configurations for both development and production.
 requires docker and docker compose
 For Mac install: https://hub.docker.com/editions/community/docker-ce-desktop-mac
 
+Note: If you are on a windows system that does not support HyperV, you will need to install [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)  
+If you use the Docker QuickStart shell shipped with Docker Toolbox, make sure you have cloned the repository somewhere underneath the Users directory for the Docker commands to work,  
+e.g. `C:\Users\YourName\..\..\vly1` is fine, `C:\code\vly1` is not. 
+
 To run docker for development:
 ```sh
 docker-compose build # re-run after changing dependencies
