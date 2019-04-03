@@ -91,6 +91,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(txt|md)$/i,
+        use: 'raw-loader',
+      },
     ],
   },
 

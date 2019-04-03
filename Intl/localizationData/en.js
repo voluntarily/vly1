@@ -4,7 +4,6 @@ export default {
     // header labels
     siteTitle: 'Voluntari.ly',
     welcome: 'Welcome to',
-    
     // menu labels
     switchLanguage: 'Switch Language',
     language: 'English',
