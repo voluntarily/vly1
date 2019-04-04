@@ -9,9 +9,7 @@ Support education and innovation in New Zealand Schools with indeustry experts a
 You don't need permission to help - its open. 
 
 This is an open source project and you are welcome to contribute at any level you feel comfortable. 
-Find out more about the project at the [Website](http://voluntari.ly) and read the
-
-
+Find out more about the project at the [Website](http://voluntari.ly) and then...
 
 1. Say hi or ask questions in the gitter chat room above
 2. email team@voluntari.ly to tell us about yourself
