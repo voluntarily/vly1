@@ -11,7 +11,7 @@ import IntlWrapper from './modules/Intl/IntlWrapper';
 import routes from './routes';
 
 // Base stylesheet
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.less';
 
 export default function App(props) {
   return (

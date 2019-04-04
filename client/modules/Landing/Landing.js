@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { Divider } from 'antd';
+import { Divider, Button, Input } from 'antd';
+const Search = Input.Search;
+
 import { FormattedMessage } from 'react-intl';
+import styles from './Landing.css';
+import bigimage from './landing-page-bg.jpg';
 
 export class Landing extends Component {
 
@@ -29,12 +33,39 @@ export class Landing extends Component {
   render() {
     return (
       <div>
-        <h1>
-          <FormattedMessage id="welcome" defaultMessage="Welcome to" description="First greeting on the landing page" />&nbsp;
-          <FormattedMessage id="siteTitle" />
-        </h1>
-        <p>Big picture goes here</p>
+        <div className={styles.hero} >
+          <img src={bigimage} alt="Welcome" />
+          <div className={styles.herocard} >
+            <h1>
+              <FormattedMessage id="BeAwesome" defaultMessage="Become a Volunteer" description="First call to action on the landing page" />
+            </h1>
+            <p>
+              <FormattedMessage
+                id="BeAwesomeSub"
+                defaultMessage="Volunteer your time to help the next generation of inventors accomplish epic projects."
+                description="Subheading for call to action on the landing page"
+              />
+            </p>
+            <Search
+              placeholder="try 'launching rockets' "
+              enterButton="Search"
+              size="large"
+              // eslint-disable-next-line no-console
+              onSearch={value => console.log(value)}
+            />
+            <br /><br />
+            <Button type="primary" shape="round" size="large" >
+              <FormattedMessage
+                id="BrowseRequests"
+                defaultMessage="Browse Requests"
+                description="Action button on landing page links to list of opportunities"
+              />
+            </Button>
+          </div>
+        </div>
         <Divider />
+        <FormattedMessage id="welcome" defaultMessage="Welcome to" description="First greeting on the landing page" />&nbsp;
+        <FormattedMessage id="siteTitle" />
         <p>Call to action</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud

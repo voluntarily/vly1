@@ -6,7 +6,7 @@ var cssnext = require('postcss-cssnext');
 var postcssFocus = require('postcss-focus');
 var postcssReporter = require('postcss-reporter');
 var cssnano = require('cssnano');
-
+console.log("loading webpack.config.prod.js");  
 module.exports = {
   devtool: 'hidden-source-map',
 

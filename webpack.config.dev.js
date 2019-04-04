@@ -1,7 +1,13 @@
-var webpack = require('webpack');
-var cssnext = require('postcss-cssnext');
-var postcssFocus = require('postcss-focus');
-var postcssReporter = require('postcss-reporter');
+const webpack = require('webpack');
+const cssnext = require('postcss-cssnext');
+const postcssFocus = require('postcss-focus');
+const postcssReporter = require('postcss-reporter');
+
+const path = require('path');
+const fs  = require('fs');
+const lessToJs = require('less-vars-to-js');
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './client/css/theme.less'), 'utf8'));
+console.log("loading webpack.config.dev.js");  
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -74,9 +80,29 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        test: /\.less$/,
+        use: [
+          {loader: "style-loader"},
+          {loader: "css-loader"},
+          {loader: "less-loader",
+            options: {
+              modifyVars: themeVariables,
+              root: path.resolve(__dirname, './'),
+              javascriptEnabled: true
+            }
+          }
+        ]
+      },
+      {
         test: /\.jsx*$/,
         exclude: [/node_modules/, /.+\.config.js/],
-        use: 'babel-loader',
+        use: [ 
+          {
+            loader: 'babel-loader',
+            options: {
+            }
+          }
+        ]
       },
       {
         test: /\.(jpe?g|gif|png|svg)$/i,

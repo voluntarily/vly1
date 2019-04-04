@@ -1,8 +1,19 @@
 .header {
-  /* background: #eee url('../../header-bk.png') center; */
   border: none;
-  border-bottom: 1px solid #eee;
-  height: 56px;
+  height: 56px !important;
+  padding: 0 0 !important;
+  line-height: 56px !important;
+  background: rgba(0,0,0,0.0) !important; 
+  z-index: 2;
+}
+
+
+.ant {
+  z-index: 1;
+  width: 100%;
+  background: black;
+  color: white;
+  padding: '10px 0 0 10px',
 }
 
 .content {
@@ -23,12 +34,16 @@
 
 .site-title a {
   text-decoration: none;
-  color: #111111;
+  color: white;
 }
 
 svg {
   float: left;
   margin: 0.5rem;
+}
+
+svg path {
+  fill: white;
 }
 @media (max-width: 767px){
   .add-post-button{

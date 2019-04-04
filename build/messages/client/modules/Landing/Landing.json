@@ -1,5 +1,20 @@
 [
   {
+    "id": "BeAwesome",
+    "description": "First call to action on the landing page",
+    "defaultMessage": "Become a Volunteer"
+  },
+  {
+    "id": "BeAwesomeSub",
+    "description": "Subheading for call to action on the landing page",
+    "defaultMessage": "Volunteer your time to help the next generation of inventors accomplish epic projects."
+  },
+  {
+    "id": "BrowseRequests",
+    "description": "Action button on landing page links to list of opportunities",
+    "defaultMessage": "Browse Requests"
+  },
+  {
     "id": "welcome",
     "description": "First greeting on the landing page",
     "defaultMessage": "Welcome to"
