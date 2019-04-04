@@ -58,8 +58,6 @@ export class Landing extends Component {
     alert('Card Clicked');
   }
 
- 
-
   render() {
     return (
       <div>
