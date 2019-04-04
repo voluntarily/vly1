@@ -13,15 +13,7 @@ import navItems from './navigation.json';
 // eslint-disable-next-line no-unused-vars
 export function Header(props) {
   return (
-    <Layout.Header
-      style={{
-        position: 'fixed',
-        zIndex: 1,
-        width: '100%',
-        background: 'white',
-        padding: '10px 0 0 10px',
-      }}
-    >
+    <Layout.Header className={styles.header}>
       <Vlogo />
       <h1 className={styles['site-title']}>
         <Link to="/" >

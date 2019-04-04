@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import OpportunityCard from './OpportunityCard/OpportunityCard';
+import { Row, Col } from 'antd';
 
 function OpList(props) {
   return (
-    <div>
+    <Row gutter={32}>
       {
         props.ops.map(op => (
-          <OpportunityCard
-            op={op}
-            key={op.cuid}
-          />
+          <Col span={8}>
+            <OpportunityCard
+              op={op}
+              key={op.cuid}
+            />
+          </Col>
         ))
       }
-    </div>
+    </Row>
   );
 }
-
 
 OpList.propTypes = {
   ops: PropTypes.arrayOf(PropTypes.shape({

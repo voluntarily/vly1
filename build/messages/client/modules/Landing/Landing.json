@@ -1,7 +1,37 @@
 [
   {
-    "id": "welcome",
-    "description": "First greeting on the landing page",
-    "defaultMessage": "Welcome to"
+    "id": "BeAwesome",
+    "description": "First call to action on the landing page",
+    "defaultMessage": "Become a Volunteer"
+  },
+  {
+    "id": "BeAwesomeSub",
+    "description": "Subheading for call to action on the landing page",
+    "defaultMessage": "Volunteer your time to help the next generation of inventors accomplish epic projects."
+  },
+  {
+    "id": "BrowseRequests",
+    "description": "Action button on landing page links to list of opportunities",
+    "defaultMessage": "Browse Requests"
+  },
+  {
+    "id": "SupportUs",
+    "description": "Sub heading for the call to action section of the landing page",
+    "defaultMessage": "Support Innovation in the classroom."
+  },
+  {
+    "id": "AboutUs",
+    "description": "body text of the about Voluntarily section.",
+    "defaultMessage": "Voluntarily is a platform that connects you with classrooms to teach science, technology, engineering, entrepreneurship, arts and design with the help of engaging content supplied by New Zealand’s leading innovators in educational content."
+  },
+  {
+    "id": "LearnMore",
+    "description": "Action button to learn more about Voluntari.ly",
+    "defaultMessage": "Learn More"
+  },
+  {
+    "id": "UpcomingOpportunities",
+    "description": "Section title on landing page before list of opportunities",
+    "defaultMessage": "Happening soon"
   }
 ]

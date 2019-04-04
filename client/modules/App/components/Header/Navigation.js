@@ -7,9 +7,9 @@ const Navigation = ({ items, defaultItem, location }) => {
   const activeItem = location.pathname ? location.pathname.slice(1) : defaultItem;
   return (
     <Menu
-      theme="light"
+      theme="dark"
       mode="horizontal"
-      style={{ float: 'right' }}
+      style={{ float: 'right', lineHeight: '64px' }}
       selectedKeys={[activeItem]}
     >
       {items.map(item => (

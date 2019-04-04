@@ -6,6 +6,12 @@ var cssModulesIdentName = '[name]__[local]__[hash:base64:5]';
 if (process.env.NODE_ENV === 'production') {
   cssModulesIdentName = '[hash:base64]';
 }
+// handle antd theme overrides
+const path = require('path');
+const fs  = require('fs');
+const lessToJs = require('less-vars-to-js');
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './client/css/theme.less'), 'utf8'));
+console.log("loading webpack.config.babel.js...");  
 
 module.exports = {
   output: {
@@ -67,6 +73,20 @@ module.exports = {
       {
         test: /\.(txt|md)$/i,
         use: 'raw-loader',
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {loader: "style-loader"},
+          {loader: "css-loader"},
+          {loader: "less-loader",
+            options: {
+              modifyVars: themeVariables,
+              root: path.resolve(__dirname, './'),
+              javascriptEnabled: true
+            }
+          }
+        ]
       },
     ],
   },

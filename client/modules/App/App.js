@@ -47,7 +47,7 @@ export class App extends Component {
           ]}
         />
         <Header intl={this.props.intl} />
-        <Layout.Content style={{ padding: '5.8em 4em 2em' }}>
+        <Layout.Content >
           {this.props.children}
         </Layout.Content>
         <Footer
