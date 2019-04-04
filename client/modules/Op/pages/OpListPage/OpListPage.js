@@ -29,7 +29,7 @@ class OpListPage extends Component {
   };
 
   handleDeleteOp = op => {
-    if (confirm('Do you want to delete this opportunities')) { // eslint-disable-line
+    if (confirm('Do you want to delete this opportunity')) { // eslint-disable-line
       this.props.dispatch(deleteOpRequest(op));
     }
   };
