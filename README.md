@@ -3,19 +3,63 @@
 [![Join the chat at https://gitter.im/voluntarily/vly1](https://badges.gitter.im/voluntarily/vly1.svg)](https://gitter.im/voluntarily/vly1?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
-Support education and innovation in New Zealand Schools with experts in the classrooms
-- [Website](http://voluntari.ly)
-- [Documentation](https://voluntarily.github.io/vly_devnet/)
+Support education and innovation in New Zealand Schools with indeustry experts and volunteers in the classrooms
 
-## Quickstart
-Pull the code base 
+# I want to join the Voluntari.ly community
+You don't need permission to help - its open. 
 
-**Note : Please make sure your MongoDB is running.** For MongoDB installation guide see [this](https://docs.mongodb.org/v3.0/installation/). Also `npm6` is required to install dependencies properly.
-However, Using Docker is cleaner and simpler - see below.
+This is an open source project and you are welcome to contribute at any level you feel comfortable. 
+Find out more about the project at the [Website](http://voluntari.ly) and read the
 
-## Available Commands
 
-1. `npm run start` - starts the development server with hot reloading enabled
+
+1. Say hi or ask questions in the gitter chat room above
+2. email team@voluntari.ly to tell us about yourself
+3. [Start Reading documentation](https://voluntarily.atlassian.net/wiki/spaces/VP/overview)
+4. Build the code - below
+5. Add yourself to the CONTRIBUTORS file, check it in and send us a pull request - see this ticket [VP-82](https://voluntarily.atlassian.net/browse/VP-82)
+6. Come along to a Drop in Wednesday Afternoon or after work social at our [Auckland office](https://www.google.com/maps/place/GridAKL+%2F+12+Madden+Street/@-36.8422465,174.7544368,17z/data=!4m8!1m2!2m1!1sLevel+4,+GridAKL+%2F+12+Madden+Street,+Auckland!3m4!1s0x6d0d47f4308f4055:0xdaad42988e8b5216!8m2!3d-36.842294!4d174.756654)
+7. Come along to one of our developer events - see http://voluntari.ly for the latest details.
+
+# Just let me build it
+
+Voluntari.ly is based on the [MERN (MongoDB, Express, React+Redux, Node)](http://mern.io/) software stack and everything should work out of the box. There are two choices: 
+
+1. install NodeJS and MongoDB and run locally.
+2. install Docker and run in a container. 
+
+## Install NodeJS and MongoDB and run locally.
+
+### Prerequisites
+You will need:
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+You may already have it. Verify with `git --version` 
+
+* [nodejs](https://nodejs.org/en/download/). 
+Verify this with `node -v` which should return a current version. e.g. v11.12.0
+
+You will also need to be connected to the Internet and be prepared for some downloads. (sometimes corporate firewalls make this difficult - go get a coffee and use theirs.)
+
+* [MongoDB](https://docs.mongodb.com/manual/installation/)
+or setup a [free account in the cloud](https://cloud.mongodb.com) - but if you do this you will need to change the `MONGO_URL=mongodb://localhost:27017/vly-test` connection string in your environment or in package.json to point at your cloud URL.
+  
+For mac users `brew install mongodb` should be all you need to do.
+
+* start the mongodb service
+
+`mongod`
+
+### Get the Voluntari.ly source code
+
+    git clone https://github.com/voluntarily/vly1.git
+    cd vly1
+    npm install
+
+npm install may take several minutes as it pulls in all the dependent packages. 
+
+### Available Commands
+
+1. `npm start` - starts the development server with hot reloading enabled
 
 2. `npm run bs` - bundles the code and starts the production server
 
@@ -27,7 +71,47 @@ However, Using Docker is cleaner and simpler - see below.
 
 6. `npm run lint` - runs linter to check for lint errors
 
-## File Structure
+When you run `npm start` it will take a couple of minutes to start up and there's a pause when nothing seems to be happening - be patient, webpack and babel are processing all the files. 
+Once you see the message "Voluntari.ly is running on port: 8000! Be Awesome!" then you can open your browser at http://localhost:8000.
+
+If you see the message "Please make sure Mongodb is installed and running!"  then go back and start mongod. 
+
+Press control+C to exit the node application. 
+
+## Install Docker and run in a container.
+You can use this option if you quickly want to see what the application looks like.
+
+You will need:
+* [Docker](https://docs.docker.com/get-started/)
+
+### Get the source code
+
+    git clone https://github.com/voluntarily/vly1.git
+    cd vly1
+    npm install
+
+### Start the Containers
+
+    docker-compose up -d --build
+
+Note this may take a few minutes the first time you run it as it will download some images.
+Also once the command returns the services are still starting up so it will be a minute before you can visit the webpage.
+
+### You are in.
+* Open your web browser at http://localhost:8000/
+
+You will now be able to see the voluntari.ly application (if not then ask for help on our [![gitter](https://badges.gitter.im/voluntarily/vly1.svg)](https://gitter.im/voluntarily/vly1?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) channel.
+
+### Stopping
+To halt the containers run:
+
+    docker-compose down 
+
+More information at [Using Docker and Docker Compose](https://voluntarily.atlassian.net/wiki/spaces/VP/pages/9044043/Using+Docker+and+Docker+Compose)
+
+
+
+# File Structure
 
 ### Webpack Configs
 
@@ -143,37 +227,3 @@ Assets can be kept where you want and can be imported into your js files or css 
 
 ### ES6 support
 We use babel to transpile code in both server and client with `stage-0` plugin. So, you can use both ES6 and experimental ES7 features.
-
-### Docker
-There are docker configurations for both development and production.
-
-requires docker and docker compose
-For Mac install: https://hub.docker.com/editions/community/docker-ce-desktop-mac
-
-Note: If you are on a windows system that does not support HyperV, you will need to install [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)  
-If you use the Docker QuickStart shell shipped with Docker Toolbox, make sure you have cloned the repository somewhere underneath the Users directory for the Docker commands to work,  
-e.g. `C:\Users\YourName\..\..\vly1` is fine, `C:\code\vly1` is not. 
-
-To run docker for development:
-```sh
-docker-compose build # re-run after changing dependencies
-docker-compose up # run in background.
-docker-compose up -d # run in background.
-docker-compose stop # stop from background
-docker-compose log -f # follow logfiles.
-```
-or, if you want to override the web port:
-```sh
-WEB_PORT=<your_custom_port> docker-compose up
-```
-
-To run docker for production:
-```sh
-docker-compose -f docker-compose-production.yml up --build
-```
-
-To reset the database:
-```sh
-docker-compose down --volumes
-```
-
