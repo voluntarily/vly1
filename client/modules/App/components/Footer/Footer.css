@@ -32,11 +32,9 @@ ul.menu  {
   /* float: left; */
 }
 
-.menu li:first-child {
-  /* color: rgba(256,256,256, 0.7); */
-}
 
 .selected {
-  columns: white;
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid #6549AA;
+  color: #6549AA;
+  font-weight: bold;
 }

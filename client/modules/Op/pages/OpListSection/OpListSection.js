@@ -1,7 +1,7 @@
 /*
   Smart component. Given a filter gets a list of opportunities
   and displays them in a grid. Clicking on a panel links to a
-  details page. 
+  details page.
 */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -24,11 +24,6 @@ class OpListSection extends Component {
   componentDidMount() {
     this.props.dispatch(fetchOps());
   }
-
-  // handleAddOp = (name, about, type) => {
-  //   this.setState({ showCreateOpWidget: false });
-  //   this.props.dispatch(addOpRequest({ name, about, type }));
-  // };
 
   render() {
     return (
@@ -60,9 +55,5 @@ OpListSection.propTypes = {
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
-
-// OpListSection.contextTypes = {
-//   router: PropTypes.object,
-// };
 
 export default connect(mapStateToProps)(OpListSection);

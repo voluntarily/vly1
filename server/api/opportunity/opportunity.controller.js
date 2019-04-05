@@ -29,7 +29,7 @@ export function addOpportunity(req, res) {
     res.status(403).end();
     return;
   }
-  
+
   const newOpportunity = new Opportunity(req.body.opportunity);
 
   // Let's sanitize inputs
