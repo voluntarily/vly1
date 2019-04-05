@@ -9,9 +9,11 @@ const argv = require('yargs')
   .alias('h', 'help')
   .argv;
 
+const API_URL = process.env.VLY_URL || 'http://localhost:8000';
+
 const postOp = Op => {
   console.log(Op);
-  axios.post('http://localhost:8000/api/opportunities', Op)
+  axios.post(`${API_URL}/api/opportunities`, Op)
   .then((response) => {
     console.log(response.data);
   })
