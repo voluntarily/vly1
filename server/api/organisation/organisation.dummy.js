@@ -1,7 +1,7 @@
 import Organisation from './organisation';
 
 export default function () {
-  Organisation.count().exec((err, count) => {
+  Organisation.estimatedDocumentCount().exec((err, count) => {
     if (count > 0) {
       return;
     }

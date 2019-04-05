@@ -1,11 +1,10 @@
 .footer{
-  padding: 3em 0;
+  padding: 3em;
   background-size: cover;
   background-color: #f4f4f4;
 }
 
 .footer span {
-  margin: 0 1rem;
   font-size: 14px;
   color: #111;
 }
@@ -20,7 +19,7 @@ ul.menu  {
   float: right;
   list-style: none;
   /* width: 980px; */
-  margin: 0 1rem 0 0;
+  margin: 0 5rem 0 0;
   padding: 0;
   text-align: right;
 }
@@ -29,14 +28,13 @@ ul.menu  {
   display: inline-block;
   padding-right: 0.5rem;
   cursor: pointer;
-  color: #111;
+  /* color: #111; */
   /* float: left; */
 }
 
-.menu li:first-child {
-  color: rgba(1,1,1, 0.7);
-}
 
 .selected {
-  border-bottom: 3px solid #111;
+  border-bottom: 3px solid #6549AA;
+  color: #6549AA;
+  font-weight: bold;
 }

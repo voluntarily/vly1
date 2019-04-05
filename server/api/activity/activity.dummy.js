@@ -1,7 +1,7 @@
 import Activity from './activity';
 
 export default function () {
-  Activity.count().exec((err, count) => {
+  Activity.estimatedDocumentCount().exec((err, count) => {
     if (count > 0) {
       return;
     }

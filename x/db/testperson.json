@@ -1,1 +1,7 @@
-{"person":{"name":"Testy McTestface","email":"testy@voluntar.ly","role":"tester"}}
+{
+  "person": {
+    "name": "Testy McTestface",
+    "email": "testy@voluntar.ly",
+    "role": "tester"
+  }
+}
