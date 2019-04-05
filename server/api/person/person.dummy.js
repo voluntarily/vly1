@@ -1,7 +1,7 @@
 import Person from './person';
 
 export default function () {
-  Person.count().exec((err, count) => {
+  Person.estimatedDocumentCount().exec((err, count) => {
     if (count > 0) {
       return;
     }

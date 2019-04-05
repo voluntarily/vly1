@@ -1,40 +1,14 @@
-import React, { Component } from 'react';
+import { Button, Col, Input, Row } from 'antd';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { Button, Input, Row, Col, Menu } from 'antd';
+import OpListSection from '../Op/pages/OpListSection/OpListSection';
+import bigimage from './landing-page-bg.jpg';
+import styles from './Landing.css';
+import schoolsactivity from './schoolsactivity.png';
 
 const Search = Input.Search;
-
-import { FormattedMessage } from 'react-intl';
-import styles from './Landing.css';
-import bigimage from './landing-page-bg.jpg';
-import schoolsactivity from './schoolsactivity.png';
-import OpList from '../Op/components/OpList';
-
-// TODO replace this with getOps Action
-const mockOps = [
-  {
-    cuid: '5c951c0a-3e91-436a-81ae-59ede453672a',
-    title: 'Growing in the garden',
-    subtitle: 'Growing digitally in the garden',
-    imgUrl: 'https://image.flaticon.com/icons/svg/206/206857.svg',
-    description: 'Project to grow something in the garden',
-    duration: '15 Minutes',
-    location: 'Newmarket, Auckland',
-    status: 'draft',
-  },
-  {
-    cuid: '5c951c0a-3e91-436a-81ae-59ede453672b',
-    title: 'The first 100 metres',
-    subtitle: 'Launching into space',
-    imgUrl: 'https://image.flaticon.com/icons/svg/206/206857.svg',
-    description: 'Project to build a simple rocket that will reach 100m',
-    duration: '2 hours',
-    location: 'Albany, Auckland',
-    status: 'draft',
-  },
-];
 
 export class Landing extends Component {
 
@@ -132,21 +106,11 @@ export class Landing extends Component {
                 description="Section title on landing page before list of opportunities"
               />
             </h2>
-            <OpList
-              ops={mockOps}
-            />
+            <OpListSection />
           </section>
         </div>
 
-        <nav>
-          <Menu mode="horizontal" theme="dark" >
-            <Menu.Item><Link to="/acts" >Activities</Link></Menu.Item>
-            <Menu.Item><Link to="/ops" >Opportunities</Link></Menu.Item>
-            <Menu.Item><Link to="/people" >People</Link></Menu.Item>
-            <Menu.Item><Link to="/orgs" >Organisations</Link></Menu.Item>
-            <Menu.Item><Link to="/showcase" >Showcase</Link></Menu.Item>
-          </Menu>
-        </nav>
+
       </div>
     );
   }
