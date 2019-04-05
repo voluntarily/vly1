@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Card } from 'antd';
+import { FormattedMessage } from 'react-intl';
 
 // todo if image is not present then use a fallback.
 const OpportunityCard = ({ op, onPress, ...props }) => (
@@ -15,13 +16,20 @@ const OpportunityCard = ({ op, onPress, ...props }) => (
       {...props}
     >
       <Card.Meta
-        title={(
-          <h1>{op.title}
-            <small>{op.subtitle}</small>
-          </h1>
-        )}
-        description={<p>{op.duration} commitment</p>}
+        title={op.title}
+        description={op.subtitle}
       />
+      <br />
+      <p>
+        {op.duration}&nbsp;
+        <FormattedMessage
+          id="commitment"
+          defaultMessage="commitment"
+          description="label in opportunity e.g 2 hours commitment"
+        />
+        <br />
+        {op.location}
+      </p>
     </Card>
   </Link>
 );

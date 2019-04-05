@@ -8,7 +8,7 @@ function OpList(props) {
     <Row gutter={32}>
       {
         props.ops.map(op => (
-          <Col span={8}>
+          <Col span={8} key={op.cuid} >
             <OpportunityCard
               op={op}
               key={op.cuid}
@@ -28,7 +28,6 @@ OpList.propTypes = {
     duration: PropTypes.string,
     cuid: PropTypes.string.isRequired,
   })).isRequired,
-  handleDeleteOp: PropTypes.func.isRequired,
 };
 
 export default OpList;

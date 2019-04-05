@@ -1,7 +1,7 @@
 import Post from './post';
 
 export default function () {
-  Post.count().exec((err, count) => {
+  Post.estimatedDocumentCount().exec((err, count) => {
     if (count > 0) {
       return;
     }

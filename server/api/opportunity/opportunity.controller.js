@@ -27,8 +27,9 @@ export function getOpportunities(req, res) {
 export function addOpportunity(req, res) {
   if (!req.body.opportunity.title || !req.body.opportunity.duration || !req.body.opportunity.status) {
     res.status(403).end();
+    return;
   }
-
+  
   const newOpportunity = new Opportunity(req.body.opportunity);
 
   // Let's sanitize inputs
