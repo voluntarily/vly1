@@ -5,8 +5,6 @@ import {
   Modal,
   Form,
   Input,
-  Icon,
-  Tooltip,
 } from 'antd';
 import './Login.css';
 
@@ -22,7 +20,6 @@ class Login extends Component {
 
     this.close = this.close.bind(this);
     this.submit = this.submit.bind(this);
-    this.togglePasswordVisibility = this.togglePasswordVisibility.bind(this);
   }
 
   close() {
@@ -57,45 +54,35 @@ class Login extends Component {
         title="Log in"
         className="login-form"
         visible={this.state.visible}
-        closable
-        mask
         maskClosable={false}
         onCancel={this.close}
         onOk={this.submit}
         confirmLoading={this.state.submitting}
+        closable
+        mask
       >
-        <Form onSubmit={this.submit}>
-          <Form.Item
-            label="Username"
-          >
+        <Form
+          onSubmit={this.submit}
+          hideRequiredMark
+          colon={false}
+        >
+          <Form.Item label="Username">
             {getFieldDecorator('username', {
               rules: [
                 { required: true, message: 'Please input a user name' },
                 { type: 'email', message: 'Please enter a valid email address' },
               ],
-            })(<Input type="email" />)}
+            })(<Input type="email" placeholder="Enter email address" />)}
           </Form.Item>
 
-          <Form.Item
-            label="Password"
-          >
+          <Form.Item label="Password">
             {getFieldDecorator('password', {
               rules: [
                 { required: true, message: 'Please input a password' },
                 { min: 12, message: 'Please enter at least 12 characters' },
               ],
             })(
-              <Input
-                type={this.state.passwordVisible ? 'text' : 'password'}
-                addonAfter={(
-                  <Tooltip title={this.state.passwordVisible ? 'Hide password' : 'Show password'}>
-                    <Icon
-                      type={this.state.passwordVisible ? 'eye-invisible' : 'eye'}
-                      onClick={this.togglePasswordVisibility}
-                    />
-                  </Tooltip>
-                )}
-              />
+              <Input.Password placeholder="Enter password" />
             )}
           </Form.Item>
         </Form>
