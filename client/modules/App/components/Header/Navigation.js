@@ -9,7 +9,7 @@ const Navigation = ({ items, defaultItem, location }) => {
     <Menu
       theme="dark"
       mode="horizontal"
-      style={{ float: 'right', lineHeight: '64px' }}
+      style={{ float: 'right' }}
       selectedKeys={[activeItem]}
     >
       {items.map(item => (

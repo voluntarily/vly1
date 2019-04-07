@@ -84,7 +84,7 @@ export class Landing extends Component {
                     description="body text of the about Voluntarily section."
                   />
                 </p>
-                <Button type="primary" shape="round" size="large" >
+                <Button type="primary" shape="round" size="large" href="/about" >
                   <FormattedMessage
                     id="LearnMore"
                     defaultMessage="Learn More"

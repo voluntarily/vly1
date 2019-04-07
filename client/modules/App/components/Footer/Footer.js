@@ -32,9 +32,7 @@ export function Footer(props) {
           </li>
           {languageNodes}
         </ul>
-        <p>Voluntari.ly is an initiative of the <a href="https://www.pamfergusson.org.nz/"> Pam Fergsusson Charitable Trust></a>
- Supported by: Datacom, Spark, ATEED
-        </p>
+        <p>Voluntari.ly is an initiative of the <a href="https://www.pamfergusson.org.nz/"> Pam Fergusson Charitable Trust.</a>&nbsp;Supported by: Datacom, Spark, ATEED</p>
       </div>
     </Layout.Footer>
   );

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Select, Button, Divider } from 'antd';
+
 import Markdown from 'markdown-to-jsx';
 import { FormattedMessage } from 'react-intl';
 
@@ -21,7 +22,7 @@ import img9 from '../../components/CategoryCard/img/img9.png';
 import imgA from '../../components/CategoryCard/img/imgA.png';
 import imgB from '../../components/CategoryCard/img/imgB.png';
 import imgC from '../../components/CategoryCard/img/imgC.png';
-import markdown from './markdown-example.md';
+import markdownContent from './markdown-example.md';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -108,9 +109,6 @@ export class Showcase extends Component {
           <li>Go to work</li>
         </ol>
 
-        {/* <Markdown options={{ forceBlock: true }} >## Markdown - This should be heading 2 </Markdown>
-        <Markdown>Markdown - A Sentence with _emphasis_ and __more emphasis__. </Markdown>
-         */}
 
         <h2>Images</h2>
         <img src={andrewImg} alt="Andrew Watkins" />
@@ -173,8 +171,13 @@ export class Showcase extends Component {
           description="Name of the language"
         />
 
-        <h1>More Markdown from a file</h1>
-        <Markdown>{markdown}</Markdown>
+        <h1>Markdown examples</h1>
+        <h2>Inline</h2>
+        <Markdown options={{ forceBlock: true }} >## Markdown - This should be heading 2 </Markdown>
+        <Markdown>Markdown - A Sentence with _emphasis_ and __more emphasis__. </Markdown>
+        
+        <h2>More Markdown from a file</h2>
+        <Markdown>{markdownContent}</Markdown>
       </div>
     );
   }
