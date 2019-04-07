@@ -3,7 +3,7 @@
 [![Join the chat at https://gitter.im/voluntarily/vly1](https://badges.gitter.im/voluntarily/vly1.svg)](https://gitter.im/voluntarily/vly1?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
-Support education and innovation in New Zealand Schools with indeustry experts and volunteers in the classrooms
+Support education and innovation in New Zealand Schools with industry experts and volunteers in the classrooms
 
 # I want to join the Voluntari.ly community
 You don't need permission to help - its open. 
