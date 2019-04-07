@@ -3,10 +3,9 @@
   height: 56px !important;
   padding: 0 0 !important;
   line-height: 56px !important;
-  background: rgba(0,0,0,0.0) !important; 
+  /* background: rgba(0,0,0,0.0) !important;  */
   z-index: 2;
 }
-
 
 .ant {
   z-index: 1;

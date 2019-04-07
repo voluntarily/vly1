@@ -6,7 +6,13 @@ var cssnext = require('postcss-cssnext');
 var postcssFocus = require('postcss-focus');
 var postcssReporter = require('postcss-reporter');
 var cssnano = require('cssnano');
-console.log("loading webpack.config.prod.js");  
+console.log("loading webpack.config.prod.js"); 
+
+const path = require('path');
+const fs  = require('fs');
+const lessToJs = require('less-vars-to-js');
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './client/css/theme.less'), 'utf8'));
+
 module.exports = {
   devtool: 'hidden-source-map',
 
@@ -90,6 +96,20 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {loader: "style-loader"},
+          {loader: "css-loader"},
+          {loader: "less-loader",
+            options: {
+              modifyVars: themeVariables,
+              root: path.resolve(__dirname, './'),
+              javascriptEnabled: true
+            }
+          }
+        ]
       },
       {
         test: /\.(txt|md)$/i,

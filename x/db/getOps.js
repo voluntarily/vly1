@@ -11,4 +11,7 @@ const getData = async url => {
   }
 };
 
-getData('http://localhost:8000/api/opportunities');
+const API_URL = process.env.VLY_URL || 'http://localhost:8000';
+
+// eslint-disable-next-line prefer-template
+getData(API_URL + '/api/opportunities');

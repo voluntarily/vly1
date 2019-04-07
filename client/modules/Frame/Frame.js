@@ -1,7 +1,10 @@
+/* Wrapper for the main content section between header and footer
+*/
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import styles from './Frame.css';
 
 export class Frame extends Component {
   constructor(props) {
@@ -15,7 +18,7 @@ export class Frame extends Component {
 
   render() {
     return (
-      <div className="frame">
+      <div className={styles.frame} >
         {this.props.children}
       </div>
     );

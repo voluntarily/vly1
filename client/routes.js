@@ -29,6 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Person/pages/PersonDetailPage/PersonDetailPage');
   require('./modules/Showcase/Showcase');
   require('./modules/Landing/Landing');
+  require('./modules/About/About');
 }
 
 // react-router setup with code-splitting
@@ -140,7 +141,15 @@ export default (
           });
         }}
       />
-
+    </Route>
+    <Route path="/about" component={Frame} >
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/About/About').default);
+          });
+        }}
+      />
     </Route>
   </Route>
 
