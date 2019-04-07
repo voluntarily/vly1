@@ -26,10 +26,12 @@ We are always looking for more developers to join the open source development of
 
 <Button.Primary href="https://github.com/voluntarily/vly1">Help Build the Platform</Button>
 
+
 ## Volunteers 
 We're looking for volunteers of all types - If you’re keen to get involved fill in the form below saying what you want to do and we’ll get back in touch with you asap :)
 
 <Button.Secondary href="https://voluntari.ly/become-a-volunteer">Become a Volunter</Button>
+
 
 ## Sponsorship 
 Donations and long term support will allow us to get voluntari.ly working sooner and be more effective in the lives of NZ young people
