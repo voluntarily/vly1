@@ -14,7 +14,7 @@ import navItems from './navigation.json';
 export function Header(props) {
   return (
     <Layout.Header className={styles.header}>
-      <Vlogo />
+      <Vlogo fill="#fff" />
       <h1 className={styles['site-title']}>
         <Link to="/" >
           <FormattedMessage

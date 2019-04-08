@@ -55,7 +55,7 @@ export class App extends Component {
           switchLanguage={lang => this.props.switchLanguage(lang)}
           intl={this.props.intl}
         />
-        <Login visible />
+        <Login />
       </Layout>
     );
   }

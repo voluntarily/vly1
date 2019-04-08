@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
 import {
   Modal,
   Form,
   Input,
 } from 'antd';
+import { toggleLoginForm } from '../../AppActions';
 import './Login.css';
 
+// TODO
+// - internationalisation
+// - api call for authentication
 class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      visible: true,
       submitting: false,
-      passwordVisible: false,
     };
 
     this.close = this.close.bind(this);
@@ -23,9 +26,7 @@ class Login extends Component {
   }
 
   close() {
-    this.setState({
-      visible: false,
-    });
+    this.props.toggleLoginForm();
   }
 
   submit(e) {
@@ -41,19 +42,13 @@ class Login extends Component {
     });
   }
 
-  togglePasswordVisibility() {
-    this.setState({
-      passwordVisible: !this.state.passwordVisible,
-    });
-  }
-
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
       <Modal
         title="Log in"
         className="login-form"
-        visible={this.state.visible}
+        visible={this.props.showLoginForm}
         maskClosable={false}
         onCancel={this.close}
         onOk={this.submit}
@@ -92,9 +87,18 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  visible: PropTypes.bool,
   intl: PropTypes.object,
   form: PropTypes.object,
+  toggleLoginForm: PropTypes.func,
+  showLoginForm: PropTypes.bool,
 };
 
-export default Form.create()(Login);
+const mapStateToProps = state => ({
+  showLoginForm: state.app.showLoginForm,
+});
+
+const mapDispatchToProps = {
+  toggleLoginForm,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(Login));
