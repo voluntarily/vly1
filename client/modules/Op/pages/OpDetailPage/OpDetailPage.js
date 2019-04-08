@@ -1,36 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
-// import { FormattedMessage } from 'react-intl';
+import OpDetail from '../../components/OpDetail/OpDetail';
+import { Button } from 'antd';
+import { FormattedMessage } from 'react-intl';
 
-// Import Style
-// import styles from '../../components/OpListItem/OpListItem.css';
-
-// Import Actions
-import { fetchOp } from '../../OpActions';
-
-// Import Selectors
+// Import Actions & Selectors
+import { fetchOp, deleteOpRequest } from '../../OpActions';
 import { getOp } from '../../OpReducer';
 
-export function OpDetailPage({ op }) {
-  return (
-    <div>
-      <Helmet title={op.title} />
-      <h1>{op.title}
-        <small>{op.subtitle}</small>
-      </h1>
-      <dl>
-        <dt>imgUrl</dt><dd>{op.imgUrl}</dd>
-        <dt>description</dt><dd>{op.description}</dd>
-        <dt>duration</dt><dd>{op.duration}</dd>
-        <dt>location</dt><dd>{op.location}</dd>
-        <dt>status</dt><dd>{op.status}</dd>
-        <dt>cuid</dt><dd>{op.cuid}</dd>
-      </dl>
-    </div>
-  );
+export class OpDetailPage extends Component {
+  handleDeleteOp = op => {
+    if (confirm('Do you want to delete this request')) { // eslint-disable-line
+      deleteOpRequest(op.cuid);
+      // return to a previous page - but where did we originate?
+      this.props.history.push('/');
+    }
+  };
+
+  render() {
+    return (
+      <article>
+        <OpDetail op={this.props.op} />
+        <h2>Action buttons here depend on user role</h2>
+        <Button type="danger" onClick={this.handleDeleteOp} >
+          <FormattedMessage id="deleteOp" defaultMessage="Remove Request" description="Button to remove an opportunity on OpDetails page" />
+        </Button>
+      </article>
+    );
+  }
 }
+
 
 // Actions required to provide data for this component to render in server side.
 OpDetailPage.need = [params => {
