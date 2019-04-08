@@ -14,7 +14,7 @@ export class OpDetailPage extends Component {
     if (confirm('Do you want to delete this request')) { // eslint-disable-line
       deleteOpRequest(op.cuid);
       // return to a previous page - but where did we originate?
-      this.props.history.push('/');
+      // this.props.history.push('/');
     }
   };
 
