@@ -7,6 +7,7 @@ import { Layout } from 'antd';
 import Helmet from 'react-helmet';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
 
 // Import Actions
 import { switchLanguage } from '../../modules/Intl/IntlActions';
@@ -54,6 +55,7 @@ export class App extends Component {
           switchLanguage={lang => this.props.switchLanguage(lang)}
           intl={this.props.intl}
         />
+        <Login />
       </Layout>
     );
   }

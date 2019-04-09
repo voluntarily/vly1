@@ -30,3 +30,11 @@ export function toggleAddPerson() {
     type: TOGGLE_ADD_PERSON,
   };
 }
+
+export const TOGGLE_LOGIN_FORM = 'TOGGLE_LOGIN_FORM';
+
+export function toggleLoginForm() {
+  return {
+    type: TOGGLE_LOGIN_FORM,
+  };
+}

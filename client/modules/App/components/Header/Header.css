@@ -41,9 +41,6 @@ svg {
   margin: 0.5rem;
 }
 
-svg path {
-  fill: white;
-}
 @media (max-width: 767px){
   .add-post-button{
     float: left;
