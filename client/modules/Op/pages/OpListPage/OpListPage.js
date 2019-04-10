@@ -10,7 +10,7 @@ import OpList from '../../components/OpList';
 // Import Actions
 import { addOpRequest, deleteOpRequest, fetchOps } from '../../OpActions';
 import { getOps } from '../../OpReducer';
-import * as Button from '../../../../components/Button/Button';
+import { Button } from 'antd';
 
 class OpListPage extends Component {
   constructor(props) {
@@ -53,9 +53,9 @@ class OpListPage extends Component {
           {
             this.state.showCreateOpWidget
             ? <OpCreateWidget addOp={this.handleAddOp} cancelOp={this.handleCancelOp} />
-            : <Button.Primary onClick={this.handleOpCreate} >
+            : <Button type="primary" onClick={this.handleOpCreate} >
               <FormattedMessage id="addOp" defaultMessage="New Opportunity" description="Button to create a new opportunity" />
-            </Button.Primary>
+            </Button>
           }
         </div>
         <OpList

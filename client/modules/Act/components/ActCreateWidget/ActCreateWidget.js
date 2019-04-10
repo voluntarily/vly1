@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import Select from 'react-select';
-import * as Button from '../../../../components/Button/Button';
+import { Button } from 'antd';
+
 
 // Import Style
 import styles from './ActCreateWidget.css';
@@ -57,8 +58,8 @@ export class ActCreateWidget extends Component {
             placeholder={this.props.intl.messages.actType}
             title="actTypeSelect"
           />
-          <Button.Primary className="submitAct" onClick={this.addAct} ><FormattedMessage id="submit" /></Button.Primary>
-          <Button.Secondary className="cancelAct" onClick={this.cancelAct} ><FormattedMessage id="cancel" /></Button.Secondary>
+          <Button type="primary" className="submitAct" onClick={this.addAct} ><FormattedMessage id="submit" /></Button>
+          <Button type="secondary" className="cancelAct" onClick={this.cancelAct} ><FormattedMessage id="cancel" /></Button>
         </div>
       </div>
     );
