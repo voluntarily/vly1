@@ -1,0 +1,7 @@
+[
+  {
+    "id": "deleteOp",
+    "description": "Button to remove an opportunity on OpDetails page",
+    "defaultMessage": "Remove Request"
+  }
+]

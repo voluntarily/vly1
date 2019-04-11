@@ -27,7 +27,15 @@ export function addOpRequest(op) {
         duration: op.duration,
         location: op.location,
       },
-    }).then(res => dispatch(addOp(res.opportunities)));
+    }).then((res, err) => {
+      if (err) {
+        // console.log('invalid cuid', err);
+      } else {
+        if (res.opportunities) {
+          dispatch(addOp(res.opportunities));
+        }
+      }
+    });
   };
 }
 
@@ -53,7 +61,17 @@ export function fetchOps() {
 export function fetchOp(cuid) {
   return (dispatch) => {
     return callApi(`opportunities/${cuid}`)
-      .then(res => dispatch(addOp(res.opportunities)));
+      .then((res, err) => {
+        if (err) {
+          // console.log('invalid cuid', err);
+        } else {
+          // res could be a 404 etc. check success
+          if (res.opportunity) {
+            dispatch(addOp(res.opportunity));
+          }
+        }
+      }
+    );
   };
 }
 
@@ -66,6 +84,7 @@ export function deleteOp(cuid) {
 
 export function deleteOpRequest(cuid) {
   return (dispatch) => {
-    return callApi(`opportunities/${cuid}`, 'delete').then(() => dispatch(deleteOp(cuid)));
+    return callApi(`opportunities/${cuid}`, 'delete')
+    .then(() => dispatch(deleteOp(cuid)));
   };
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import Select from 'react-select';
-import * as Button from '../../../../components/Button/Button';
+import { Button } from 'antd';
 
 // Import Style
 import styles from './OrgCreateWidget.css';
@@ -57,20 +57,20 @@ export class OrgCreateWidget extends Component {
             placeholder={this.props.intl.messages.orgType}
             name="orgTypeSelect"
           />
-          <Button.Primary className="submitOrg" onClick={this.addOrg} >
+          <Button type="primary" className="submitOrg" onClick={this.addOrg} >
             <FormattedMessage
               id="submit"
               defaultMessage="Save"
               description="Button on form to save the new record"
             />
-          </Button.Primary>
-          <Button.Secondary className="cancelOrg" onClick={this.cancelOrg} >
+          </Button>
+          <Button type="secondary" className="cancelOrg" onClick={this.cancelOrg} >
             <FormattedMessage
               id="cancel"
               defaultMessage="Cancel"
               description="Button on form to cancel and return to previous page"
             />
-          </Button.Secondary>
+          </Button>
         </div>
       </div>
     );

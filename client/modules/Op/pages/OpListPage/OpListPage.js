@@ -10,7 +10,7 @@ import OpList from '../../components/OpList';
 // Import Actions
 import { addOpRequest, deleteOpRequest, fetchOps } from '../../OpActions';
 import { getOps } from '../../OpReducer';
-import * as Button from '../../../../components/Button/Button';
+import { Button } from 'antd';
 
 class OpListPage extends Component {
   constructor(props) {
@@ -53,9 +53,9 @@ class OpListPage extends Component {
           {
             this.state.showCreateOpWidget
             ? <OpCreateWidget addOp={this.handleAddOp} cancelOp={this.handleCancelOp} />
-            : <Button.Primary onClick={this.handleOpCreate} >
+            : <Button type="primary" onClick={this.handleOpCreate} >
               <FormattedMessage id="addOp" defaultMessage="New Opportunity" description="Button to create a new opportunity" />
-            </Button.Primary>
+            </Button>
           }
         </div>
         <OpList
@@ -80,9 +80,13 @@ function mapStateToProps(state) {
 
 OpListPage.propTypes = {
   ops: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    imgUrl: PropTypes.any,
+    description: PropTypes.string,
+    duration: PropTypes.string,
+    status: PropTypes.string,
+    cuid: PropTypes.string.isRequired,
   })).isRequired,
 //  showAddOp: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,

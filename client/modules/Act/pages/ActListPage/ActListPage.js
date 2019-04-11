@@ -8,7 +8,7 @@ import ActList from '../../components/ActList';
 // Import Actions
 import { addActRequest, deleteActRequest, fetchActs } from '../../ActActions';
 import { getActs } from '../../ActReducer';
-import * as Button from '../../../../components/Button/Button';
+import { Button } from 'antd';
 
 class ActListPage extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class ActListPage extends Component {
           {
             this.state.showCreateActWidget
             ? <ActCreateWidget addAct={this.handleAddAct} cancelAct={this.handleCancelAct} />
-            : <Button.Primary onClick={this.handleActCreate} >Add Activity</Button.Primary>
+            : <Button type="primary" onClick={this.handleActCreate} >Add Activity</Button>
           }
         </div>
         <ActList
