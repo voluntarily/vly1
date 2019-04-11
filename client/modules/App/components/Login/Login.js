@@ -35,8 +35,10 @@ class Login extends Component {
       submitting: true,
     });
     this.props.form.validateFields((err, vals) => {
+      // eslint-disable-next-line no-console
       console.log('vals', vals);
       if (!err) {
+        // eslint-disable-next-line no-console
         console.log('success', vals);
       }
     });
