@@ -31,7 +31,11 @@ const OpReducer = (state = initialState, action) => {
 export const getOps = state => state.ops.data;
 
 // Get op by cuid
-export const getOp = (state, cuid) => state.ops.data.filter(op => op.cuid === cuid)[0];
+export const getOp = (state, cuid) => {
+  return state.ops && state.ops.data ? // on page reload this might be empty.
+  state.ops.data.filter(op => op.cuid === cuid)[0]
+  : null;
+};
 
 // Export Reducer
 export default OpReducer;

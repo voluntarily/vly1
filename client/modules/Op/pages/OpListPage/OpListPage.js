@@ -80,9 +80,13 @@ function mapStateToProps(state) {
 
 OpListPage.propTypes = {
   ops: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    imgUrl: PropTypes.any,
+    description: PropTypes.string,
+    duration: PropTypes.string,
+    status: PropTypes.string,
+    cuid: PropTypes.string.isRequired,
   })).isRequired,
 //  showAddOp: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,

@@ -13,6 +13,7 @@ const OpportunityCard = ({ op, onPress, ...props }) => (
     <Card
       cover={<img src={op.imgUrl} alt={op.title} />}
       onClick={onPress}
+      style={{ marginBottom: '2em' }}
       {...props}
     >
       <Card.Meta

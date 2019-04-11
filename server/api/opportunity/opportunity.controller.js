@@ -57,8 +57,11 @@ export function getOpportunity(req, res) {
   Opportunity.findOne({ cuid: req.params.cuid }).exec((err, opportunity) => {
     if (err) {
       res.status(500).send(err);
+    } else if (!opportunity) { // not found
+      res.status(404).json({ message: 'that opportunity was not found' });
+    } else {
+      res.json({ opportunity });
     }
-    res.json({ opportunity });
   });
 }
 
@@ -69,11 +72,19 @@ export function getOpportunity(req, res) {
  * @returns void
  */
 export function deleteOpportunity(req, res) {
+  if (!req.params.cuid) {
+    res.status(400).send(); // bad request
+  }
   Opportunity.findOne({ cuid: req.params.cuid }).exec((err, opportunity) => {
     if (err) {
       res.status(500).send(err);
+      return;
     }
-
+    if (!opportunity) {
+      // bad request.
+      res.status(400).send();
+      return;
+    }
     opportunity.remove(() => {
       res.status(200).end();
     });
