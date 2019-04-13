@@ -32,7 +32,7 @@ export const getOps = state => state.ops.data;
 
 // Get op by cuid
 export const getOp = (state, cuid) => {
-  return state.ops && state.ops.data ? // on page reload this might be empty.
+  return state.ops && state.ops.data && cuid !== 0 ? // on page reload this might be empty.
   state.ops.data.filter(op => op.cuid === cuid)[0]
   : null;
 };

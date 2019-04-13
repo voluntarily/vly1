@@ -23,6 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Org/pages/OrgDetailPage/OrgDetailPage');
   require('./modules/Op/pages/OpListPage/OpListPage');
   require('./modules/Op/pages/OpDetailPage/OpDetailPage');
+  require('./modules/Op/pages/OpUpdatePage/OpUpdatePage');
   require('./modules/Act/pages/ActListPage/ActListPage');
   require('./modules/Act/pages/ActDetailPage/ActDetailPage');
   require('./modules/Person/pages/PersonListPage/PersonListPage');
@@ -92,6 +93,14 @@ export default (
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
             cb(null, require('./modules/Op/pages/OpDetailPage/OpDetailPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/ops/:cuid/edit"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Op/pages/OpUpdatePage/OpUpdatePage').default);
           });
         }}
       />

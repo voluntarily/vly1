@@ -83,7 +83,6 @@ test.serial('Should correctly add an opportunity', async t => {
   const res = await request(app)
     .post('/api/opportunities')
     .send({ opportunity: {
-      cuid: '5c951c0a-3e91-436a-81ae-59ede453672d',
       title: 'The first 400 metres',
       subtitle: 'Launching into space step 3',
       imgUrl: 'https://image.flaticon.com/icons/svg/206/206857.svg',

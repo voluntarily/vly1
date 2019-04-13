@@ -29,21 +29,26 @@ export function addOpportunity(req, res) {
     res.status(403).end();
     return;
   }
-
-  const newOpportunity = new Opportunity(req.body.opportunity);
-
+  const op = new Opportunity(req.body.opportunity);
   // Let's sanitize inputs
-  newOpportunity.title = sanitizeHtml(newOpportunity.title);
-  // newOpportunity.name = sanitizeHtml(newOpportunity.name);
-  // newOpportunity.content = sanitizeHtml(newOpportunity.content);
+  op.title = sanitizeHtml(op.title);
+  // op.name = sanitizeHtml(op.name);
+  // op.content = sanitizeHtml(op.content);
 
-//  newOpportunity.slug = slug(newOpportunity.title.toLowerCase(), { lowercase: true });
-  newOpportunity.cuid = cuid();
-  newOpportunity.save((err, saved) => {
+  // no id or cuid then this is a new record
+  if (!op.cuid || op.cuid === 0) {
+    // this is a new record.
+    op.cuid = cuid();
+  } else {
+    op.isNew = false;
+  }
+
+  op.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
+    } else {
+      res.json({ opportunity: saved });
     }
-    res.json({ opportunity: saved });
   });
 }
 
