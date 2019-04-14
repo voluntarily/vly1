@@ -19,24 +19,31 @@ export class OpUpdatePage extends Component {
 
   componentDidMount() {
     // cuid undefined or 0 means create new form otherwise edit the one given.
-    if (this.props.params.cuid !== 0) {
-      this.props.fetchOp(this.props.params.cuid);
+    if (this.props.params.cuid !== '0') {
+      if (!this.props.op) {
+        this.props.fetchOp(this.props.params.cuid);
+      }
     }
   }
 
   handleAddOp = (op) => {
-    this.props.addOpRequest(op);
-    message.success('Record saved.');
-    // return to a previous page - but where did we originate?
-    // PROBLEM - history is not in the props.
-    this.props.history.push(`/ops/${op.cuid}`);
+    this.props.addOpRequest(op)
+    .then((res) => {
+      const cuid = (this.props.params.cuid !== '0') ?
+      this.props.params.cuid : res.cuid;
+      message.success('Record saved. ', cuid);
+      this.props.router.push(`/ops/${cuid}`);
+    });
   };
 
+  handleCancel = () => {
+    this.props.router.goBack();
+  }
   render() {
     return (
       <div>
         <h1>New or Edit Opportunity</h1>
-        <OpDetailForm op={this.props.op} onSubmit={this.handleAddOp} />
+        <OpDetailForm op={this.props.op} onSubmit={this.handleAddOp} onCancel={this.handleCancel} />
         <pre>
           {JSON.stringify(this.props.op, null, 2)}
         </pre>
@@ -47,14 +54,16 @@ export class OpUpdatePage extends Component {
 
 // Actions required to provide data for this component to render in server side.
 OpUpdatePage.need = [params => {
-  return fetchOp(params.cuid);
+  return (params.cuid && params.cuid !== '0')
+    ? fetchOp(params.cuid)
+    : null;
 }];
 
 
 OpUpdatePage.propTypes = {
   op: PropTypes.shape({
-    cuid: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    cuid: PropTypes.string,
+    title: PropTypes.string,
     subtitle: PropTypes.string,
     imgUrl: PropTypes.any,
     duration: PropTypes.string,
@@ -65,20 +74,23 @@ OpUpdatePage.propTypes = {
   }),
   fetchOp: PropTypes.func.isRequired,
   addOpRequest: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
 };
 
 // Retrieve data from store as props
 function mapStateToProps(state, props) {
-  return ((props.params.cuid && props.params.cuid !== 0) ? {
+  return ((props.params.cuid && props.params.cuid !== '0') ? {
     op: getOp(state, props.params.cuid),
   } : {
+    // for new ops load the default template doc.
     op: {
-      // title: '',
-      // subtitle: '',
-      // imgUrl: '',
-      // duration: '',
-      // location: '',
+      title: 'template title',
+      subtitle: 'subtitle',
+      imgUrl: '',
+      duration: '',
+      location: '',
+      description: '',
+      status: 'draft',
     },
   });
 }

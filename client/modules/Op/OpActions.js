@@ -14,9 +14,12 @@ export const addOpRequest = (op) => {
     return callApi('opportunities', 'post', {
       opportunity: op,
     }).then((res) => {
-      if (res.opportunity) {
+      if (res.opportunity && !op.cuid) {
+        // only add to the store if new record.
         dispatch({ type: ADD_OP, op: res.opportunity });
+        return res.opportunity;
       }
+      return null;
     });
   };
 };

@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import OpDetail from '../../components/OpDetail/OpDetail';
 import { Button, Popconfirm, message } from 'antd';
-import { OpDetailForm } from '../../components/OpDetailForm/OpDetailForm';
 
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router';
-
-// Import Actions & Selectors
+// import OpDetailForm from '../../components/OpDetailForm/OpDetailForm';
+import OpDetail from '../../components/OpDetail/OpDetail';
 import { fetchOp, deleteOpRequest } from '../../OpActions';
 import { getOp } from '../../OpReducer';
+import OpDetailForm from '../../components/OpDetailForm/OpDetailForm';
 
 export class OpDetailPage extends Component {
 
   componentDidMount() {
-    this.props.fetchOp(this.props.params.cuid);
+    // TODO this cuid may not need fetching if its in the store already
+    // but on page reload it does.
+    if (!this.props.op) {
+      this.props.fetchOp(this.props.params.cuid);
+    }
   }
 
   handleDeleteOp = () => {
@@ -52,7 +55,8 @@ export class OpDetailPage extends Component {
         (<div>
           <h2>Sorry this opportunity is no longer available</h2>
           <Link to={'/ops'} >Search for some more</Link>
-          <p>or create a new opportunity</p>
+          <p>or </p>
+          <Link to={'/ops/0/edit'} >create a new opportunity</Link>
           <OpDetailForm />
         </div>);
     }
@@ -62,6 +66,7 @@ export class OpDetailPage extends Component {
 
 // Actions required to provide data for this component to render in server side.
 OpDetailPage.need = [params => {
+  // TODO cuid should be valid or we will get a problem with an empty op.
   return fetchOp(params.cuid);
 }];
 

@@ -7,7 +7,8 @@ const OpReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_OP :
       return {
-        data: [action.op, ...state.data],
+        // add the new op but remove any exiting with the same cuid.
+        data: [action.op, ...state.data.filter(op => op.cuid !== action.op.cuid)],
       };
 
     case ADD_OPS :

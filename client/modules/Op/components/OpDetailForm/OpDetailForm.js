@@ -150,6 +150,7 @@ class OpDetailForm extends Component {
               <Button
                 type="secondary"
                 htmlType="button"
+                onClick={this.props.onCancel}
               >
                 <FormattedMessage
                   id="cancel"
@@ -193,6 +194,7 @@ OpDetailForm.propTypes = {
     cuid: PropTypes.string.isRequired,
   }),
   onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
   // dispatch: PropTypes.func.isRequired,
 };
 
@@ -223,6 +225,7 @@ export default Form.create({
     // props.onChange(changedFields);
   },
   mapPropsToFields(props) {
+    console.log('mapPropsToFields', props);
     return {
       title: Form.createFormField({ ...props.op.title, value: props.op.title }),
       subtitle: Form.createFormField({ ...props.op.subtitle, value: props.op.subtitle }),

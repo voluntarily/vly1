@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-
+import { Link } from 'react-router';
 // Import Selectors
-import OpCreateWidget from '../../components/OpCreateWidget/OpCreateWidget';
+// import OpCreateWidget from '../../components/OpCreateWidget/OpCreateWidget';
 // Import Components
 import OpList from '../../components/OpList';
 // Import Actions
@@ -50,13 +50,11 @@ class OpListPage extends Component {
           />
         </h1>
         <div>
-          {
-            this.state.showCreateOpWidget
-            ? <OpCreateWidget addOp={this.handleAddOp} cancelOp={this.handleCancelOp} />
-            : <Button type="primary" onClick={this.handleOpCreate} >
-              <FormattedMessage id="addOp" defaultMessage="New Opportunity" description="Button to create a new opportunity" />
+          <Link to={'/ops/0/edit'} >
+            <Button type="primary" shape="round" >
+              <FormattedMessage id="newOp" defaultMessage="New Opportunity" description="Button to create a new opportunity on Landing page" />
             </Button>
-          }
+          </Link>
         </div>
         <OpList
           handleDeleteOp={this.handleDeleteOp}
