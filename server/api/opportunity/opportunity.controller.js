@@ -29,21 +29,26 @@ export function addOpportunity(req, res) {
     res.status(403).end();
     return;
   }
-
-  const newOpportunity = new Opportunity(req.body.opportunity);
-
+  const op = new Opportunity(req.body.opportunity);
   // Let's sanitize inputs
-  newOpportunity.title = sanitizeHtml(newOpportunity.title);
-  // newOpportunity.name = sanitizeHtml(newOpportunity.name);
-  // newOpportunity.content = sanitizeHtml(newOpportunity.content);
+  op.title = sanitizeHtml(op.title);
+  // op.name = sanitizeHtml(op.name);
+  // op.content = sanitizeHtml(op.content);
 
-//  newOpportunity.slug = slug(newOpportunity.title.toLowerCase(), { lowercase: true });
-  newOpportunity.cuid = cuid();
-  newOpportunity.save((err, saved) => {
+  // no id or cuid then this is a new record
+  if (!op.cuid || op.cuid === 0) {
+    // this is a new record.
+    op.cuid = cuid();
+  } else {
+    op.isNew = false;
+  }
+
+  op.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
+    } else {
+      res.json({ opportunity: saved });
     }
-    res.json({ opportunity: saved });
   });
 }
 
@@ -57,8 +62,11 @@ export function getOpportunity(req, res) {
   Opportunity.findOne({ cuid: req.params.cuid }).exec((err, opportunity) => {
     if (err) {
       res.status(500).send(err);
+    } else if (!opportunity) { // not found
+      res.status(404).json({ message: 'that opportunity was not found' });
+    } else {
+      res.json({ opportunity });
     }
-    res.json({ opportunity });
   });
 }
 
@@ -69,11 +77,19 @@ export function getOpportunity(req, res) {
  * @returns void
  */
 export function deleteOpportunity(req, res) {
+  if (!req.params.cuid) {
+    res.status(400).send(); // bad request
+  }
   Opportunity.findOne({ cuid: req.params.cuid }).exec((err, opportunity) => {
     if (err) {
       res.status(500).send(err);
+      return;
     }
-
+    if (!opportunity) {
+      // bad request.
+      res.status(400).send();
+      return;
+    }
     opportunity.remove(() => {
       res.status(200).end();
     });

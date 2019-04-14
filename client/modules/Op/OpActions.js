@@ -5,67 +5,57 @@ export const ADD_OP = 'ADD_OP';
 export const ADD_OPS = 'ADD_OPS';
 export const DELETE_OP = 'DELETE_OP';
 
-// Export Actions
 /* post a new opportunity to the database,
    add the result to the state
 */
-export function addOp(op) {
-  return {
-    type: ADD_OP,
-    op,
-  };
-}
-// QUESTION: why copy each element over instead of whole object?
-export function addOpRequest(op) {
+
+export const addOpRequest = (op) => {
   return (dispatch) => {
     return callApi('opportunities', 'post', {
-      opportunities: {
-        title: op.title,
-        subtitle: op.subtitle,
-        imgUrl: op.imUrl,
-        description: op.description,
-        duration: op.duration,
-        location: op.location,
-      },
-    }).then(res => dispatch(addOp(res.opportunities)));
+      opportunity: op,
+    }).then((res) => {
+      if (res.opportunity && !op.cuid) {
+        // only add to the store if new record.
+        dispatch({ type: ADD_OP, op: res.opportunity });
+        return res.opportunity;
+      }
+      return null;
+    });
   };
-}
+};
 
 /*
   get a full list of opportunities from the server
   and add to the state.
 */
-export function addOps(ops) {
-  return {
-    type: ADD_OPS,
-    ops,
-  };
-}
-
-export function fetchOps() {
+export const fetchOps = () => {
   return (dispatch) => {
     return callApi('opportunities').then(res => {
-      dispatch(addOps(res.opportunities));
+      dispatch({ type: ADD_OPS, ops: res.opportunities });
     });
   };
-}
+};
 
-export function fetchOp(cuid) {
+export const fetchOp = (cuid) => {
   return (dispatch) => {
     return callApi(`opportunities/${cuid}`)
-      .then(res => dispatch(addOp(res.opportunities)));
+      .then((res, err) => {
+        if (err) {
+          // console.log('invalid cuid', err);
+        } else {
+          // res could be a 404 etc. check success
+          if (res.opportunity) {
+            dispatch({ type: ADD_OP, op: res.opportunity });
+          }
+        }
+      }
+    );
   };
-}
+};
 
-export function deleteOp(cuid) {
-  return {
-    type: DELETE_OP,
-    cuid,
-  };
-}
-
-export function deleteOpRequest(cuid) {
+export const deleteOpRequest = (cuid) => {
   return (dispatch) => {
-    return callApi(`opportunities/${cuid}`, 'delete').then(() => dispatch(deleteOp(cuid)));
+    return callApi(`opportunities/${cuid}`, 'delete')
+    .then(() => dispatch({ type: DELETE_OP, cuid }));
   };
-}
+};

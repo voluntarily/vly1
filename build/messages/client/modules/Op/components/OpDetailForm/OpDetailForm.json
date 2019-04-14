@@ -1,0 +1,47 @@
+[
+  {
+    "id": "opTitle",
+    "description": "opportunity Title label in OpDetails Form",
+    "defaultMessage": "Title"
+  },
+  {
+    "id": "opSubtitle",
+    "description": "opportunity Subtitle label in OpDetails Form",
+    "defaultMessage": "Subtitle"
+  },
+  {
+    "id": "opCommitment",
+    "description": "opportunity Commitment label in OpDetails Form",
+    "defaultMessage": "Commitment"
+  },
+  {
+    "id": "opLocation",
+    "description": "opportunity Location label in OpDetails Form",
+    "defaultMessage": "Location"
+  },
+  {
+    "id": "opDescription",
+    "description": "opportunity Description label in OpDetails Form",
+    "defaultMessage": "Description"
+  },
+  {
+    "id": "opImgUrl",
+    "description": "opportunity Image URL label in OpDetails Form",
+    "defaultMessage": "Image Link"
+  },
+  {
+    "id": "opStatus",
+    "description": "Draft or published status",
+    "defaultMessage": "Status"
+  },
+  {
+    "id": "cancel",
+    "description": "Label for cancel button on opportunity details form",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "saveOpportunity",
+    "description": "Label for submit button on opportunity details form",
+    "defaultMessage": "Save"
+  }
+]

@@ -5,10 +5,10 @@ import { Row, Col } from 'antd';
 
 function OpList(props) {
   return (
-    <Row gutter={32}>
+    <Row type="flex" align="top" gutter={{ xs: 8, sm: 16, md: 24 }} >
       {
         props.ops.map(op => (
-          <Col span={8} key={op.cuid} >
+          <Col xs={24} sm={12} md={8} lg={6} xxl={4} key={op.cuid} >
             <OpportunityCard
               op={op}
               key={op.cuid}

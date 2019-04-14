@@ -52,8 +52,12 @@ export default {
     opportunities: 'Mea angitu',
 
     // opportunity field labels
-    opName: 'Title',
-    opAbout: 'Description ',
+    opTitle: 'Taitara',
+    opSubtitle: 'Tuhinga',
+    opCommitment: 'Roa',
+    opLocation: 'Tauwāhi',
+    opDescription: 'Nga taipitopito',
+    opImgUrl: 'Pikitia hono',
 
     // op actions
     createNewOp: 'Hanga hou mea angitu',

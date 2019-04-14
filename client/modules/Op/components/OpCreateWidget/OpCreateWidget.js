@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import Select from 'react-select';
-import * as Button from '../../../../components/Button/Button';
+import { Button } from 'antd';
 
 // Import Style
 import styles from './OpCreateWidget.css';
@@ -57,8 +57,8 @@ export class OpCreateWidget extends Component {
             placeholder={this.props.intl.messages.opType}
             name="opTypeSelect"
           />
-          <Button.Primary className="submitOp" onClick={this.addOp} ><FormattedMessage id="submit" /></Button.Primary>
-          <Button.Secondary className="cancelOp" onClick={this.cancelOp} ><FormattedMessage id="cancel" /></Button.Secondary>
+          <Button type="primary" className="submitOp" onClick={this.addOp} ><FormattedMessage id="submit" /></Button>
+          <Button type="secondary" className="cancelOp" onClick={this.cancelOp} ><FormattedMessage id="cancel" /></Button>
         </div>
       </div>
     );

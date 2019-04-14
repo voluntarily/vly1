@@ -2,15 +2,15 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-
+import { Link } from 'react-router';
 // Import Selectors
-import OpCreateWidget from '../../components/OpCreateWidget/OpCreateWidget';
+// import OpCreateWidget from '../../components/OpCreateWidget/OpCreateWidget';
 // Import Components
 import OpList from '../../components/OpList';
 // Import Actions
 import { addOpRequest, deleteOpRequest, fetchOps } from '../../OpActions';
 import { getOps } from '../../OpReducer';
-import * as Button from '../../../../components/Button/Button';
+import { Button } from 'antd';
 
 class OpListPage extends Component {
   constructor(props) {
@@ -50,13 +50,11 @@ class OpListPage extends Component {
           />
         </h1>
         <div>
-          {
-            this.state.showCreateOpWidget
-            ? <OpCreateWidget addOp={this.handleAddOp} cancelOp={this.handleCancelOp} />
-            : <Button.Primary onClick={this.handleOpCreate} >
-              <FormattedMessage id="addOp" defaultMessage="New Opportunity" description="Button to create a new opportunity" />
-            </Button.Primary>
-          }
+          <Link to={'/ops/0/edit'} >
+            <Button type="primary" shape="round" >
+              <FormattedMessage id="newOp" defaultMessage="New Opportunity" description="Button to create a new opportunity on Landing page" />
+            </Button>
+          </Link>
         </div>
         <OpList
           handleDeleteOp={this.handleDeleteOp}
@@ -80,9 +78,13 @@ function mapStateToProps(state) {
 
 OpListPage.propTypes = {
   ops: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    imgUrl: PropTypes.any,
+    description: PropTypes.string,
+    duration: PropTypes.string,
+    status: PropTypes.string,
+    cuid: PropTypes.string.isRequired,
   })).isRequired,
 //  showAddOp: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
