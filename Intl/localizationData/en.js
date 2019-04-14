@@ -51,8 +51,12 @@ export default {
     opportunities: 'Opportunities',
 
     // op field labels
-    opName: 'Title',
-    opAbout: 'Description ',
+    opTitle: 'Title',
+    opSubtitle: 'Subtitle',
+    opCommitment: 'Commitment',
+    opLocation: 'Location',
+    opDescription: 'Description',
+    opImgUrl: 'Picture link',
 
     // op actions
     createNewOp: 'Create new Opportunity',

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+
 import OpListSection from '../Op/pages/OpListSection/OpListSection';
 import bigimage from './landing-page-bg.jpg';
 import styles from './Landing.css';
@@ -107,6 +109,11 @@ export class Landing extends Component {
               />
             </h2>
             <OpListSection />
+            <Link to={'/ops/0/edit'} >
+              <Button type="primary" shape="round" >
+                <FormattedMessage id="newOp" defaultMessage="New Opportunity" description="Button to create a new opportunity on Landing page" />
+              </Button>
+            </Link>
           </section>
         </div>
 
