@@ -39,7 +39,7 @@ export class OpDetailPage extends Component {
         (<div>
           <OpDetail op={this.props.op} />
           {/* <Link to={`/ops/${this.props.op.cuid}/edit`} > */}
-          <a href="mailto:team@voluntari.ly">
+          <a href="mailto:interested@voluntari.ly">
             <Button type="primary" shape="round" >
               <FormattedMessage id="claimOp" defaultMessage="I'm Interested" description="Button to show interest in an opportunity on OpDetails page" />
             </Button>
