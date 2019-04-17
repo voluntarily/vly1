@@ -16,7 +16,7 @@ Find out more about the project at the [Website](http://voluntari.ly) and then..
 3. [Start Reading documentation](https://voluntarily.atlassian.net/wiki/spaces/VP/overview)
 4. Build the code - below
 5. Add yourself to the CONTRIBUTORS file, check it in and send us a pull request - see this ticket [VP-82](https://voluntarily.atlassian.net/browse/VP-82)
-6. Come along to a Drop in Wednesday Afternoon or after work social at our [Auckland office](https://www.google.com/maps/place/GridAKL+%2F+12+Madden+Street/@-36.8422465,174.7544368,17z/data=!4m8!1m2!2m1!1sLevel+4,+GridAKL+%2F+12+Madden+Street,+Auckland!3m4!1s0x6d0d47f4308f4055:0xdaad42988e8b5216!8m2!3d-36.842294!4d174.756654)
+6. Come along to a Drop in Wednesday Afternoon or after work social at our [Auckland office](https://goo.gl/maps/fEtq6mdpz446iXVQA)
 7. Come along to one of our developer events - see http://voluntari.ly for the latest details.
 
 # Just let me build it
