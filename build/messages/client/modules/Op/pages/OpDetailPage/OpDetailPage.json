@@ -1,5 +1,10 @@
 [
   {
+    "id": "claimOp",
+    "description": "Button to show interest in an opportunity on OpDetails page",
+    "defaultMessage": "I'm Interested"
+  },
+  {
     "id": "editOp",
     "description": "Button to edit an opportunity on OpDetails page",
     "defaultMessage": "Edit"

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
-import { Form, Input, Button, Row, Col } from 'antd';
+import { Form, Input, Button, Row, Col, Divider, Radio } from 'antd';
 const { TextArea } = Input;
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
@@ -72,75 +72,130 @@ class OpDetailForm extends Component {
           hideRequiredMark
           colon={false}
         >
-          <Form.Item
-            label={opTitle}
-            validateStatus={titleError ? 'error' : ''}
-            help={titleError || ''}
-          >
-            {getFieldDecorator('title', {
-              rules: [
-                { required: true, message: 'Title is required' },
-              ],
-            })(
-              <Input placeholder="Title" />
-            )}
-          </Form.Item>
-          <Form.Item label={opSubtitle}>
-            {getFieldDecorator('subtitle', {
-              rules: [
+          <Row>
+            <Col
+              xs={{ span: 24 }}
+              md={{ span: 8 }}
+            >
+              <h2>1. What are you looking for?</h2>
+              <p>Before our skilled volunteers get involved, they need to know how
+                they can help. Add a title and description to your request to attract
+                volunteers
+              </p>
+            </Col>
+            <Col
+              xs={{ span: 24 }}
+              md={{ span: 16 }}
+            >
+              <Form.Item
+                label={opTitle}
+                validateStatus={titleError ? 'error' : ''}
+                help={titleError || ''}
+              >
+                {getFieldDecorator('title', {
+                  rules: [
+                    { required: true, message: 'Title is required' },
+                  ],
+                })(
+                  <Input placeholder="Title" />
+                )}
+              </Form.Item>
+              <Form.Item label={opSubtitle}>
+                {getFieldDecorator('subtitle', {
+                  rules: [
 
-              ],
-            })(
-              <Input placeholder="short summary that appears on the listing." />
-            )}
-          </Form.Item>
-          <Form.Item label={opCommitment}>
-            {getFieldDecorator('duration', {
-              rules: [
-                { required: true, message: 'Commitment level is required' },
-              ],
-            })(
-              <Input placeholder="4 hours" />
-            )}
-          </Form.Item>
-          <Form.Item label={opLocation}>
-            {getFieldDecorator('location', {
-              rules: [
+                  ],
+                })(
+                  <Input placeholder="short summary that appears on the listing." />
+                )}
+              </Form.Item>
+              <Form.Item label={opDescription}>
+                {getFieldDecorator('description', {
+                  rules: [
 
-              ],
-            })(
-              <Input placeholder="school or somewhere else?" />
-            )}
-          </Form.Item>
-          <Form.Item label={opDescription}>
-            {getFieldDecorator('description', {
-              rules: [
+                  ],
+                })(
+                  <TextArea rows={20} placeholder="All the details about the request. You can use markdown here." />
+                )}
 
-              ],
-            })(
-              <TextArea rows={20} placeholder="All the details about the request. You can use markdown here." />
-            )}
-          </Form.Item>
+              </Form.Item>
+            </Col>
+          </Row>
+          <Divider />
+          <Row>
+            <Col
+              xs={{ span: 24 }}
+              md={{ span: 8 }}
+            >
+              <h2>2. Where and when? (optional)</h2>
+              <p>If you know when you'll need help, or where - this will help
+                volunteers to organise logistics and increase volunteer numbers.
+              </p>
+            </Col>
+            <Col
+              xs={{ span: 24 }}
+              md={{ span: 16 }}
+            >
+              <Form.Item label={opCommitment}>
+                {getFieldDecorator('duration', {
+                  rules: [
+                    { required: true, message: 'Commitment level is required' },
+                  ],
+                })(
+                  <Input placeholder="4 hours" />
+                )}
+              </Form.Item>
+              <Form.Item label={opLocation}>
+                {getFieldDecorator('location', {
+                  rules: [
 
-          <Form.Item label={opImgUrl}>
-            {getFieldDecorator('imgUrl', {
-              rules: [
-                { type: 'url', message: 'a URL is required' },
-              ],
-            })(
-              <Input placeholder="http://example.com/image.jpg" />
-            )}
-          </Form.Item>
-          <Form.Item label={opStatus}>
-            {getFieldDecorator('status', {
-              rules: [
-                { required: true, message: 'status is required' },
-              ],
-            })(
-              <Input placeholder="draft" />
-            )}
-          </Form.Item>
-
+                  ],
+                })(
+                  <Input placeholder="school or somewhere else?" />
+                )}
+              </Form.Item>
+            </Col>
+          </Row>
+          <Divider />
+          <Row>
+            <Col
+              xs={{ span: 24 }}
+              md={{ span: 8 }}
+            >
+              <h2>3. Illustration? (optional)</h2>
+              <p>Requests with photos get more responses.
+                If you don't have a photo leave blank and we will provide one
+                based on the category.
+              </p>
+            </Col>
+            <Col
+              xs={{ span: 24 }}
+              md={{ span: 16 }}
+            >
+              <Form.Item label={opImgUrl}>
+                {getFieldDecorator('imgUrl', {
+                  rules: [
+                    { type: 'url', message: 'a URL is required' },
+                  ],
+                })(
+                  <Input placeholder="http://example.com/image.jpg" />
+                )}
+              </Form.Item>
+              <Form.Item label={opStatus}>
+                {getFieldDecorator('status', {
+                  rules: [
+                    { required: true, message: 'status is required' },
+                  ],
+                })(
+                  <Radio.Group buttonStyle="solid">
+                    <Radio.Button value="draft">Draft</Radio.Button>
+                    <Radio.Button value="active">Active</Radio.Button>
+                    <Radio.Button value="done">Done</Radio.Button>
+                  </Radio.Group>
+                )}
+              </Form.Item>
+            </Col>
+          </Row>
           <Row>
             <Col
               style={{ textAlign: 'right' }}
