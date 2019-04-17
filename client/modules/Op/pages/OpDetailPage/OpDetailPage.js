@@ -38,17 +38,25 @@ export class OpDetailPage extends Component {
       content =
         (<div>
           <OpDetail op={this.props.op} />
-          <h2>Action buttons here depend on user role</h2>
-          <Link to={`/ops/${this.props.op.cuid}/edit`} >
+          {/* <Link to={`/ops/${this.props.op.cuid}/edit`} > */}
+          <a href="mailto:interested@voluntari.ly">
             <Button type="primary" shape="round" >
+              <FormattedMessage id="claimOp" defaultMessage="I'm Interested" description="Button to show interest in an opportunity on OpDetails page" />
+            </Button>
+          </a>
+          &nbsp;
+          <Link to={`/ops/${this.props.op.cuid}/edit`} >
+            <Button type="secondary" shape="round" >
               <FormattedMessage id="editOp" defaultMessage="Edit" description="Button to edit an opportunity on OpDetails page" />
             </Button>
           </Link>
+          &nbsp;
           <Popconfirm title="Confirm removal of this opportunity." onConfirm={this.handleDeleteOp} onCancel={this.cancel} okText="Yes" cancelText="No">
-            <Button type="danger" >
+            <Button type="danger" shape="round" >
               <FormattedMessage id="deleteOp" defaultMessage="Remove Request" description="Button to remove an opportunity on OpDetails page" />
             </Button>
           </Popconfirm>
+          <br /><small>visible buttons here depend on user role</small>
         </div>);
     } else {
       content =

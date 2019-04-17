@@ -42,11 +42,17 @@ export class OpUpdatePage extends Component {
   render() {
     return (
       <div>
-        <h1>New or Edit Opportunity</h1>
+        <h1>Create a request</h1>
+        <small>Ready to get some help? Lets start by letting volunteers know what you need</small>
         <OpDetailForm op={this.props.op} onSubmit={this.handleAddOp} onCancel={this.handleCancel} />
-        <pre>
-          {JSON.stringify(this.props.op, null, 2)}
-        </pre>
+        <br />
+        {/* <Collapse>
+          <Panel header="Debug" key="1">
+            <pre>
+              {JSON.stringify(this.props.op, null, 2)}
+            </pre>
+          </Panel>
+        </Collapse> */}
       </div>
     );
   }
