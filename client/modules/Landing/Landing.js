@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 
 import OpListSection from '../Op/pages/OpListSection/OpListSection';
 import bigimage from './landing-page-bg.jpg';
-import styles from './Landing.css';
+import styles from './Landing2.css';
 import schoolsactivity from './schoolsactivity.png';
 
 const Search = Input.Search;
