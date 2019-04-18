@@ -72,22 +72,22 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
-Inline `code` has `back-ticks around` it.
+Inline \`code\` has \`back-ticks around\` it.
 
-```javascript
+\`\`\`javascript
 var s = "JavaScript syntax highlighting";
 alert(s);
-```
+\`\`\`
  
-```python
+\`\`\`python
 s = "Python syntax highlighting"
 print s
-```
+\`\`\`
  
-```
+\`\`\`
 No language indicated, so no syntax highlighting. 
 But let's throw in a <b>tag</b>.
-```
+\`\`\`
 
 Colons can be used to align columns.
 
@@ -103,7 +103,7 @@ raw Markdown line up prettily. You can also use inline Markdown.
 
 Markdown | Less | Pretty
 --- | --- | ---
-*Still* | `renders` | **nicely**
+*Still* | \`renders\` | **nicely**
 1 | 2 | 3
 
 > Blockquotes are very handy in email to emulate reply text.
