@@ -1,7 +1,7 @@
 import test from 'ava';
 import { reducerTest } from 'redux-ava';
 import personReducer, { getPerson, getPeople } from '../PersonReducer';
-import { ADD_PERSON, DELETE_PERSON, addPeople, ADD_PEOPLE } from '../PersonActions';
+import { ADD_PERSON, DELETE_PERSON, ADD_PEOPLE } from '../PersonActions';
 
 const testy = {
   cuid: 'abc',

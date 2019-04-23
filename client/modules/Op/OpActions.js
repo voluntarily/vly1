@@ -41,7 +41,7 @@ export const fetchOp = (cuid) => {
     const res = await callApi(`opportunities/${cuid}`);
     // res could be a 404 etc. check success
     if (res.opportunity) {
-      dispatch({ type: ADD_OP, op: res.opportunity });     
+      dispatch({ type: ADD_OP, op: res.opportunity });
     }
   };
 };

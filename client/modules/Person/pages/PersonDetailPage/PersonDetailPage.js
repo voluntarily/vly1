@@ -87,8 +87,7 @@ PersonDetailPage.propTypes = {
     role: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
     moniker: PropTypes.string,
-    about: PropTypes
-
+    about: PropTypes.string,
   }).isRequired,
   params: PropTypes.shape({
     cuid: PropTypes.string.isRequired,
