@@ -5,56 +5,49 @@ export const ADD_PERSON = 'ADD_PERSON';
 export const ADD_PEOPLE = 'ADD_PEOPLE';
 export const DELETE_PERSON = 'DELETE_PERSON';
 
-// Export Actions
-export function addPerson(person) {
-  return {
-    type: ADD_PERSON,
-    person,
-  };
-}
-
-export function addPersonRequest(person) {
+export const addPersonRequest = (person) => {
   return (dispatch) => {
     return callApi('people', 'post', {
-      person: {
-        name: person.name,
-        email: person.email,
-        role: person.role,
-      },
-    }).then(res => dispatch(addPerson(res.person)));
-  };
-}
-
-export function addPeople(people) {
-  return {
-    type: ADD_PEOPLE,
-    people,
-  };
-}
-
-export function fetchPeople() {
-  return (dispatch) => {
-    return callApi('people').then(res => {
-      dispatch(addPeople(res.people));
+      person,
+    }).then((res) => {
+      if (res.person && !person.cuid) {
+        // only add to the store if new record.
+        dispatch({ type: ADD_PERSON, person: res.person });
+        return res.person;
+      }
+      return null;
     });
   };
-}
+};
 
-export function fetchPerson(cuid) {
+export const fetchPeople = () => {
   return (dispatch) => {
-    return callApi(`people/${cuid}`).then(res => dispatch(addPerson(res.person)));
+    return callApi('people').then(res => {
+      dispatch({ type: ADD_PEOPLE, people: res.people });
+    });
   };
-}
+};
 
-export function deletePerson(cuid) {
-  return {
-    type: DELETE_PERSON,
-    cuid,
-  };
-}
-
-export function deletePersonRequest(cuid) {
+export const fetchPerson = (cuid) => {
   return (dispatch) => {
-    return callApi(`people/${cuid}`, 'delete').then(() => dispatch(deletePerson(cuid)));
+    return callApi(`people/${cuid}`)
+      .then((res, err) => {
+        if (err) {
+          // console.log('invalid cuid', err);
+        } else {
+          // res could be a 404 etc. check success
+          if (res.person) {
+            dispatch({ type: ADD_PERSON, person: res.person });
+          }
+        }
+      }
+    );
   };
-}
+};
+
+export const deletePersonRequest = (cuid) => {
+  return (dispatch) => {
+    return callApi(`people/${cuid}`, 'delete')
+    .then(() => dispatch({ type: DELETE_PERSON, cuid }));
+  };
+};

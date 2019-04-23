@@ -5,4 +5,3 @@ webpack.config.babel.js
 index.js
 server/auth
 server/api/user/user.model.js
-server/api/person

@@ -37,19 +37,12 @@ export const fetchOps = () => {
 };
 
 export const fetchOp = (cuid) => {
-  return (dispatch) => {
-    return callApi(`opportunities/${cuid}`)
-      .then((res, err) => {
-        if (err) {
-          // console.log('invalid cuid', err);
-        } else {
-          // res could be a 404 etc. check success
-          if (res.opportunity) {
-            dispatch({ type: ADD_OP, op: res.opportunity });
-          }
-        }
-      }
-    );
+  return async (dispatch) => {
+    const res = await callApi(`opportunities/${cuid}`);
+    // res could be a 404 etc. check success
+    if (res.opportunity) {
+      dispatch({ type: ADD_OP, op: res.opportunity });     
+    }
   };
 };
 

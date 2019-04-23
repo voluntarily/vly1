@@ -30,10 +30,12 @@ export function addOpportunity(req, res) {
     return;
   }
   const op = new Opportunity(req.body.opportunity);
-  // Let's sanitize inputs
+  // always sanitize inputs that might get displayed on page.
   op.title = sanitizeHtml(op.title);
-  // op.name = sanitizeHtml(op.name);
-  // op.content = sanitizeHtml(op.content);
+  op.subtitle = sanitizeHtml(op.subtitle);
+  op.description = sanitizeHtml(op.description);
+  op.duration = sanitizeHtml(op.duration);
+  op.location = sanitizeHtml(op.location);
 
   // no id or cuid then this is a new record
   if (!op.cuid || op.cuid === 0) {

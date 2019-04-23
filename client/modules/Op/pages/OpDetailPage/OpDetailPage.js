@@ -5,7 +5,6 @@ import { Button, Popconfirm, message } from 'antd';
 
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router';
-// import OpDetailForm from '../../components/OpDetailForm/OpDetailForm';
 import OpDetail from '../../components/OpDetail/OpDetail';
 import { fetchOp, deleteOpRequest } from '../../OpActions';
 import { getOp } from '../../OpReducer';

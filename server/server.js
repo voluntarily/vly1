@@ -64,7 +64,7 @@ import initialActivities from './api/activity/activity.dummy';
 import initialOpportunities from './api/opportunity/opportunity.dummy';
 import initialPosts from './api/post/post.dummy';
 import initialOrganisations from './api/organisation/organisation.dummy';
-import initialPeople from './api/person/person.dummy';
+
 import serverConfig from './config';
 
 
@@ -84,7 +84,6 @@ if (process.env.NODE_ENV !== 'test') {
     initialActivities();
     initialOpportunities();
     initialOrganisations();
-    initialPeople();
   });
 }
 
