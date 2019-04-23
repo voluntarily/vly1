@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+export default () => `
 # About Voluntari.ly
 
 Te reo Māori version
@@ -24,19 +26,17 @@ The Voluntarily Platform is currently being developed right now as an open sourc
 ## Developers 
 We are always looking for more developers to join the open source development of Voluntarily on Github - You’ll find us chatting on Gitter and working with a MERN stack if that sounds interesting to you :)
 
-<Button.Primary href="https://github.com/voluntarily/vly1">Help Build the Platform</Button>
+<Button href="https://github.com/voluntarily/vly1">Help Build the Platform</Button>
 
 
 ## Volunteers 
 We're looking for volunteers of all types - If you’re keen to get involved fill in the form below saying what you want to do and we’ll get back in touch with you asap :)
 
-<Button.Secondary href="https://voluntari.ly/become-a-volunteer">Become a Volunter</Button>
+<Button href="https://voluntari.ly/become-a-volunteer">Become a Volunter</Button>
 
 
 ## Sponsorship 
 Donations and long term support will allow us to get voluntari.ly working sooner and be more effective in the lives of NZ young people
 
-<Button.Secondary href="https://secure.squarespace.com/checkout/donate?donatePageId=5becd3d770a6adb0fa3e7b28">Donate</Button>
-
-
-
+<Button href="https://secure.squarespace.com/checkout/donate?donatePageId=5becd3d770a6adb0fa3e7b28">Donate</Button>
+`;

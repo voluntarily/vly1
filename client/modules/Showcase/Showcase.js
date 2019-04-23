@@ -22,7 +22,7 @@ import img9 from '../../components/CategoryCard/img/img9.png';
 import imgA from '../../components/CategoryCard/img/imgA.png';
 import imgB from '../../components/CategoryCard/img/imgB.png';
 import imgC from '../../components/CategoryCard/img/imgC.png';
-import markdownContent from './markdown-example.md';
+import markdownContent from './markdown-example-md.js';
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -177,7 +177,7 @@ export class Showcase extends Component {
         <Markdown>Markdown - A Sentence with _emphasis_ and __more emphasis__. </Markdown>
         
         <h2>More Markdown from a file</h2>
-        <Markdown>{markdownContent}</Markdown>
+        <Markdown>{markdownContent()}</Markdown>
       </div>
     );
   }
