@@ -7,14 +7,15 @@ import { Button } from 'antd';
 import aboutEn from './about-en-md.js';
 import aboutMi from './about-mi-md.js';
 
-const text = (locale) => ({
-  mi: aboutMi,
-  en: aboutEn,
-})[locale]();
+const text = (locale) => {
+  return ({
+    mi: aboutMi,
+    en: aboutEn,
+  })[locale]();
+};
 
 const About = (props) => {
   const about = text(props.intl.locale);
-
   return (
     <Markdown
       children={about}

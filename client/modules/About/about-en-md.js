@@ -4,13 +4,14 @@ export default () => `
 
 ### Industry in the classroom.
 
-He mea tino nui mo nga kura ki te whakaako i nga hangarau mamati. He mahinga whakangungu (mo nga kaiako) i huri noa i te motu. Engari kia tino whakaoho nga taiohi ki enei mahi, e hiahia ratou he reo tohunga i roto i te ruma, kia hono atu ki te horopaki o te ao.
 
-Ka tomo mai a NZ Inc. Kei ta matou kamupene nui nga kaupapa tukuao. E hiahia ana ratou ki te whakahoki ki nga hapori e mahi ana. Na te maha o nga take, ko te nuinga o nga haora kaore e whakamahia.
+We are building a platform that connects corporate volunteer time with classrooms to teach science, technology, engineering, entrepreneurship, arts and design with the help of engaging content supplied by New Zealand’s leading innovators in educational content.
 
-Ko tetaha whakamutunga o te tapatoru ko te tini o nga kaiwhakarato ihirangi hangarau. He nui nga papatono, te nuinga he kore utu, ka taea te whakamahi i tetahi āhuatanga.  Na te kore marama ki nga mohiotanga hangarau, e kore taea nga kura ki te whakahaere i enei mena kore kau te awhina
+Voluntari.ly is an online app that connects schools with corporate volunteers and short technology course content. 
 
-He makete hou a Voluntari.ly e hono ana i nga taha e toru, ki te  whakarite in nga hononga roaroa kia waihanga i te nuinga kia whai wahi ki te whakauru. Ko te tumanako kia whai he tangata hou kainga hei mahi.
+Schools today need to teach digital technologies. There are training programmes (for teachers) dotted around the country but to truly excite the tamariki and rangatahi with new material, they need expert voices in the room, connecting them with a real-world context. 
+
+Enter NZ Inc. Our large corporations all have volunteer programmes. They want to give back to the communities they work in. For a variety of reasons, a lot of these volunteer hours remain unused.
 
 The third side of the triangle is a vast range of digital technology content providers. There is a wealth of programmes out there, most free, that could be used in any situation. Schools lack the technical knowledge to take these and run them without expert assistance.
 
