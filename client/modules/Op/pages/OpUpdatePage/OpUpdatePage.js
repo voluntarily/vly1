@@ -30,7 +30,7 @@ export class OpUpdatePage extends Component {
     this.props.addOpRequest(op)
     .then((res) => {
       const cuid = (this.props.params.cuid !== '0') ?
-      this.props.params.cuid : res.cuid;
+        this.props.params.cuid : res.cuid;
       message.success('Record saved. ', cuid);
       this.props.router.push(`/ops/${cuid}`);
     });
@@ -74,6 +74,7 @@ OpUpdatePage.propTypes = {
     imgUrl: PropTypes.any,
     duration: PropTypes.string,
     location: PropTypes.string,
+    status: PropTypes.oneOf(['active', 'inactive', 'hold']),
   }),
   params: PropTypes.shape({
     cuid: PropTypes.string.isRequired,

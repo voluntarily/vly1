@@ -1,7 +1,7 @@
 import test from 'ava';
 import { reducerTest } from 'redux-ava';
 import personReducer, { getPerson, getPeople } from '../PersonReducer';
-import { addPerson, deletePerson, addPeople } from '../PersonActions';
+import { ADD_PERSON, DELETE_PERSON, ADD_PEOPLE } from '../PersonActions';
 
 const testy = {
   cuid: 'abc',
@@ -20,23 +20,21 @@ const testy2 = {
 test('action for ADD_PERSON is working', reducerTest(
   personReducer,
   { data: ['foo'] },
-  addPerson(testy),
+  { type: ADD_PERSON, person: testy },
   { data: [testy, 'foo'] },
 ));
 
 test('action for DELETE_PERSON is working', reducerTest(
   personReducer,
   { data: [testy] },
-  deletePerson('abc'),
+  { type: DELETE_PERSON, cuid: 'abc' },
   { data: [] },
 ));
 
 test('action for ADD_PERSONS is working', reducerTest(
   personReducer,
   { data: [] },
-  addPeople([
-    testy, testy2,
-  ]),
+  { type: ADD_PEOPLE, people: [testy, testy2] },
   { data: [testy, testy2] },
 ));
 

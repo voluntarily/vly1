@@ -48,7 +48,7 @@ PersonListPage.propTypes = {
   people: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
+    cuid: PropTypes.string.isRequired,
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };

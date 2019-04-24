@@ -1,0 +1,17 @@
+[
+  {
+    "id": "contactPerson",
+    "description": "Button to show interest in an person on PersonDetails page",
+    "defaultMessage": "Contact person"
+  },
+  {
+    "id": "editPerson",
+    "description": "Button to edit an person on PersonDetails page",
+    "defaultMessage": "Edit"
+  },
+  {
+    "id": "deletePerson",
+    "description": "Button to remove an person on PersonDetails page",
+    "defaultMessage": "Remove Request"
+  }
+]

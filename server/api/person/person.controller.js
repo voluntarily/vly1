@@ -25,21 +25,34 @@ export function getPeople(req, res) {
  * @returns void
  */
 export function addPerson(req, res) {
-  if (!req.body.person.name || !req.body.person.email /* || !req.body.person.content */ ) {
+  if (!req.body.person.name || !req.body.person.email) {
     res.status(403).end();
   }
 
-  const newPerson = new Person(req.body.person);
+  const p = new Person(req.body.person);
 
   // Let's sanitize inputs
-  newPerson.name = sanitizeHtml(newPerson.name);
-  newPerson.email = sanitizeHtml(newPerson.email);
-  newPerson.cuid = cuid();
-  newPerson.save((err, saved) => {
+  p.name = sanitizeHtml(p.name);
+  p.moniker = sanitizeHtml(p.moniker);
+  p.email = sanitizeHtml(p.email);
+  p.phone = sanitizeHtml(p.phone);
+  p.gender = sanitizeHtml(p.gender);
+  p.about = sanitizeHtml(p.about);
+
+    // no id or cuid then this is a new record
+  if (!p.cuid || p.cuid === 0) {
+    // this is a new record.
+    p.cuid = cuid();
+  } else {
+    p.isNew = false;
+  }
+
+  p.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
+    } else {
+      res.json({ person: saved });
     }
-    res.json({ person: saved });
   });
 }
 
@@ -53,8 +66,11 @@ export function getPerson(req, res) {
   Person.findOne({ cuid: req.params.cuid }).exec((err, person) => {
     if (err) {
       res.status(500).send(err);
+    } else if (!person) { // not found
+      res.status(404).json({ message: 'that person was not found' });
+    } else {
+      res.json({ person });
     }
-    res.json({ person });
   });
 }
 
@@ -65,11 +81,19 @@ export function getPerson(req, res) {
  * @returns void
  */
 export function deletePerson(req, res) {
+  if (!req.params.cuid) {
+    res.status(400).send(); // bad request
+  }
   Person.findOne({ cuid: req.params.cuid }).exec((err, person) => {
     if (err) {
       res.status(500).send(err);
+      return;
     }
-
+    if (!person) {
+      // bad request.
+      res.status(400).send();
+      return;
+    }
     person.remove(() => {
       res.status(200).end();
     });

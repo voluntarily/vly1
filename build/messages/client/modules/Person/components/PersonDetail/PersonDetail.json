@@ -1,0 +1,27 @@
+[
+  {
+    "id": "phone",
+    "description": "label for phone number on persons profile",
+    "defaultMessage": "phone"
+  },
+  {
+    "id": "email",
+    "description": "label for email address on persons profile",
+    "defaultMessage": "email"
+  },
+  {
+    "id": "gender",
+    "description": "label for Gender on persons profile",
+    "defaultMessage": "Gender"
+  },
+  {
+    "id": "status",
+    "description": "label for status on persons profile",
+    "defaultMessage": "Status"
+  },
+  {
+    "id": "role",
+    "description": "label for role on persons profile",
+    "defaultMessage": "Role"
+  }
+]

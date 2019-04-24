@@ -17,20 +17,23 @@ if (typeof require.ensure !== 'function') {
  */
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
-  require('./modules/Post/pages/PostListPage/PostListPage');
-  require('./modules/Post/pages/PostDetailPage/PostDetailPage');
   require('./modules/Org/pages/OrgListPage/OrgListPage');
   require('./modules/Org/pages/OrgDetailPage/OrgDetailPage');
+  require('./modules/Person/pages/PersonListPage/PersonListPage');
+  require('./modules/Person/pages/PersonDetailPage/PersonDetailPage');
+  require('./modules/Person/pages/PersonUpdatePage/PersonUpdatePage');
+  require('./modules/Person/components/PersonDetailForm/PersonDetailForm');
   require('./modules/Op/pages/OpListPage/OpListPage');
   require('./modules/Op/pages/OpDetailPage/OpDetailPage');
   require('./modules/Op/pages/OpUpdatePage/OpUpdatePage');
+  require('./modules/Op/components/OpDetailForm/OpDetailForm');
   require('./modules/Act/pages/ActListPage/ActListPage');
   require('./modules/Act/pages/ActDetailPage/ActDetailPage');
-  require('./modules/Person/pages/PersonListPage/PersonListPage');
-  require('./modules/Person/pages/PersonDetailPage/PersonDetailPage');
   require('./modules/Showcase/Showcase');
   require('./modules/Landing/Landing');
   require('./modules/About/About');
+  require('./modules/Post/pages/PostListPage/PostListPage');
+  require('./modules/Post/pages/PostDetailPage/PostDetailPage');
 }
 
 // react-router setup with code-splitting
@@ -137,6 +140,14 @@ export default (
         getComponent={(nextState, cb) => {
           require.ensure([], require => {
             cb(null, require('./modules/Person/pages/PersonDetailPage/PersonDetailPage').default);
+          });
+        }}
+      />
+      <Route
+        path="/people/:cuid/edit"
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Person/pages/PersonUpdatePage/PersonUpdatePage').default);
           });
         }}
       />
