@@ -3,19 +3,20 @@ const Schema = mongoose.Schema;
 
 // simplified version without Auth
 const personSchema = new Schema({
-  cuid: { type: 'String', required: true },
-  name: { type: 'String', required: true }, // long full name
-  moniker: String, // how we should address you - eg. Andrew
-  about: String, // person description
-  email: { type: 'String', required: true }, // person@example.com
+  cuid: { type: 'String', index: true, unique: true, required: true },
+  name: { type: 'String', index: true, unique: true, required: true }, // long full name
+  moniker: { type: 'String', default: '' }, // how we should address you - eg. Andrew
+  about: { type: 'String', default: '' }, // person description
+  email: { type: 'String', index: true, required: true }, // person@example.com
   phone: { type: 'String', required: true }, // +64 27 7031007
-  gender: { type: 'String' }, // whatever they want to write.
+  gender: { type: 'String', default: '' }, // whatever they want to write.
   password: { type: 'String' }, // encoded
   language: { type: String, default: 'EN', lowercase: true }, // en, mi, fr etc
   avatar: String,   // url to image
   role: {
-    type: 'String',
+    type: [String],
     required: true,
+    default: ['volunteer'],
     enum: ['admin', 'op-provider', 'volunteer', 'content-provider', 'tester'],
   },
   // used to indicate whether people show up in searches.

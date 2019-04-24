@@ -29,19 +29,12 @@ export const fetchPeople = () => {
 };
 
 export const fetchPerson = (cuid) => {
-  return (dispatch) => {
-    return callApi(`people/${cuid}`)
-      .then((res, err) => {
-        if (err) {
-          // console.log('invalid cuid', err);
-        } else {
-          // res could be a 404 etc. check success
-          if (res.person) {
-            dispatch({ type: ADD_PERSON, person: res.person });
-          }
-        }
-      }
-    );
+  return async (dispatch) => {
+    const res = await callApi(`people/${cuid}`);
+    // res could be a 404 etc. check success
+    if (res.person) {
+      dispatch({ type: ADD_PERSON, person: res.person });
+    }
   };
 };
 

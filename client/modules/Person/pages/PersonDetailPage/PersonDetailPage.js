@@ -41,7 +41,7 @@ export class PersonDetailPage extends Component {
             </Button>
           </a>
           &nbsp;
-          <Link to={`/person/${this.props.person.cuid}/edit`} >
+          <Link to={`/people/${this.props.person.cuid}/edit`} >
             <Button type="secondary" shape="round" >
               <FormattedMessage id="editPerson" defaultMessage="Edit" description="Button to edit an person on PersonDetails page" />
             </Button>
@@ -82,12 +82,16 @@ function mapStateToProps(state, props) {
 
 PersonDetailPage.propTypes = {
   person: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
+    cuid: PropTypes.string,
+    name: PropTypes.string,
     moniker: PropTypes.string,
     about: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    gender: PropTypes.string,
+    avatar: PropTypes.any,
+    role: PropTypes.arrayOf(PropTypes.oneOf(['admin', 'op-provider', 'volunteer', 'content-provider', 'tester'])),
+    status: PropTypes.oneOf(['active', 'inactive', 'hold']),
   }).isRequired,
   params: PropTypes.shape({
     cuid: PropTypes.string.isRequired,

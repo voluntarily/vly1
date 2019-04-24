@@ -6,8 +6,11 @@ import { mountWithIntl, shallowWithIntl } from '../../../../util/react-intl-test
 const testy = {
   cuid: 'abc',
   name: 'Tester McTestFace',
+  moniker: 'Testy',
+  phone: '0800 555 TEST',
+  gender: 'indeterminate',
   email: 'testy@McTestFace.com',
-  role: 'tester',
+  role: ['tester'],
 };
 
 
@@ -24,7 +27,7 @@ test('renders properly', t => {
   t.truthy(wrapper.hasClass('single-person'));
   t.is(wrapper.find('Link').first().prop('children'), testy.name);
   t.regex(wrapper.find('.person-email').first().text(), new RegExp(testy.email));
-  t.is(wrapper.find('.person-role').first().text(), testy.role);
+  t.is(wrapper.find('li').first().text(), testy.role[0]);
 });
 
 test('has correct props', t => {

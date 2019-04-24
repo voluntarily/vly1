@@ -1,0 +1,57 @@
+[
+  {
+    "id": "personName",
+    "description": "person full name label in PersonDetails Form",
+    "defaultMessage": "Full Name"
+  },
+  {
+    "id": "personMoniker",
+    "description": "person Subtitle label in personDetails Form",
+    "defaultMessage": "What we should call you"
+  },
+  {
+    "id": "personEmail",
+    "description": "person email label in personDetails Form",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "personPhone",
+    "description": "person phone label in personDetails Form",
+    "defaultMessage": "Phone"
+  },
+  {
+    "id": "personAbout",
+    "description": "person about label in personDetails Form",
+    "defaultMessage": "About you"
+  },
+  {
+    "id": "personAvatar",
+    "description": "person Image URL label in personDetails Form",
+    "defaultMessage": "Image Link"
+  },
+  {
+    "id": "personGender",
+    "description": "person gender label in personDetails Form",
+    "defaultMessage": "Gender"
+  },
+  {
+    "id": "personRole",
+    "description": "Admin Role",
+    "defaultMessage": "Role"
+  },
+  {
+    "id": "personStatus",
+    "description": "active or retired status",
+    "defaultMessage": "Status"
+  },
+  {
+    "id": "cancel",
+    "description": "Label for cancel button on person details form",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "savePerson",
+    "description": "Label for submit button on person details form",
+    "defaultMessage": "Save"
+  }
+]

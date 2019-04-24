@@ -10,13 +10,13 @@ import { Row, Col } from 'antd';
 export function PersonDetail({ person }) {
   return (
     <div>
-      <Helmet moniker={person.moniker} />
+      <Helmet title={person.moniker} />
       <Row type="flex" align="top">
         <Col // these settings put the image first on narrow pages.
           sm={{ span: 24, order: 1 }}
           md={{ span: 12, order: 2 }}
         >
-          <img style={{ width: '100%' }} src={person.avatar} alt={person.moniker} />
+          <img style={{ width: '100%', maxWidth: '300px' }} src={person.avatar} alt={person.moniker} />
         </Col>
         <Col
           sm={{ span: 24, order: 2 }}
@@ -64,10 +64,16 @@ export function PersonDetail({ person }) {
                 description="label for role on persons profile"
               />
             </dt>
-            <dd>{person.role}</dd>
+            <dd>
+              <ul>{
+                person.role.map(role => (
+                  <li key={role}>{role}</li>
+                ))
+              }</ul>
+            </dd>
           </dl>
           <h3>About</h3>
-          <Markdown children={person.about ? person.about : 'tell us something about yourself.'} />
+          <Markdown children={person.about || ''} />
         </Col>
       </Row>
     </div>
@@ -104,12 +110,16 @@ const personSchema = new Schema({
 
 PersonDetail.propTypes = {
   person: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     moniker: PropTypes.string,
-
+    about: PropTypes.string,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string,
+    gender: PropTypes.string,
+    avatar: PropTypes.any,
+    role: PropTypes.arrayOf(PropTypes.oneOf(['admin', 'op-provider', 'volunteer', 'content-provider', 'tester'])),
+    status: PropTypes.oneOf(['active', 'inactive', 'hold']),
   }).isRequired,
 };
 

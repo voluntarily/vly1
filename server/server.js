@@ -43,11 +43,8 @@ import { match, RouterContext } from 'react-router';
 import Helmet from 'react-helmet';
 
 // Import required api
-
-
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
-
 import posts from './api/post/post.routes';
 import people from './api/person/person.routes';
 import organisation from './api/organisation/organisation.routes';
@@ -55,14 +52,12 @@ import activities from './api/activity/activity.routes';
 import opportunities from './api/opportunity/opportunity.routes';
 
 // Import Endpoints
-const hello = require('./api/hello/hello.routes');
 // const user = require('./api/user/user.routes');
 // const auth = require('./auth');
 
 // demo data if db is empty
 import initialActivities from './api/activity/activity.dummy';
 import initialOpportunities from './api/opportunity/opportunity.dummy';
-import initialPosts from './api/post/post.dummy';
 import initialOrganisations from './api/organisation/organisation.dummy';
 
 import serverConfig from './config';
@@ -80,7 +75,6 @@ if (process.env.NODE_ENV !== 'test') {
     }
 
     // feed some dummy data in DB.
-    initialPosts();
     initialActivities();
     initialOpportunities();
     initialOrganisations();
@@ -95,9 +89,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 
 // Insert routes below
-app.use('/api/hello', hello);
 // app.use('/api/users', user);
-
 // app.use('/auth', auth);
 app.use('/api/posts', posts);
 app.use('/api/people', people);

@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
-import { Form, Input, Button, Row, Col, Divider, Radio } from 'antd';
+import { Form, Input, Button, Row, Col, Divider, Radio, Checkbox } from 'antd';
 const { TextArea } = Input;
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
+// TODO - only the owner and admins should be able to edit the person record.
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
@@ -23,12 +24,15 @@ class PersonDetailForm extends Component {
         console.log('Received values of form: ', values);
         // TODO Send new person to database and update the store.
         const person = this.props.person;
-        person.title = values.title;
-        person.subtitle = values.subtitle;
-        person.duration = values.duration;
-        person.location = values.location;
-        person.description = values.description;
-        person.imgUrl = values.imgUrl;
+        person.name = values.name;
+        person.moniker = values.moniker;
+        person.email = values.email;
+        person.phone = values.phone;
+        person.gender = values.gender;
+        // person.password = values.password;
+        person.about = values.about;
+        person.avatar = values.avatar;
+        person.role = values.role;
         person.status = values.status;
 
         this.props.onSubmit(this.props.person);
@@ -38,16 +42,26 @@ class PersonDetailForm extends Component {
 
   render() {
     // get translated labels
-    const opTitle = (<FormattedMessage id="opTitle" defaultMessage="Title" description="opportunity Title label in OpDetails Form" />);
-    const opSubtitle = (<FormattedMessage id="opSubtitle" defaultMessage="Subtitle" description="opportunity Subtitle label in OpDetails Form" />);
-    const opCommitment = (<FormattedMessage id="opCommitment" defaultMessage="Commitment" description="opportunity Commitment label in OpDetails Form" />);
-    const opLocation = (<FormattedMessage id="opLocation" defaultMessage="Location" description="opportunity Location label in OpDetails Form" />);
-    const opDescription = (<FormattedMessage id="opDescription" defaultMessage="Description" description="opportunity Description label in OpDetails Form" />);
-    const opImgUrl = (<FormattedMessage id="opImgUrl" defaultMessage="Image Link" description="opportunity Image URL label in OpDetails Form" />);
-    const opStatus = (<FormattedMessage id="opStatus" defaultMessage="Status" description="Draft or published status" />);
+    const personName = (<FormattedMessage id="personName" defaultMessage="Full Name" description="person full name label in PersonDetails Form" />);
+    const personMoniker = (<FormattedMessage id="personMoniker" defaultMessage="What we should call you" description="person Subtitle label in personDetails Form" />);
+    const personEmail = (<FormattedMessage id="personEmail" defaultMessage="Email" description="person email label in personDetails Form" />);
+    const personPhone = (<FormattedMessage id="personPhone" defaultMessage="Phone" description="person phone label in personDetails Form" />);
+    const personAbout = (<FormattedMessage id="personAbout" defaultMessage="About you" description="person about label in personDetails Form" />);
+    const personAvatar = (<FormattedMessage id="personAvatar" defaultMessage="Image Link" description="person Image URL label in personDetails Form" />);
+    const personGender = (<FormattedMessage id="personGender" defaultMessage="Gender" description="person gender label in personDetails Form" />);
+    const personRole = (<FormattedMessage id="personRole" defaultMessage="Role" description="Admin Role" />);
+    const personStatus = (<FormattedMessage id="personStatus" defaultMessage="Status" description="active or retired status" />);
     const {
       getFieldDecorator, getFieldsError, getFieldError, isFieldTouched,
     } = this.props.form;
+
+    const roleOptions = [
+      { label: 'Admin', value: 'admin' },
+      { label: 'Requestor', value: 'op-provider' },
+      { label: 'Volunteer', value: 'volunteer' },
+      { label: 'Content provider', value: 'content-provider' },
+      { label: 'Tester', value: 'tester' },
+    ];
 
     const formItemLayout = {
       labelCol: {
@@ -62,7 +76,7 @@ class PersonDetailForm extends Component {
     };
 
     // Only show error after a field is touched.
-    const titleError = isFieldTouched('title') && getFieldError('title');
+    const nameError = isFieldTouched('name') && getFieldError('name');
 
     return (
       <div className="PersonDetailForm">
@@ -77,10 +91,8 @@ class PersonDetailForm extends Component {
               xs={{ span: 24 }}
               md={{ span: 8 }}
             >
-              <h2>1. What are you looking for?</h2>
-              <p>Before our skilled volunteers get involved, they need to know how
-                they can help. Add a title and description to your request to attract
-                volunteers
+              <h2>1. Basic Contact</h2>
+              <p>How do we get in touch?
               </p>
             </Col>
             <Col
@@ -88,92 +100,74 @@ class PersonDetailForm extends Component {
               md={{ span: 16 }}
             >
               <Form.Item
-                label={opTitle}
-                validateStatus={titleError ? 'error' : ''}
-                help={titleError || ''}
+                label={personName}
+                validateStatus={nameError ? 'error' : ''}
+                help={nameError || ''}
               >
-                {getFieldDecorator('title', {
+                {getFieldDecorator('name', {
                   rules: [
-                    { required: true, message: 'Title is required' },
+                    { required: true, message: 'Name is required' },
                   ],
                 })(
-                  <Input placeholder="Title" />
+                  <Input placeholder="e.g. Salvador Felipe Jacinto Dalí y Domenech." />
                 )}
               </Form.Item>
-              <Form.Item label={opSubtitle}>
-                {getFieldDecorator('subtitle', {
-                  rules: [
-
-                  ],
+              <Form.Item label={personMoniker}>
+                {getFieldDecorator('moniker', {
+                  rules: [],
                 })(
-                  <Input placeholder="short summary that appears on the listing." />
+                  <Input placeholder="e.g Dali" />
                 )}
               </Form.Item>
-              <Form.Item label={opDescription}>
-                {getFieldDecorator('description', {
+              <Form.Item label={personEmail}>
+                {getFieldDecorator('email', {
+                  rules: [],
+                })(
+                  <Input placeholder="salvador@dali.com" />
+                )}
+              </Form.Item>
+              <Form.Item label={personPhone}>
+                {getFieldDecorator('phone', {
+                  rules: [],
+                })(
+                  <Input placeholder="000 000 0000" />
+                )}
+              </Form.Item>
+              <Form.Item label={personAbout}>
+                {getFieldDecorator('about', {
                   rules: [
 
                   ],
                 })(
-                  <TextArea rows={20} placeholder="All the details about the request. You can use markdown here." />
+                  <TextArea rows={20} placeholder="You can use markdown here." />
                 )}
-
+              </Form.Item>
+              <Form.Item label={personGender}>
+                {getFieldDecorator('gender', {
+                  rules: [],
+                })(
+                  <Input placeholder="write what you want here. " />
+                )}
               </Form.Item>
             </Col>
           </Row>
           <Divider />
+
           <Row>
             <Col
               xs={{ span: 24 }}
               md={{ span: 8 }}
             >
-              <h2>2. Where and when? (optional)</h2>
-              <p>If you know when you'll need help, or where - this will help
-                volunteers to organise logistics and increase volunteer numbers.
+              <h2>Avatar (optional)</h2>
+              <p>Help people to recognise you or reflect your character.
               </p>
             </Col>
             <Col
               xs={{ span: 24 }}
               md={{ span: 16 }}
             >
-              <Form.Item label={opCommitment}>
-                {getFieldDecorator('duration', {
-                  rules: [
-                    { required: true, message: 'Commitment level is required' },
-                  ],
-                })(
-                  <Input placeholder="4 hours" />
-                )}
-              </Form.Item>
-              <Form.Item label={opLocation}>
-                {getFieldDecorator('location', {
-                  rules: [
-
-                  ],
-                })(
-                  <Input placeholder="school or somewhere else?" />
-                )}
-              </Form.Item>
-            </Col>
-          </Row>
-          <Divider />
-          <Row>
-            <Col
-              xs={{ span: 24 }}
-              md={{ span: 8 }}
-            >
-              <h2>3. Illustration? (optional)</h2>
-              <p>Requests with photos get more responses.
-                If you don't have a photo leave blank and we will provide one
-                based on the category.
-              </p>
-            </Col>
-            <Col
-              xs={{ span: 24 }}
-              md={{ span: 16 }}
-            >
-              <Form.Item label={opImgUrl}>
-                {getFieldDecorator('imgUrl', {
+              <Form.Item label={personAvatar}>
+                {getFieldDecorator('avatar', {
                   rules: [
                     { type: 'url', message: 'a URL is required' },
                   ],
@@ -181,7 +175,18 @@ class PersonDetailForm extends Component {
                   <Input placeholder="http://example.com/image.jpg" />
                 )}
               </Form.Item>
-              <Form.Item label={opStatus}>
+              <Form.Item label={personRole}>
+                {getFieldDecorator('role', {
+                  rules: [
+                    { required: true, message: 'role is required' },
+                  ],
+                })(
+                  <Checkbox.Group
+                    options={roleOptions}
+                  />
+                )}
+              </Form.Item>
+              <Form.Item label={personStatus}>
                 {getFieldDecorator('status', {
                   rules: [
                     { required: true, message: 'status is required' },
@@ -210,7 +215,7 @@ class PersonDetailForm extends Component {
                 <FormattedMessage
                   id="cancel"
                   defaultMessage="Cancel"
-                  description="Label for cancel button on opportunity details form"
+                  description="Label for cancel button on person details form"
                 />
               </Button>
               <Button
@@ -220,9 +225,9 @@ class PersonDetailForm extends Component {
                 style={{ marginLeft: 8 }}
               >
                 <FormattedMessage
-                  id="saveOpportunity"
+                  id="savePerson"
                   defaultMessage="Save"
-                  description="Label for submit button on opportunity details form"
+                  description="Label for submit button on person details form"
                 />
               </Button>
             </Col>
@@ -235,14 +240,16 @@ class PersonDetailForm extends Component {
 
 PersonDetailForm.propTypes = {
   person: PropTypes.shape({
-    _id: PropTypes.string,
     cuid: PropTypes.string,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    imgUrl: PropTypes.any,
-    duration: PropTypes.string,
-    location: PropTypes.string,
-    status: PropTypes.string,
+    name: PropTypes.string,
+    moniker: PropTypes.string,
+    about: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    gender: PropTypes.string,
+    avatar: PropTypes.any,
+    role: PropTypes.arrayOf(PropTypes.oneOf(['admin', 'op-provider', 'volunteer', 'content-provider', 'tester'])),
+    status: PropTypes.oneOf(['active', 'inactive', 'hold']),
   }),
   form: PropTypes.object,
   params: PropTypes.shape({
@@ -274,7 +281,7 @@ PersonDetailForm.propTypes = {
       //   </Form.Item>
 
 export default Form.create({
-  name: 'opportunity_detail_form',
+  name: 'person_detail_form',
   onFieldsChange(props, changedFields) {
     console.log('onFieldsChange', changedFields);
     // props.onChange(changedFields);
@@ -282,12 +289,14 @@ export default Form.create({
   mapPropsToFields(props) {
     console.log('mapPropsToFields', props);
     return {
-      title: Form.createFormField({ ...props.person.title, value: props.person.title }),
-      subtitle: Form.createFormField({ ...props.person.subtitle, value: props.person.subtitle }),
-      description: Form.createFormField({ ...props.person.description, value: props.person.description }),
-      duration: Form.createFormField({ ...props.person.duration, value: props.person.duration }),
-      location: Form.createFormField({ ...props.person.location, value: props.person.location }),
-      imgUrl: Form.createFormField({ ...props.person.imgUrl, value: props.person.imgUrl }),
+      name: Form.createFormField({ ...props.person.name, value: props.person.name }),
+      moniker: Form.createFormField({ ...props.person.moniker, value: props.person.moniker }),
+      about: Form.createFormField({ ...props.person.about, value: props.person.about }),
+      email: Form.createFormField({ ...props.person.email, value: props.person.email }),
+      phone: Form.createFormField({ ...props.person.phone, value: props.person.phone }),
+      gender: Form.createFormField({ ...props.person.gender, value: props.person.gender }),
+      avatar: Form.createFormField({ ...props.person.avatar, value: props.person.avatar }),
+      role: Form.createFormField({ ...props.person.role, value: props.person.role }),
       status: Form.createFormField({ ...props.person.status, value: props.person.status }),
     };
   },

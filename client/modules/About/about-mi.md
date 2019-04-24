@@ -1,31 +1,22 @@
 # About Voluntari.ly
 
-Te reo Māori version
+### Industry in the classroom.
 
+Kei te hangaia e mātou tētahi pourewa ki te whakahonohono nga tohunga-kaitūao ki nga akomanga, hei kaiako mo nga mahi pūtaiao,nga mahi hangarau me nga mahi toi. Ki te awhina hoki i te whakauru i nga ihirangi e whakaratohia ana e nga kaihauturu o Aotearoa ki roto i nga kaupapa ako
 
-## Industry in the classroom.
+Ko te Voluntari.ly he taupānga ipurangi e hono ana i nga kura me nga kaiwhakarato rangatōpū me nga waahanga hangarau poto.
 
-We are building a platform that connects corporate volunteer time with classrooms to teach science, technology, engineering, entrepreneurship, arts and design with the help of engaging content supplied by New Zealand’s leading innovators in educational content.
+He mea tino nui mo nga kura ki te whakaako i nga hangarau mamati. He mahinga whakangungu (mo nga kaiako) i huri noa i te motu. Engari kia tino whakaoho nga taiohi ki enei mahi, e hiahia ratou he reo tohunga i roto i te ruma, kia hono atu ki te horopaki o te ao.
 
-Voluntari.ly is an online app that connects schools with corporate volunteers and short technology course content. 
+Ka tomo mai a NZ Inc. Kei ta matou kamupene nui nga kaupapa tukuao. E hiahia ana ratou ki te whakahoki ki nga hapori e mahi ana. Na te maha o nga take, ko te nuinga o nga haora kaore e whakamahia.
 
-Schools today need to teach digital technologies. There are training programmes (for teachers) dotted around the country but to truly excite the tamariki and rangatahi with new material, they need expert voices in the room, connecting them with a real-world context. 
+Ko tetaha whakamutunga o te tapatoru ko te tini o nga kaiwhakarato ihirangi hangarau. He nui nga papatono, te nuinga he kore utu, ka taea te whakamahi i tetahi āhuatanga.  Na te kore marama ki nga mohiotanga hangarau, e kore taea nga kura ki te whakahaere i enei mena kore kau te awhina
 
-Enter NZ Inc. Our large corporations all have volunteer programmes. They want to give back to the communities they work in. For a variety of reasons, a lot of these volunteer hours remain unused.
+He makete hou a Voluntari.ly e hono ana i nga taha e toru, ki te  whakarite in nga hononga roaroa kia waihanga i te nuinga kia whai wahi ki te whakauru. Ko te tumanako kia whai he tangata hou kainga hei mahi.
 
-The third side of the triangle is a vast range of digital technology content providers. There is a wealth of programmes out there, most free, that could be used in any situation. Schools lack the technical knowledge to take these and run them without expert assistance.
+He kaupapa a Voluntari.ly mai i te Pam Fergusson Trust, me te  tautoko o Datacom, The Ministry of Education, Auckland Tourism, Events and Economic Development (ATEED), Spark Foundation, NZ Government Innovation Fund me te maha atu o nga pakihi o mua
 
-Voluntari.ly is an innovative marketplace that links the three sides seamlessly, facilitating long-lasting relationships that will create increased engagement and excitement into a burgeoning industry that sorely needs more Kiwis.
-
-Voluntari.ly is an initiative by the Pam Fergusson Charitable Trust with support from Datacom, The Ministry of Education, Auckland Tourism, Events and Economic Development (ATEED), Spark Foundation, NZ Government Innovation Fund and many leading NZ corporates.
-
-The Voluntarily Platform is currently being developed right now as an open source project.
-
-## Developers 
-We are always looking for more developers to join the open source development of Voluntarily on Github - You’ll find us chatting on Gitter and working with a MERN stack if that sounds interesting to you :)
-
-<Button.Primary href="https://github.com/voluntarily/vly1">Help Build the Platform</Button>
-
+Kei te whakawhanakehia te pourewaVoluntari.ly  inaianei hei puna matauranga.
 
 ## Volunteers 
 We're looking for volunteers of all types - If you’re keen to get involved fill in the form below saying what you want to do and we’ll get back in touch with you asap :)

@@ -8,6 +8,7 @@
     "gender": "rather not say",
     "password": "A43C1257802AF34895aDDDE",
     "avatar": "https://blogcdn1.secureserver.net/wp-content/uploads/2014/06/create-a-gravatar-beard.png",
-    "role": "tester"
+    "role": ["tester", "volunteer"],
+    "status": "active"
   }
 }
