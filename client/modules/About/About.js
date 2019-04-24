@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-to-jsx';
 import { Button } from 'antd';
+import aboutEn from './about-en-md.js';
+import aboutMi from './about-mi-md.js';
 
-import aboutEn from './about-en.md';
-import aboutMi from './about-mi.md';
+const text = (locale) => ({
+  mi: aboutMi,
+  en: aboutEn,
+})[locale]();
 
 const About = (props) => {
-  const about = {
-    mi: aboutMi,
-    en: aboutEn,
-  }[props.intl.locale];
- 
+  const about = text(props.intl.locale);
+
   return (
     <Markdown
       children={about}

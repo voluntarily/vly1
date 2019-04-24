@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+export default () => `
 # About Voluntari.ly
 
 ### Industry in the classroom.
@@ -29,5 +31,4 @@ Donations and long term support will allow us to get voluntari.ly working sooner
 
 <Button.Secondary href="https://secure.squarespace.com/checkout/donate?donatePageId=5becd3d770a6adb0fa3e7b28">Donate</Button>
 
-
-
+`;
