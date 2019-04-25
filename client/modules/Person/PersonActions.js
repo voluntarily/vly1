@@ -4,6 +4,7 @@ import callApi from '../../util/apiCaller';
 export const ADD_PERSON = 'ADD_PERSON';
 export const ADD_PEOPLE = 'ADD_PEOPLE';
 export const DELETE_PERSON = 'DELETE_PERSON';
+export const VERIFY_EMAIL_PERSON = 'VERIFY_EMAIL_PERSON';
 
 export const addPersonRequest = (person) => {
   return (dispatch) => {
@@ -42,5 +43,21 @@ export const deletePersonRequest = (cuid) => {
   return (dispatch) => {
     return callApi(`people/${cuid}`, 'delete')
     .then(() => dispatch({ type: DELETE_PERSON, cuid }));
+  };
+};
+
+/*
+  call api to request that the person's email is verified
+  we send cuid not email address.
+*/
+export const verifyEmailRequest = (cuid) => {
+  return (dispatch) => {
+    return callApi(`people/verify_email/${cuid}`)
+    .then(() => dispatch(
+      {
+        type: VERIFY_EMAIL_PERSON,
+        verify_email: { cuid, state: 'sent' },
+      }
+    ));
   };
 };

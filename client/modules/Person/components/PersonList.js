@@ -7,7 +7,6 @@ import PersonListItem from './PersonListItem/PersonListItem';
 function PersonList(props) {
   return (
     <div className="listView">
-      <h1>People</h1>
       {
         props.people.map(person => (
           <PersonListItem
@@ -27,7 +26,6 @@ PersonList.propTypes = {
     email: PropTypes.string.isRequired,
     cuid: PropTypes.string.isRequired,
   })).isRequired,
-  // handleDeletePerson: PropTypes.func.isRequired,
 };
 
 export default PersonList;

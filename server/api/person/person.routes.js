@@ -15,5 +15,7 @@ router.route('/').post(PersonController.addPerson);
 // Delete a Person by cuid
 router.route('/:cuid').delete(PersonController.deletePerson);
 
+// send validation email
+router.route('/verify_email/:cuid').get(PersonController.validateEmailPerson);
 
 export default router;

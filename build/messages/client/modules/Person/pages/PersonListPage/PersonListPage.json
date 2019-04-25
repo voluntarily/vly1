@@ -1,0 +1,7 @@
+[
+  {
+    "id": "personListTitle",
+    "description": "H1 on Person list page",
+    "defaultMessage": "People"
+  }
+]

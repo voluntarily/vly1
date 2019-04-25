@@ -1,6 +1,6 @@
 import Person from './person';
+import { sendVerifyEmail } from './emails/mailer';
 import cuid from 'cuid';
-// import slug from 'limax';
 import sanitizeHtml from 'sanitize-html';
 
 /**
@@ -97,5 +97,28 @@ export function deletePerson(req, res) {
     person.remove(() => {
       res.status(200).end();
     });
+  });
+}
+
+export function validateEmailPerson(req, res) {
+  if (!req.params.cuid) {
+    res.status(400).send(); // bad request
+  }
+  Person.findOne({ cuid: req.params.cuid }).exec((err, person) => {
+    if (err) {
+      res.status(500).send(err);
+      return;
+    }
+    if (!person) {
+      // not found
+      res.status(404).send();
+      return;
+    }
+
+    sendVerifyEmail(person).then(
+      () => {
+        res.status(200).end();
+      }
+    );
   });
 }

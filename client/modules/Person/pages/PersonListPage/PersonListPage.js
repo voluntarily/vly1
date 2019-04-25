@@ -1,14 +1,14 @@
+/*
+  PersonListPage - a page listing all the people returned from fetchPeople
+  results in simple vertical list
+  Entry - people menu item.
+*/
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-// Import Components
+import { FormattedMessage } from 'react-intl';
 import PersonList from '../../components/PersonList';
-
-// Import Actions
-import { fetchPeople, deletePersonRequest } from '../../PersonActions';
-
-// Import Selectors
+import { fetchPeople } from '../../PersonActions';
 import { getPeople } from '../../PersonReducer';
 
 class PersonListPage extends Component {
@@ -16,19 +16,11 @@ class PersonListPage extends Component {
     this.props.dispatch(fetchPeople());
   }
 
-  handleDeletePerson = person => {
-    if (confirm('Do you want to delete this person')) { // eslint-disable-line
-      this.props.dispatch(deletePersonRequest(person));
-    }
-  };
-
   render() {
     return (
       <div>
-        <PersonList
-          handleDeletePerson={this.handleDeletePerson}
-          people={this.props.people}
-        />
+        <h1><FormattedMessage id="personListTitle" defaultMessage="People" description="H1 on Person list page" /></h1>
+        <PersonList people={this.props.people} />
       </div>
     );
   }

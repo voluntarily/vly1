@@ -13,5 +13,10 @@
     "id": "deletePerson",
     "description": "Button to remove an person on PersonDetails page",
     "defaultMessage": "Remove Request"
+  },
+  {
+    "id": "verifyEmail",
+    "description": "Button to send an email verification to the person on PersonDetails page",
+    "defaultMessage": "Verify email"
   }
 ]

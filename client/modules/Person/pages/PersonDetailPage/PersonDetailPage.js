@@ -5,7 +5,7 @@ import { Button, Popconfirm, message, Divider } from 'antd';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import PersonDetail from '../../components/PersonDetail/PersonDetail';
-import { fetchPerson, deletePersonRequest } from '../../PersonActions';
+import { fetchPerson, deletePersonRequest, verifyEmailRequest } from '../../PersonActions';
 import { getPerson } from '../../PersonReducer';
 
 export class PersonDetailPage extends Component {
@@ -22,6 +22,17 @@ export class PersonDetailPage extends Component {
     this.props.deletePersonRequest(person.cuid);
     // after this the page content is invalid. so we need to move on.
       // this.props.history.push('/');
+  };
+
+  handleVerifyEmail = () => {
+    try {
+      const person = this.props.person;
+      this.props.verifyEmailRequest(person.cuid).then(() => {
+        message.success('verification email sent, please check your inbox.');
+      });
+    } catch (error) {
+      message.error(error);
+    }
   };
 
   cancel = () => {
@@ -52,6 +63,10 @@ export class PersonDetailPage extends Component {
               <FormattedMessage id="deletePerson" defaultMessage="Remove Request" description="Button to remove an person on PersonDetails page" />
             </Button>
           </Popconfirm>
+          &nbsp;
+          <Button shape="round" onClick={this.handleVerifyEmail} >
+            <FormattedMessage id="verifyEmail" defaultMessage="Verify email" description="Button to send an email verification to the person on PersonDetails page" />
+          </Button>
           <br /><small>visible buttons here depend on user role</small>
         </div>);
     } else {
@@ -98,9 +113,10 @@ PersonDetailPage.propTypes = {
   }),
   fetchPerson: PropTypes.func.isRequired,
   deletePersonRequest: PropTypes.func.isRequired,
+  verifyEmailRequest: PropTypes.func.isRequired,
 };
 
 export default connect(
   mapStateToProps,
-  { fetchPerson, deletePersonRequest }
+  { fetchPerson, deletePersonRequest, verifyEmailRequest }
   )(PersonDetailPage);
